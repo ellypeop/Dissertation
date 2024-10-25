@@ -1,0 +1,65 @@
+@startuml
+mainframe sd Variational quantum eigensolver
+
+create "hamiltonian:\nSparsePauliOp"
+create "ansatz:\nQuantumCircuit"
+"hamiltonian:\nSparsePauliOp" -> "ansatz:\nQuantumCircuit": .num_qubits
+
+create "backend:\nQiskitRuntimeService"
+create "pm:\nStagedPassManager"
+"backend:\nQiskitRuntimeService" -> "pm:\nStagedPassManager" : pass constraints and optimisation level
+"ansatz:\nQuantumCircuit" -> "pm:\nStagedPassManager" : transform ansatz backend compatible
+
+activate "pm:\nStagedPassManager"
+create "ansatz_isa:\nQuantumCircuit"
+"pm:\nStagedPassManager" -> "ansatz_isa:\nQuantumCircuit": pm.run(ansatz)
+destroy "ansatz:\nQuantumCircuit"
+deactivate "pm:\nStagedPassManager"
+
+activate "hamiltonian:\nSparsePauliOp"
+"ansatz_isa:\nQuantumCircuit" -> "hamiltonian:\nSparsePauliOp" : transform hamiltonian backend compatible
+create "hamiltonian_isa:\nSparsePauliOp"
+"hamiltonian:\nSparsePauliOp" -> "hamiltonian_isa:\nSparsePauliOp": hamiltonian.apply_layout(layout=ansatz_isa.layout)
+deactivate "hamiltonian:\nSparsePauliOp"
+destroy "hamiltonian:\nSparsePauliOp"
+
+create "x0:\n NumPy array"
+create "res:\nMinimize"
+activate "res:\nMinimize"
+"x0:\n NumPy array" -> "res:\nMinimize" : pass current params guess
+"ansatz_isa:\nQuantumCircuit" -> "res:\nMinimize" : pass ansatz circuit
+"hamiltonian_isa:\nSparsePauliOp" -> "res:\nMinimize" : pass hamiltonian
+create "session:\nSession"
+"backend:\nQiskitRuntimeService" -> "session:\nSession" : create backend-compatible resource management session
+create "estimator:\nEstimatorV2"
+"session:\nSession" -> "estimator:\nEstimatorV2" : configure estimator
+"estimator:\nEstimatorV2" -> "res:\nMinimize" : pass estimator
+
+create "cost_func:\nFunction()"
+activate "cost_func:\nFunction()"
+    loop lowest energy estimate found
+"res:\nMinimize" -> "cost_func:\nFunction()" : call cost_func()
+"cost_func:\nFunction()" -> "cost_func:\nFunction()" : create variable pub(ansatz, [hamiltonian], [params])
+loop 10,000 shots
+    "estimator:\nEstimatorV2" <- "cost_func:\nFunction()" : run estimation on pub
+   end loop
+"estimator:\nEstimatorV2" --> "cost_func:\nFunction()" : extract energy estimate
+create "cost_history_dict:\nDict"
+"cost_func:\nFunction()" -> "cost_history_dict:\nDict" : record & print results (params, energy estimate, loop iteration)
+"res:\nMinimize" -> "x0:\n NumPy array" : update params
+"cost_func:\nFunction()" -> "cost_func:\nFunction()" : return energy estimate
+deactivate "cost_func:\nFunction()"
+deactivate "res:\nMinimize"
+    end loop
+
+
+"cost_history_dict:\nDict" <- "res:\nMinimize" : verify params and interations
+alt Successful Verification
+    "cost_history_dict:\nDict" --> "res:\nMinimize" : match = True
+else Unsuccessful Verification
+    "cost_history_dict:\nDict" --> "res:\nMinimize" : match = False
+end alt
+
+create "fig:\nFigure"
+"cost_history_dict:\nDict" -> "fig:\nFigure" : plot iterations and energy estimates
+@enduml

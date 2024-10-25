@@ -1,0 +1,56 @@
+@startuml
+title VQE Algorithm - Class Diagram
+
+class SparsePauliOp {
+    +num_qubits: int
+    +from_list(List[Tuple[PauliList: String, coefficients: Complex]]): SparsePauliOp
+    +apply_layout(layout: TranspileLayout): SparsePauliOp
+}
+
+class EfficientSU2 {
+    +layout: TranspileLayout
+    +num_parameters: int
+    +decompose(): QuantumCircuit
+    +draw(output: String, idle_wires: Boolean, style: String): Figure
+}
+
+class QiskitRuntimeService <<Quantum Driver>> {
+    +target: Target
+}
+
+class StagedPassManager {
+    +generate_preset_pass_manager(target: Target, optimization_level: int): StagedPassManager
+    +run(circuits: _CircuitsT): EfficientSU2
+}
+
+class NumPyArray {
+}
+
+class Minimize {
+}
+
+class Session {
+}
+
+class EstimatorV2 <<Quantum>> {
+}
+
+class CostFunction <<Quantum Request>> {
+    +cost_history_dict: Dict[String, Union[int, List[float]]
+}
+
+class Dict {
+}
+
+class Figure {
+}
+SparsePauliOp -- EfficientSU2 : pass qubit count >
+note right of EfficientSU2
+  num_qubits is used as a constructor parameter
+ end note
+ QiskitRuntimeService --> StagedPassManager: configures
+ StagedPassManager --> EfficientSU2: transforms
+ EfficientSU2 -- SparsePauliOp : apply layout >
+
+
+@enduml

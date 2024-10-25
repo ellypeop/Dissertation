@@ -1,0 +1,65 @@
+@startuml
+mainframe sd Variational quantum eigensolver
+
+create "hamiltonian: SparsePauliOp"
+create "ansatz: EfficientSU2"
+"hamiltonian: SparsePauliOp" -> "ansatz: EfficientSU2": .num_qubits
+
+create "<<Quantum Driver>>\nbackend: QiskitRuntimeService"
+create "pm: StagedPassManager"
+"<<Quantum Driver>>\nbackend: QiskitRuntimeService" -> "pm: StagedPassManager" : pass constraints and optimisation level
+"ansatz: EfficientSU2" -> "pm: StagedPassManager" : transform ansatz backend compatible
+
+activate "pm: StagedPassManager"
+create "ansatz_isa: EfficientSU2"
+"pm: StagedPassManager" -> "ansatz_isa: EfficientSU2": pm.run(ansatz)
+destroy "ansatz: EfficientSU2"
+deactivate "pm: StagedPassManager"
+
+activate "hamiltonian: SparsePauliOp"
+"ansatz_isa: EfficientSU2" -> "hamiltonian: SparsePauliOp" : transform hamiltonian backend compatible
+create "hamiltonian_isa: SparsePauliOp"
+"hamiltonian: SparsePauliOp" -> "hamiltonian_isa: SparsePauliOp": hamiltonian.apply_layout(layout=ansatz_isa.layout)
+deactivate "hamiltonian: SparsePauliOp"
+destroy "hamiltonian: SparsePauliOp"
+
+create "x0: NumPy array"
+create "res: Minimize"
+activate "res: Minimize"
+"x0: NumPy array" -> "res: Minimize" : pass current params guess
+"ansatz_isa: EfficientSU2" -> "res: Minimize" : pass ansatz circuit
+"hamiltonian_isa: SparsePauliOp" -> "res: Minimize" : pass hamiltonian
+create "session: Session"
+"<<Quantum Driver>>\nbackend: QiskitRuntimeService" -> "session: Session" : create backend-compatible resource management session
+create "<<Quantum>>\nestimator: EstimatorV2"
+"session: Session" -> "<<Quantum>>\nestimator: EstimatorV2" : configure estimator
+"<<Quantum>>\nestimator: EstimatorV2" -> "res: Minimize" : pass estimator
+
+create "<<Quantum Request>>\ncost_func: Function()"
+activate "<<Quantum Request>>\ncost_func: Function()"
+    loop lowest energy estimate found
+"res: Minimize" -> "<<Quantum Request>>\ncost_func: Function()" : call cost_func()
+"<<Quantum Request>>\ncost_func: Function()" -> "<<Quantum Request>>\ncost_func: Function()" : create variable pub(ansatz, [hamiltonian], [params])
+loop 10,000 shots
+    "<<Quantum>>\nestimator: EstimatorV2" <- "<<Quantum Request>>\ncost_func: Function()" : <<Quantum Request>>\nrun estimation on pub
+   end loop
+"<<Quantum>>\nestimator: EstimatorV2" --> "<<Quantum Request>>\ncost_func: Function()" : extract energy estimate
+create "cost_history_dict: Dict"
+"<<Quantum Request>>\ncost_func: Function()" -> "cost_history_dict: Dict" : record & print results (params, energy estimate, loop iteration)
+"res: Minimize" -> "x0: NumPy array" : update params
+"<<Quantum Request>>\ncost_func: Function()" -> "<<Quantum Request>>\ncost_func: Function()" : return energy estimate
+deactivate "<<Quantum Request>>\ncost_func: Function()"
+deactivate "res: Minimize"
+    end loop
+
+
+"cost_history_dict: Dict" <- "res: Minimize" : verify params and iterations
+alt Successful Verification
+    "cost_history_dict: Dict" --> "res: Minimize" : match = True
+else Unsuccessful Verification
+    "cost_history_dict: Dict" --> "res: Minimize" : match = False
+end alt
+
+create "fig: Figure"
+"cost_history_dict: Dict" -> "fig: Figure" : plot iterations and energy estimates
+@enduml

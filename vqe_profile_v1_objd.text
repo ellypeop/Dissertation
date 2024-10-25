@@ -1,0 +1,80 @@
+@startuml
+object "hamiltonian:SparsePauliOp" as hamiltonian
+object "ansatz:EfficientSU2" as ansatz
+object "<<Quantum Driver>>\nbackend:QiskitRuntimeService" as backend
+object "pm:StagedPassManager" as pm
+object "x0:NumPyArray" as x0
+object "res:Minimize" as res
+object "session:Session" as session
+object "<<Quantum>>\nestimator:EstimatorV2" as estimator
+object "<<Quantum Request>>\ncost_func:Function" as cost_func
+object "cost_history_dict:Dict" as cost_history_dict
+object "fig:Figure" as fig
+
+object hamiltonian {
+    +num_qubits: int
+    +apply_layout(layout: Layout): SparsePauliOp
+}
+
+object ansatz {
+    -layout: Layout
+    +transform_backend_compatible(pm: StagedPassManager): QuantumCircuit
+}
+
+object backend {
+    +pass_constraints()
+    +optimization_level(): int
+    +create_session(): Session
+}
+
+object pm {
+    +run(ansatz: QuantumCircuit): QuantumCircuit
+}
+
+object x0 {
+    +current_params_guess: list
+}
+
+object res {
+    +optimize(x0: NumPyArray, ansatz: QuantumCircuit, hamiltonian: SparsePauliOp, estimator: EstimatorV2): Result
+}
+
+object session {
+    +configure_estimator(estimator: EstimatorV2)
+}
+
+object estimator {
+    +run(pub: Function): EnergyEstimate
+}
+
+object cost_func {
+    +cost_func(): EnergyEstimate
+    +create_pub(ansatz: QuantumCircuit, hamiltonian: SparsePauliOp, params: list)
+}
+
+object cost_history_dict {
+    +params: list
+    +energy_estimates: list
+    +record_result(params: list, energy: float, iteration: int)
+}
+
+object fig {
+    +plot(iterations: list, energy_estimates: list)
+}
+
+hamiltonian --> ansatz : transform
+ansatz --> pm : uses
+pm --> ansatz : creates ansatz_isa
+hamiltonian --> hamiltonian : creates hamiltonian_isa
+ansatz --> res : provides ansatz
+hamiltonian --> res : provides hamiltonian
+x0 --> res : initial parameters
+backend --> session : creates
+session --> estimator : configures
+estimator --> res : provides estimator
+res --> cost_func : calls cost function
+cost_func --> estimator : requests energy estimate
+cost_func --> cost_history_dict : records cost history
+cost_history_dict --> fig : plots results
+
+@enduml
