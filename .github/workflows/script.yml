@@ -11,20 +11,20 @@ jobs:
       - name: Compile LaTeX document
         uses: xu-cheng/latex-action@v3
         with:
-          root_file: cv.tex
+          root_file: main.tex
       - name: Check if PDF was generated
         run: |
-          if [ ! -f cv.pdf ]; then
+          if [ ! -f main.pdf ]; then
             echo "PDF was not generated."
             exit 1
           fi
       - name: Commit PDF
         id: commit_pdf
         run: |
-          if [ -f cv.pdf ]; then
+          if [ -f main.pdf ]; then
             git config --local user.email "action[bot]@github.com"
             git config --local user.name "github-actions[bot]"
-            git add cv.pdf
+            git add main.pdf
             git commit -m "[bot] updated PDF file"
           else
             echo "No PDF file found, skipping commit."
@@ -33,7 +33,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: PDF
-          path: cv.pdf
+          path: main.pdf
       - name: Get Time
         id: time
         uses: nanzm/get-time-action@v1.1
@@ -44,7 +44,7 @@ jobs:
         id: create_release
         uses: softprops/action-gh-release@v2
         with:
-          name: cv compiled on ${{ steps.time.outputs.time }}
+          name: main compiled on ${{ steps.time.outputs.time }}
           tag_name: ${{ steps.time.outputs.time }}
       - name: Upload Release Asset
         id: upload-release-asset
@@ -53,8 +53,8 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ./cv.pdf
-          asset_name: cv-${{ steps.time.outputs.time }}.pdf
+          asset_path: ./main.pdf
+          asset_name: main-${{ steps.time.outputs.time }}.pdf
           asset_content_type: application/pdf
       - name: Install ghostscript
         run: sudo apt-get update --fix-missing && sudo apt install ghostscript
@@ -88,22 +88,22 @@ jobs:
       - name: Convert PDF to PNG
         run: |
           echo "Starting PDF to PNG conversion..."
-          convert -density 700 -background white -alpha off cv.pdf -resize 25% -quality 90 -colorspace RGB cv-%d.png || { echo "Conversion failed"; exit 1; }
+          convert -density 700 -background white -alpha off main.pdf -resize 25% -quality 90 -colorspace RGB main-%d.png || { echo "Conversion failed"; exit 1; }
           echo "Conversion complete. Listing files..."
-          ls -la  # List files to verify if cv.png was created
+          ls -la  # List files to verify if main.png was created
       - name: Combine PNGs into a single image
         run: |
           echo "Combining PNGs into a single image..."
-          convert cv-*.png -append cv.png || { echo "Combination failed"; exit 1; }
+          convert main-*.png -append main.png || { echo "Combination failed"; exit 1; }
           echo "Combination complete. Listing files..."
-          ls -la  # List files to verify if cv.png was created
+          ls -la  # List files to verify if main.png was created
       - name: Commit PNG
         id: commit
         run: |
-          if [ -f cv.png ]; then
+          if [ -f main.png ]; then
             git config --local user.email "action[bot]@github.com"
             git config --local user.name "github-actions[bot]"
-            git add cv.png
+            git add main.png
             git commit -m "[bot] updated PNG file"
           else
             echo "No PNG file found, skipping commit."
