@@ -1,0 +1,26 @@
+@startuml
+mainframe sd Variational quantum eigensolver
+create "hamiltonian:\nSparsePauliOp"
+create "ansatz:\nQuantumCircuit"
+"hamiltonian:\nSparsePauliOp" -> "ansatz:\nQuantumCircuit": num_qubits
+create "backend:\nQiskitRuntimeService.least_busy"
+create "pm:\nStagedPassManager"
+"backend:\nQiskitRuntimeService.least_busy" -> "pm:\nStagedPassManager" : (target, optimization_level)
+create "ansatz_isa:\nQuantumCircuit"
+"pm:\nStagedPassManager" -> "ansatz_isa:\nQuantumCircuit": .run(ansatz)
+create "hamiltonian_isa"
+"hamiltonian:\nSparsePauliOp" -> "hamiltonian_isa" : apply_layout(layout=ansatz_isa.layout)
+create "x0:\nndarray" : initial_params
+create "cost_func"
+
+create "minimize:\nOptimize"
+activate "minimize:\nOptimize"
+
+loop 10000 times
+    "estimator:\nEstimatorV2" -> "cost_func" : evaluate_energy(params, ansatz_isa, hamiltonian_isa)
+    "cost_func" -> "estimator:\nEstimatorV2" : return energy estimate
+    "estimator:\nEstimatorV2" -> "minimize:\nOptimize" : update params based on result
+end loop
+
+deactivate "minimize:\nOptimize"
+@enduml
