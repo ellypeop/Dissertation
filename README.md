@@ -439,7 +439,7 @@ Links:
 [The Variational Quantum Eigensolver (VQE) in a Nutshell](https://www.youtube.com/watch?v=TWRUdBEC16o)
 [The Variational Quantum Eigensolver — Programming on Quantum Computers — Coding with Qiskit S2E4](https://www.youtube.com/watch?v=Z-A6G0WVI9w)
 
-25/07/2024
+### 25/07/2024
 
 I spent the past few weeks working on the “layman's terms” document, which I completed tonight. This document thoroughly investigated the quantum aspects of the problem and used Gemini/documentation for the more general coding aspects later in the algorithm. 
 
@@ -886,10 +886,8 @@ Links:
 
 Continued with class diagram, realised I had missed that the ansatz needs to pass the number of params in the creation of x0 when creating SD, helpful to do both a static and dynamic diagram when understanding full scope of the algorithm.
 
-**
-I’m making a design choice to use specific classes in the tutorial such as EfficentSU2 as opposed to general QuantumCircuits, need to think about this when discussing the diagrams in the dissertation.
-Do I mark down the ansatz as Quantum Circuit, _CircuitsT or EfficentSU2? I’m going to make the decision to use EfficentSU2 as we’re speaking strictly about this tutorial, but it’s a design choice to consider.
-**
+**I’m making a design choice to use specific classes in the tutorial such as EfficentSU2 as opposed to general QuantumCircuits, need to think about this when discussing the diagrams in the dissertation.
+Do I mark down the ansatz as Quantum Circuit, _CircuitsT or EfficentSU2? I’m going to make the decision to use EfficentSU2 as we’re speaking strictly about this tutorial, but it’s a design choice to consider.**
 
 Just remember:
 
