@@ -579,3 +579,321 @@ Questions:
 - Quantum alternative to factoring, easy to verify, difficult to know, bqb complete
 Sparse matrix - shallow circuit - depth (qubit count) breadth (circuit chain, has lack of coherency)
 
+### 11/10/2024
+
+I have moved on to translating the VQE SD to the quantum UML profile format. I have re-read the paper and have found it quite challenging to understand. I read the UML book on class diagrams because I thought it would help me understand the UML profile diagram.
+
+UML profiles are lightweight extensions of UML, which is referred to as a meta-model. A class diagram shows how the UML diagrams are constructed, including stereotypes generated for the UML profile. The UML profile can be seen as a package applied to the diagram.
+
+Links:
+
+[UML Profile Diagram](https://www.youtube.com/watch?v=YS0jwXst5sg)
+[What is a UML profile diagram and when is it used? [duplicate]](https://stackoverflow.com/questions/60267501/what-is-a-uml-profile-diagram-and-when-is-it-used)
+[Profile Diagram - Unified Modeling Language(UML)](https://www.geeksforgeeks.org/profile-diagram-unified-modeling-languageuml/)
+[Profile (UML)](https://en.wikipedia.org/wiki/Profile_(UML))
+[What is Profile Diagram in UML?](https://www.visual-paradigm.com/guide/uml-unified-modeling-language/what-is-profile-diagram/)
+[Creating a profile diagram](https://support.ptc.com/help/modeler/r9.3/en/index.html#page/Integrity_Modeler/rtsme/creating_a_profile_diagram.html)
+[Profile Diagram](https://docs.staruml.io/working-with-uml-diagrams/profile-diagram)
+[A Comprehensive Guide to PlantUML Activity Diagrams: Everything You Need to Know](https://www.webdevtutor.net/blog/comprehensive-guide-plantuml-activity-diagrams)
+
+### 12/10/2024
+
+Quantum UML profile paper refers to Carlos's first paper as a domain-specific language:
+[Domain-Specific Languages Guide](https://martinfowler.com/dsl.html#:~:text=A%20Domain%2DSpecific%20Language%20)
+
+"A Domain-Specific Language (DSL) is a computer language that's targeted to a particular kind of problem, rather than a general purpose language that's aimed at any kind of software problem. Domain-specific languages have been talked about, and used for almost as long as computing has been done."
+
+During this project, I thought there was an issue with the fact that some software developers don’t even use UML and that the extent of their use of it would have just been during education. It made me think there should be some consideration for having a quantum UML adaptation, which can also be used more informally. I have come to realise that this possibly doesn’t matter; even if people don’t use UML, they will choose how they want to depict their informal diagrams, whether through colour, shape or text. The important thing is to consider how UML can be adapted effectively for quantum, as UML is the standard modelling language for system design.
+
+I have had a crack at the UML Profile diagram. Having a clear explanation of the different stereotypes will be crucial. I will create a separate Word doc to define these stereotypes. I don’t think constructing the diagram afterwards would be too difficult. I think it will be good to start on the dissertation and start writing about the VQE algorithm first. Getting a clear understanding of this and referring to the meeting notes where we discussed eigensolvers will be beneficial in clearly understanding how each type of diagram should depict it.
+
+Links:  
+
+A Two-tiered Methodology to Extend the UML Metamodel
+[Modelling Quantum Circuits with UML](https://arxiv.org/abs/2103.16169)
+[24765-2017 - ISO/IEC/IEEE International Standard - Systems and software engineering--Vocabulary](https://ieeexplore.ieee.org/document/8016712)
+[A Proposal for a Formal Definition of the Design Concept](https://link.springer.com/chapter/10.1007/978-3-540-92966-6_6)
+[Design Patterns — Ten Years Later](https://link.springer.com/chapter/10.1007/978-3-642-59412-0_39)
+[Towards model-driven quantum software engineering](https://scholar.google.co.uk/citations?view_op=view_citation&hl=sv&user=inoqxM8AAAAJ&citation_for_view=inoqxM8AAAAJ:Zph67rFs4hoC)
+[Toward a standardized methodology for constructing quantum computing use cases](https://arxiv.org/abs/2006.05846v1)
+
+### 13/10/2024
+
+I wrote a Word document to understand the different stereotypes. I will then go through the VQE algorithm written in Qiskit to identify which stereotype should be applied to each element to construct the UML profile SD diagram. The dissertation should distinguish between the VQE algorithm and, when discussing methodologies, discuss Qiskit and Qiskit’s implementation of the VQE algorithm.
+
+### 14/10/2024
+
+I’ve tidied up the logbook, included the early deliverable in my overleaf dissertation draft, and updated the bibliography.
+
+### 15/10/2024
+
+I briefly reviewed the Lanczos algorithm, which finds the minimum and maximum eigenvalues and eigenvectors in hermitian matrices. 
+
+Whilst watching the video, I used Chat GPT and google to clarify terms that came up:
+  
+**Eigenvector and Eigenvalue**
+Eigenvector: A vector that stays in the same direction after a transformation.  
+Eigenvalue: The factor by which the eigenvector is scaled during the transformation.  
+  
+**Why Matrices Have Eigenvalues and Eigenvectors**
+They show how the matrix (transformation) stretches or compresses along specific directions (eigenvectors).  
+  
+**Orthogonal vs. Orthonormal**
+Orthogonal: Vectors are perpendicular (90 degrees to each other).  
+Orthonormal: Vectors are perpendicular and have a magnitude of 1.  
+  
+**Orthogonal Matrix**
+It contains vectors that are both orthogonal and normalised (orthonormal).  
+Its rows and columns are perpendicular and have a length of 1.  
+  
+**Hermitian Matrix**
+A complex version of a symmetric matrix where A = A dagger (equal to its conjugate transpose).  
+Every symmetric matrix with real entries is also Hermitian.  
+  
+**Transpose of a Matrix**
+Switches rows and columns. A^T  flips the matrix over its diagonal.  
+  
+**Conjugate Transpose** 
+Transpose the matrix and take the complex conjugate of each element.  
+  
+**Lanczos Algorithm**
+An iterative method for finding a Hermitian matrix's smallest and largest eigenvalues/eigenvectors.  
+It is efficient for large matrices as it reduces the matrix to a simpler tridiagonal form.
+
+Links:
+[Lanczos algorithm](https://en.wikipedia.org/wiki/Lanczos_algorithm)
+[Hermitian matrix](https://en.wikipedia.org/wiki/Hermitian_matrix)
+[The Lanczos Algorithm, Part 1/2](https://www.youtube.com/watch?v=0t7WJybTmFg)
+
+### 16/10/2024
+
+Qiskit Club 2nd Meeting Notes:
+
+- Rendevous Games - find each other in a search space without communicating
+- Artemis Moon Landing
+- What is a wave function? A wave function describes a particle's quantum state, providing information about the probability of finding the particle in a particular position or state when measured.
+- What is Born's rule? Born's rule states that the probability of finding a particle is the square of the wave function’s absolute value.
+- What is Bayes rule? Bayes' rule calculates the probability of an event based on prior knowledge of conditions related to the event. It updates the probability as more evidence becomes available.
+
+The topic discussed was Random Number Generation using QC.
+
+*   Evolutionary algorithms (work done by Jorge). Fitness function = variation of the randomness
+    
+*   Fundamental entropy (ignorance) - non-randomness
+    
+*   Qubit to represent a bit, 8 bits for 256 number values (0 to 255)
+    
+*   Hadimard gates and CNOTS to randomise
+    
+*   Evolutionary algorithm to find the sequence of gates to pass randomness test (RNG test, ball/bull test?)
+    
+*   Different tests for different randomness
+    
+*   How do we prove randomness? Is this even possible?
+    
+*   Examples of binary sequences given with no information on how they were produced:
+    
+    *   101101011
+        
+    *   111111111
+        
+    *   Which one is more random? If we keep getting 1’s in our 1111 sequence, the probability of it not being random increases and the probability of getting 0 increases exponentially (probability of 1 * probability of 1 *, etc.)
+        
+*   RNG would have health tests that would not allow sequences such as 1111 or 0000
+    
+*   Kolmogorov complexity - shortest program complexity to output a sequence
+    
+    *   Complexity/Randomness/irreducible
+        
+    *   Programmes to write the sequence examples
+        
+        *   111111111 (print 1, repeat) less complex
+            
+        *   101101011(write a strong, print 1, print 0, print 1 etc.) more complex
+
+### 18/10/2024
+
+I started working on a Word document, “Defining VQE Qiskit Objects”, so I can label each element of the UML VQE diagram with its stereotype, if it has one, and write down a general explanation of each object's datatype. Once I can establish this for all elements in the VQE Qiskit algorithm, it will be easy enough to construct it as the UML diagram, and I can move on to writing the dissertation. It should also help clarify if I have done the QUML VQE SD correctly.
+
+One thing to note is that Scipy imported the minimise function, and it takes the cost function as an argument. I’ve made it a quantum object in QUML VQE as it contains a quantum object, but I need to nail down whether or not this is the case.
+
+Links:
+
+[IBM](https://www.ibm.com/quantum)
+[Upcoming sunset of backend.run](https://docs.quantum.ibm.com/announcements/product-updates/2024-9-20-backend-run)
+[sparse_pauli_op.py](https://github.com/Qiskit/qiskit/blob/main/qiskit/quantum_info/operators/symplectic/sparse_pauli_op.py)
+[PauliList](https://qiskit-community.github.io/qiskit-qec/stubs/qiskit_qec.operators.PauliList.html)
+[pauli_list.py](https://github.com/Qiskit/qiskit/blob/main/qiskit/quantum_info/operators/symplectic/pauli_list.py)
+[efficient_su2.py](https://github.com/Qiskit/qiskit/blob/main/qiskit/circuit/library/n_local/efficient_su2.py)
+[Qiskit Runtime](https://docs.quantum.ibm.com/api/qiskit-ibm-runtime/runtime_service)
+[Github Qiskit](https://github.com/Qiskit/qiskit/tree/main)
+[QiskitRuntimeService](https://docs.quantum.ibm.com/api/qiskit-ibm-runtime/qiskit_ibm_runtime.QiskitRuntimeService)
+[qiskit_runtime_service.py](https://github.com/Qiskit/qiskit-ibm-runtime/blob/main/qiskit_ibm_runtime/qiskit_runtime_service.py)
+[IBMBackend](https://docs.quantum.ibm.com/api/qiskit-ibm-runtime/qiskit_ibm_runtime.IBMBackend)
+[Target](https://docs.quantum.ibm.com/api/qiskit/qiskit.transpiler.Target)
+[target.py](https://github.com/Qiskit/qiskit/blob/main/qiskit/transpiler/target.py)
+
+### 19/10/2024
+
+Continued with “Defining VQE Qiskit Objects”. I was unsure if the pass manager should be assigned the stereotype <<Quantum Driver>> as it involves some communication with the classical ansatz circuit to be backend compatible with a quantum computer; however, the information held is classical, and the transformations made remain classical, there is currently no interaction with quantum hardware, so I have decided that this remains a classical element. A note from the “The five Quantum UML Stereotypes” document:
+
+The <<Quantum Driver>> lifeline is responsible for creating an instance of a <<Quantum Request>> object.
+When communication is made to quantum hardware, this stereotype will be applicable.
+
+Links:
+[StagedPassManager](https://docs.quantum.ibm.com/api/qiskit/qiskit.transpiler.StagedPassManager)
+[passmanager.py](https://github.com/Qiskit/qiskit/blob/main/qiskit/transpiler/passmanager.py)
+[Transpile with pass managers](https://docs.quantum.ibm.com/guides/transpile-with-pass-managers)
+[Transforming Quantum Circuits using Qiskit's Transpiler with Matthew Treinish: Qiskit Summer School](https://www.youtube.com/watch?v=MvX5OUK-tbE)
+[Quantum processing units](https://quantum.ibm.com/services/resources)
+
+### 21/10/2024
+
+Continued with “Defining VQE Qiskit Objects”. I have changed the backend from classical to <<Quantum Driver>>. Although information regarding quantum hardware is stored classically, I did not consider the broader scope of what this object does. It will facilitate communication between the classical and quantum software when executed using the cost_func method.
+
+Links:
+[EstimatorV2](https://docs.quantum.ibm.com/api/qiskit-ibm-runtime/qiskit_ibm_runtime.EstimatorV2)
+[estimator.py](https://github.com/Qiskit/qiskit-ibm-runtime/blob/stable/0.31/qiskit_ibm_runtime/estimator.py#L137-L160)
+[RuntimeJobV2](https://docs.quantum.ibm.com/api/qiskit-ibm-runtime/qiskit_ibm_runtime.RuntimeJobV2#runtimejobv2)
+[estimator.py](https://github.com/Qiskit/qiskit-ibm-runtime/blob/stable/0.31/qiskit_ibm_runtime/estimator.py#L46-L197)
+[Session](https://docs.quantum.ibm.com/api/qiskit-ibm-runtime/qiskit_ibm_runtime.Session)
+[session.py](https://github.com/Qiskit/qiskit-ibm-runtime/blob/stable/0.31/qiskit_ibm_runtime/session.py#L47-L399)
+[Qiskit Runtime](https://docs.quantum.ibm.com/api/qiskit-ibm-runtime/runtime_service)
+[minimize](https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.minimize.html)
+
+Completed all elements in “Defining VQE Qiskit Objects” and updated the VQE Quantum UML Profile Plantuml file. I will still need to review the messages to confirm they’ve all been assigned the correct stereotypes.
+
+I’m unsure if I have defined cost_func correctly and have changed it from <<Quantum Driver>> to <<Quantum Request>>. I’ll continue with the messages for now and maybe come back to it in the future, but I think I can also create the diagrams and either move on with making class diagrams or start to write up the dissertation.
+
+### 22/10/2024
+
+I continued with “Defining VQE Qiskit Objects” to define the message types. I need to make a note regarding primitives and backend, which are two types: estimator and something else. I think this is relevant to discuss in the dissertation.
+
+I’ve been using Notebook LM to bounce ideas off during this process. I’ve been able to upload the research papers, my document about quantum stereotypes and website links to the Qiskit documentation I’ve been looking into.  It’s not foolproof; it has given me incorrect information if I convince it, but it’s helpful as a sounding board.
+
+Notes from Notebook LM:
+
+You are correct in stating that access to the quantum hardware occurs when a primitive, like the Estimator, is executed via the .run() method.
+
+Primitive Execution: The execution of a primitive triggers the submission of a job to the quantum backend.
+
+Job Allocation: Both the backend and the session object play a role in managing the job allocation to the quantum hardware. The session helps prioritise jobs submitted within its context, while the backend manages the overall job queue and execution.
+
+I have determined for now only to include <<Quantum Request>> and not <<Quantum Reply>> in my sequence diagram. This would probably be helpful to discuss as a Qiskit club. I have abstracted away from some of the requests/replies in the diagram (for example, one instance making a request to the other and the other replying with the information it obtains, just keeping it to the request).  In the shots loop, 10,000 iterations of the circuit are run, and a quantum reply is not received for all of them. Only the result will be obtained, which will be transformed into classical information when received; therefore, I have left the depiction as a classical reply.
+
+I will keep it as I’ve done it, complete my UML Quantum Profile diagram, have it as the LucidChart version, and move on to transforming them into class diagrams of both quantum styles. My goal is to get this done before the end of the month, which will allow me to focus purely on the dissertation throughout November.
+
+I adjusted the text's formatting, which made me think I needed to do this to the QUML version for consistency. 
+
+I have now completed the VQE sequence diagrams for both UML versions. I will now move on to creating class diagrams.
+
+Links:
+[EfficientSU2](https://docs.quantum.ibm.com/api/qiskit/qiskit.circuit.library.EfficientSU2)
+[EstimatorV2](https://docs.quantum.ibm.com/api/qiskit-ibm-runtime/qiskit_ibm_runtime.EstimatorV2)
+[Introduction to Qiskit Runtime execution modes](https://docs.quantum.ibm.com/guides/execution-modes)
+[Variational Quantum Eigensolver](https://learning.quantum.ibm.com/tutorial/variational-quantum-eigensolver)
+[Introduction to Qiskit Runtime sessions](https://docs.quantum.ibm.com/guides/sessions)
+[Session](https://docs.quantum.ibm.com/api/qiskit-ibm-runtime/qiskit_ibm_runtime.Session)
+
+### 23/10/2024
+
+Qiskit Club. Watched a talk from Joseph about his defence, discussing blockchains and quantum advantage.
+Notes:
+- Hash function, shah 256
+- Super conducting quantum device vs other devices
+- Grover = quadratic advantage. Shor = exponential advantage.
+
+### 25/10/2024
+
+Started on the Class Diagram, lots of links for today as having to clarify information for attributes and operations. Have finished the day at the CostFunction method, need to think of a way to represent the cost_history_dictionary attribute as it has several data types, I believe will need to just detail this as attributes in its own element on the diagram and then reference that in the CostFunction element. Link to refer to regarding this: [how to draw class diagram that shows a call to a static method of another class](https://stackoverflow.com/questions/13973119/how-to-draw-class-diagram-that-shows-a-call-to-a-static-method-of-another-class) & [attribute having multiple types in class diagram](https://stackoverflow.com/questions/52641841/attribute-having-multiple-types-in-class-diagram)
+
+Information from ChatGPT:
+
+To model a union of two different data types in PlantUML, you can define an abstract class for the general type and then create two concrete subclasses for the specific types. You would then indicate that the attribute in your main class uses the abstract class as its type. Here's how you can do this:
+
+```
+@startuml
+abstract class CostHistory {
+    +calculate(): float
+}
+
+class IterationCount {
+    +value: int
+}
+
+class EnergyHistory {
+    +values: List<float>
+}
+
+CostHistory <|-- IterationCount
+CostHistory <|-- EnergyHistory
+
+class SomeClass {
+    +history: CostHistory
+}
+@enduml
+```
+Explanation:
+- CostHistory: This is the abstract class representing the general data type.
+- IterationCount: This subclass represents an integer type for the iteration count.
+- EnergyHistory: This subclass represents a list of floats for energy values.
+- SomeClass: This class uses CostHistory as the type for its history attribute.
+
+Notes:
+- Generalization Set: In UML, generalization indicates that subclasses inherit from a superclass, which aligns with the concept of union in type modeling.
+- Disjoint and Complete: You can add notes or constraints to clarify that these subclasses are disjoint (no overlap) and complete (cover all possibilities).
+- Abstract Type: The abstract class cannot be instantiated, which emphasizes that the attribute must be one of the subclasses.
+
+This representation clearly conveys the structure to a reader and can be used to inform implementation in languages that support such constructs, like C++ or XSD.
+
+For more on UML diagrams and PlantUML, you can check the official PlantUML documentation or UML specifications from the Object Management Group (OMG).
+
+Links:
+
+[SparsePauliOp](https://docs.quantum.ibm.com/api/qiskit/qiskit.quantum_info.SparsePauliOp)
+[EfficientSU2](https://docs.quantum.ibm.com/api/qiskit/qiskit.circuit.library.EfficientSU2)
+[TwoLocal](https://docs.quantum.ibm.com/api/qiskit/qiskit.circuit.library.TwoLocal)
+[NLocal](https://docs.quantum.ibm.com/api/qiskit/qiskit.circuit.library.NLocal)
+[What is a 'NoneType' object?](https://stackoverflow.com/questions/21095654/what-is-a-nonetype-object)
+[UML Class Diagrams Reference](https://www.uml-diagrams.org/class-reference.html#:~:text=A%20primitive%20type%20is%20a,UML%2C%20for%20example%2C%20mathematically).
+[Decompose](https://docs.quantum.ibm.com/api/qiskit/0.32/qiskit.transpiler.passes.Decompose)
+[Circuit Library](https://docs.quantum.ibm.com/api/qiskit/circuit_library)
+[UML Design class diagram: Class with another class as attribute?](https://stackoverflow.com/questions/27205917/uml-design-class-diagram-class-with-another-class-as-attribute)
+[UML Best Practice: Attribute or Association](https://bellekens.com/2011/08/10/uml-best-practice-attribute-or-association/)
+[Class Diagram](https://plantuml.com/class-diagram)
+[Object Diagram](https://plantuml.com/object-diagram)
+[Syntax Error: Object name with space characters](https://forum.plantuml.net/12676/syntax-error-object-name-with-space-characters?utm_content=cmp-true)
+[What is Object Diagram?](https://www.visual-paradigm.com/guide/uml-unified-modeling-language/what-is-object-diagram/)
+[EfficientSU2](https://docs.quantum.ibm.com/api/qiskit/qiskit.circuit.library.EfficientSU2)
+[QiskitRuntimeService](https://docs.quantum.ibm.com/api/qiskit-ibm-runtime/qiskit_ibm_runtime.QiskitRuntimeService)
+[IBMBackend](https://docs.quantum.ibm.com/api/qiskit-ibm-runtime/qiskit_ibm_runtime.IBMBackend)
+[target.py](https://github.com/Qiskit/qiskit/blob/stable/1.2/qiskit/transpiler/target.py#L141-L1444)
+[StagedPassManager](https://docs.quantum.ibm.com/api/qiskit/qiskit.transpiler.StagedPassManager)
+[Preset Passmanagers](https://docs.quantum.ibm.com/api/qiskit/transpiler_preset)
+[Built-in Functions: Int](https://docs.python.org/3/library/functions.html#int)
+[SparsePauliOp](https://docs.quantum.ibm.com/api/qiskit/qiskit.quantum_info.SparsePauliOp)
+[Built-in Functions: Complex](https://docs.python.org/3/library/functions.html#complex)
+[PauliList](https://docs.quantum.ibm.com/api/qiskit/0.35/qiskit.quantum_info.PauliList)
+[NLocal](https://docs.quantum.ibm.com/api/qiskit/qiskit.circuit.library.NLocal)
+[n_local.py](https://github.com/Qiskit/qiskit/blob/stable/1.2/qiskit/circuit/library/n_local/n_local.py#L41-L1005)
+[Decompose](https://docs.quantum.ibm.com/api/qiskit/qiskit.transpiler.passes.Decompose)
+[DAGCircuit](https://docs.quantum.ibm.com/api/qiskit/qiskit.dagcircuit.DAGCircuit)
+[QuantumCircuit.decompose() should take which gate(s) to decompose](https://github.com/Qiskit/qiskit/issues/2906)
+[Class Diagram](https://plantuml.com/class-diagram)
+[SparsePauliOp](https://docs.quantum.ibm.com/api/qiskit/qiskit.quantum_info.SparsePauliOp)
+
+### 28/10/2024
+
+Continued with class diagram, realised I had missed that the ansatz needs to pass the number of params in the creation of x0 when creating SD, helpful to do both a static and dynamic diagram when understanding full scope of the algorithm.
+
+**
+I’m making a design choice to use specific classes in the tutorial such as EfficentSU2 as opposed to general QuantumCircuits, need to think about this when discussing the diagrams in the dissertation.
+Do I mark down the ansatz as Quantum Circuit, _CircuitsT or EfficentSU2? I’m going to make the decision to use EfficentSU2 as we’re speaking strictly about this tutorial, but it’s a design choice to consider.
+**
+
+Just remember:
+
+
+
+
+           
