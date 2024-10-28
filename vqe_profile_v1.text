@@ -24,6 +24,7 @@ deactivate "hamiltonian: SparsePauliOp"
 destroy "hamiltonian: SparsePauliOp"
 
 create "x0: NumPy array"
+"ansatz_isa: EfficientSU2" -> "x0: NumPy array" : pass num_params
 create "res: Minimize"
 activate "res: Minimize"
 "x0: NumPy array" -> "res: Minimize" : pass current params guess

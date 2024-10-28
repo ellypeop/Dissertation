@@ -24,6 +24,7 @@ deactivate "hamiltonian:\nSparsePauliOp"
 destroy "hamiltonian:\nSparsePauliOp"
 
 create "x0:\n NumPy array"
+"ansatz_isa:\nQuantumCircuit" -> "x0:\n NumPy array" : pass num_params
 create "res:\nMinimize"
 activate "res:\nMinimize"
 "x0:\n NumPy array" -> "res:\nMinimize" : pass current params guess
