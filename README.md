@@ -446,3 +446,136 @@ I spent the past few weeks working on the “layman's terms” document, which I
 Now that this document is completed, I am more confident in understanding what is happening in the code. I will now return to creating a diagram based on this algorithm. My process will start with a rough diagram and then implement UML standardisation. I will then adapt to Carlos’ quantum extension of UML and implement the quantum UML profile diagram. Possibly, right after Carlos’ diagram, I will start writing the dissertation as I can begin discussing aspects like the background before having both diagrams completed. 
 
 I have struggled to balance dissertation and internship work. I lose my memory regarding topics for the dissertation and have to spend time familiarising myself with the domain when returning to this work, a two-step forward, one-step back situation.
+
+### 19/09/2024
+
+I used a Pycharm plugin to translate the code from [this tutorial](https://learning.quantum.ibm.com/tutorial/variational-quantum-eigensolve) (written as a Python file instead of a Jupyter notebook) into a class diagram, which I could use to understand class diagrams and then translate into the Q-UML format. It could not translate it into a class diagram, whether or not because it can’t recognise the Qiskit library or because the plugin needs internal classes within the file if it does not look for the external classes from libraries used in the code (i.e. SparsePauli0p, EfficentSU2).
+
+This then raised the question of the most suitable UML diagram for constructing the first UML diagram of the VQE Qiskit tutorial code. I had initially considered constructing communication diagrams. However, a sequence diagram may be more suitable. It is similar to communication diagrams, whereby both are behavioural diagrams that demonstrate the dynamic interactions of a system; however, sequence diagrams are more commonly used.
+
+The VQE algorithm consists of interactions between different classical and quantum modules to solve the problem; therefore, a UML diagram that illustrates a series of messages may be the most suitable initial diagram.   There is also the advantage that sequence diagrams have already been constructed in the QUML and quantum UML profile texts,  as opposed to communication diagrams, which would mean I would have direct references during their construction.
+
+I began looking into sequence diagrams and their fundamental aspects, such as lifecycle dependency. I will now start translating the VQE Qiskit algorithm into a sequence diagram.
+
+### 24/09/2024
+
+I returned to the dissertation after the end of the internship last week and started creating the VQE Qiskit algorithm using Plant UML as a Pycharm plugin. A few months prior, I had some experience writing in PUML and felt this was less labour-intensive than constructing the diagram using a GUI, as PUML uses plain text code to construct the diagrams.
+
+![](https://lh7-rt.googleusercontent.com/docsz/AD_4nXeN4MhgvhSXi2XIvMRBISkD6K0sxr8Pu4z7btMTASzqEWVy1tovxjR_rnvEbbbjTQubgs0c4rytQhAdsGKu64ZNhEwqOKpODFoA4cEzshna8RQycUQ8gTkKPb505-e6USDKOQi4rBgji5QWsaeAmJKj3Aae?key=MtrDKbB_sX2MmzFn_dLBrg)
+
+Links:
+[Variational Quantum Eigensolver](https://learning.quantum.ibm.com/tutorial/variational-quantum-eigensolver)
+[Overview of Sequence Diagrams](https://plantuml.com/en-dark/why-sequence-diagram#:~:text=Sequence%20diagrams%20are%20a%20type,task%20flows%20in%20a%20system).
+[Sequence Diagram](https://plantuml.com/sequence-diagram)
+[SparsePauliOp](https://docs.quantum.ibm.com/api/qiskit/qiskit.quantum_info.SparsePauliOp)
+[Target](https://docs.quantum.ibm.com/api/qiskit/qiskit.transpiler.Target)
+[UML sequence diagram how to draw instance passed to another instance](https://stackoverflow.com/questions/63208214/uml-sequence-diagram-how-to-draw-instance-passed-to-another-instance)
+[Preset Passmanagers](https://docs.quantum.ibm.com/api/qiskit/transpiler_preset)
+[StagedPassManager](https://docs.quantum.ibm.com/api/qiskit/qiskit.transpiler.StagedPassManager)
+[PassManager](https://docs.quantum.ibm.com/api/qiskit/qiskit.transpiler.PassManager)
+[How to destroy a participant?](https://forum.plantuml.net/7758/how-to-destroy-a-participant)
+[Operator](https://docs.quantum.ibm.com/api/qiskit/qiskit.quantum_info.Operator)
+[EfficientSU2](https://docs.quantum.ibm.com/api/qiskit/qiskit.circuit.library.EfficientSU2)
+[Explore the UML sequence diagram](https://developer.ibm.com/articles/the-sequence-diagram/)
+[Methods in a Sequence Diagram](https://stackoverflow.com/questions/45884730/methods-in-a-sequence-diagram)
+[UML Sequence Diagram](https://plantuml-documentation.readthedocs.io/en/latest/diagrams/sequence.html)
+[Sequence Diagram: Background Loop](https://stackoverflow.com/questions/49803428/sequence-diagram-background-loop)
+[minimize](https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.minimize.html)
+
+### 25/09/2024
+
+I completed the first draft of VQE SD using PUML. I had to reconsider the order of the “Minimize” and “Cost Function” methods as Min is essentially an outer loop implementing the Cost Func within it. This, in turn, meant I’d included the loop and alt fragments with the alt depicting the verification process at the end of the search.
+
+Modifications will likely be made to the message types (request and response); however, this can be reviewed when applying the QUML standard. I will now copy the PUML SD onto [Lucidchart](https://lucid.app/documents#/documents?folder_id=home) and apply QUML standards. I will re-read Carlos's paper to familiarise myself with the modifications.
+
+![](https://lh7-rt.googleusercontent.com/docsz/AD_4nXdF_0qL5uYwcVbEAXGV9imMIQRcge3MBC1h1Y_-NPkJAv_vc-8n_0nPHwoCW3PzkRui02t9-JlPuQFxopnMxqrAfKqSR9uSpqBCzIRQD4ty-WuyVR15tpoq7WN16HZxUVoesXZfh5eezjOOWSdQol-do0-c?key=MtrDKbB_sX2MmzFn_dLBrg)
+
+Links:
+[Target](https://docs.quantum.ibm.com/api/qiskit/qiskit.transpiler.Target)
+[EstimatorV2](https://docs.quantum.ibm.com/api/qiskit-ibm-runtime/qiskit_ibm_runtime.EstimatorV2)
+[minimize](https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.minimize.html)
+[EstimatorOptions](https://docs.quantum.ibm.com/api/qiskit-ibm-runtime/qiskit_ibm_runtime.options.EstimatorOptions)
+
+### 26/09/2024
+
+I’ve started drawing up the SD as an SD using QUML in Lucid Chart
+
+So far, I am confident with everything up to Hamiltonian (the first one!), but I need to assess whether ansatz would be considered a classical or quantum object. 
+
+I’ve tried to refer to the documentation regarding the classes used to construct the instances. However, there doesn’t appear to be any information regarding whether they access classical or quantum hardware. I’ve had to use a combination of common sense and ChatGPT to make my assessment, which is that the information will be held classically until there is a need to access quantum hardware to search the parameter space.
+
+Links:
+
+[SparsePauliOp: num_qubits](https://docs.quantum.ibm.com/api/qiskit/qiskit.quantum_info.SparsePauliOp#num_qubits)
+[numpy's complex128 conversion](https://stackoverflow.com/questions/31794782/numpys-complex128-conversion)
+[QiskitRuntimeService](https://docs.quantum.ibm.com/api/qiskit-ibm-runtime/qiskit_ibm_runtime.QiskitRuntimeService)
+[IBMBackend](https://docs.quantum.ibm.com/api/qiskit-ibm-runtime/qiskit_ibm_runtime.IBMBackend)
+[Target](https://docs.quantum.ibm.com/api/qiskit/qiskit.transpiler.Target)
+[NotebookLM](https://notebooklm.google.com/notebook/e511d0ad-28cb-4e4a-b965-ef3dcaa0b37e)
+
+![](https://lh7-rt.googleusercontent.com/docsz/AD_4nXdBmZ1Oh1w4uiXGthGI3tcFUbSOhHWIgGEpP3yXdDF08XWz5oTOKssvx6riDwVGEcJhNwlxBmbK8zQreop0vybrsi0_AUzgKR67AePlTMLRj1fSv952gushgR4Zgu5rajImiK8LNVCsJwtpj-ZgMBEbtABl?key=MtrDKbB_sX2MmzFn_dLBrg)
+
+### 27/09/2024
+
+I finished transferring the SD to Lucidchart and implementing QUML notation on it. I now need to start drafting the early deliverable, which should be an overview of the dissertation's contents and a walkthrough and explanation of the QUML VQE SD. 
+
+Links:
+
+[Circuit Library](https://docs.quantum.ibm.com/api/qiskit/circuit_library)
+[QuantumCircuit](https://docs.quantum.ibm.com/api/qiskit/qiskit.circuit.QuantumCircuit)
+[PassManager](https://docs.quantum.ibm.com/api/qiskit/qiskit.transpiler.PassManager)
+[Add and customize shapes in Lucidchart](https://help.lucid.co/hc/en-us/articles/16390096079764-Add-and-customize-shapes-in-Lucidchart)
+
+### 02/10/2024
+
+I started working on the dissertation plan to submit for the early deliverable due on the 5th alongside the Q-UML VQE SD. I completed the problem description/goals and objectives.
+
+### 03/10/2024
+
+Continuing with the early deliverable, keeping a record of resources used whilst drafting it.
+[Information about Q-SE 2020](https://q-se.github.io/qse2020/)
+
+Links:
+[ICSE 2020](https://conf.researchr.org/home/icse-2020)
+[First International Workshop on Quantum Software Engineering (Q-SE 2020)](https://www.researchgate.net/publication/350523166_First_International_Workshop_on_Quantum_Software_Engineering_Q-SE_2020)
+[Quantum software engineering](https://librarysearch.kent.ac.uk/client/en_GB/kent/search/detailnonmodal/ent:$002f$002fSD_ILS$002f0$002fSD_ILS:1839317/ada?qu=quantum+software+engineering&d=ent%3A%2F%2FSD_ILS%2F0%2FSD_ILS%3A1839317%7EILS%7E0&h=8)
+[A Quantum Software Modeling Language](https://link.springer.com/chapter/10.1007/978-3-031-05324-5_6)
+[Design of classical-quantum systems with UML](https://link.springer.com/article/10.1007/s00607-022-01091-4)
+[Towards a Quantum Software Modeling Language](https://www.researchgate.net/publication/347455308_Towards_a_Quantum_Software_Modeling_Language)
+[ICSEW'20: Proceedings of the IEEE/ACM 42nd International Conference on Software Engineering Workshops](https://dl.acm.org/doi/proceedings/10.1145/3387940)
+[Modelling Quantum Circuits with UML](https://arxiv.org/abs/2103.16169)
+[Computing](https://link.springer.com/journal/607)
+[Noisy intermediate-scale quantum era](https://en.wikipedia.org/wiki/Noisy_intermediate-scale_quantum_era)
+[Variational quantum eigensolver](https://en.wikipedia.org/wiki/Variational_quantum_eigensolver)
+[A brief overview of VQE](https://pennylane.ai/qml/demos/tutorial_vqe/)
+[What is Profile Diagram in UML?](https://www.visual-paradigm.com/guide/uml-unified-modeling-language/what-is-profile-diagram/#:~:text=Etc-,Applying%20Stereotype%20of%20a%20Profile,keyword%20%3E).
+
+### 04/10/2024
+
+I’m worried about how much time I will have to complete all objectives listed in the early deliverable. I should not do the polling and prioritise cresting multiple UML diagrams.
+Links:
+[Improving information system design: Using UML and axiomatic design](https://www.sciencedirect.com/science/article/abs/pii/S0166361521001767)
+
+### 05/10/2024
+
+I finished the early deliverable and submitted it.
+
+### 09/10/2024
+
+Resumed face-to-face meetings with Carlos and his peers. This was very helpful; I spoke with Chris and Lee, establishing a core question: what is an Eigensolver? We talked to Carlos, who advised that it would be a way of finding all the eigenvalues (energy states) in a Hamiltonian.
+
+I spoke with Jorge about when to determine if a Qiskit object is classical or quantum. He confirmed that my assumption was correct and that there would be some sort of translation process from the quantum object to a classical one for it to receive the classical information. Jorge also explained how increasing a circuit by the number of qubits increases the complexity in polynomial time, whereas increasing the Hamiltonian by adding more terms increases the complexity exponentially.
+
+Carlos also reassured me that focusing on VQE and the two SD adaptations would be enough for the project. I mentioned that one of the objectives of the early deliverable was to create multiple diagrams and model fundamental quantum concepts. There won’t be enough time to do that effectively. It means there should be much to discuss for future work and when reflecting on the project.
+
+Qiskit club meeting notes:
+
+Questions:
+*   Qiskit documentation confirming when the quantum hardware is accessed 
+*   UML for quantum hardware and fundamental quantum properties
+*   What is an eigensolver? (finding the eigenvalues of a system) eigensolver can be quantum and classical 
+- Matlab
+- Lanczos algorithm
+- Quantum alternative to factoring, easy to verify, difficult to know, bqb complete
+Sparse matrix - shallow circuit - depth (qubit count) breadth (circuit chain, has lack of coherency)
+
