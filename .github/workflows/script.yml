@@ -25,7 +25,7 @@ jobs:
             git config --local user.email "action[bot]@github.com"
             git config --local user.name "github-actions[bot]"
             git add main.pdf
-            git commit -m "[bot] updated PDF file"
+            git commit -m "[bot] updated PDF file" || echo "No changes to commit"
           else
             echo "No PDF file found, skipping commit."
           fi
@@ -56,59 +56,8 @@ jobs:
           asset_path: ./main.pdf
           asset_name: main-${{ steps.time.outputs.time }}.pdf
           asset_content_type: application/pdf
-      - name: Install ghostscript
-        run: sudo apt-get update --fix-missing && sudo apt install ghostscript
-      - name: Increase ImageMagick cache limit
-        run: |
-          sudo sed -i 's/<policy domain="resource" name="memory" value="256MiB"\/>/<policy domain="resource" name="memory" value="2GiB"\/>/' /etc/ImageMagick-6/policy.xml
-          sudo sed -i 's/<policy domain="resource" name="map" value="512MiB"\/>/<policy domain="resource" name="map" value="4GiB"\/>/' /etc/ImageMagick-6/policy.xml
-      - name: Change ImageMagick security policy
-        run: |
-          DQT='"' 
-          SRC="rights=${DQT}none${DQT} pattern=${DQT}PDF${DQT}"
-          RPL="rights=${DQT}read\|write${DQT} pattern=${DQT}PDF${DQT}"
-          
-          HGT="name=${DQT}height${DQT} value=${DQT}10KP${DQT}"
-          HGTR="name=${DQT}height${DQT} value=${DQT}128Kp${DQT}"
-          
-          WDT="name=${DQT}width${DQT} value=${DQT}10KP${DQT}"
-          WDTR="name=${DQT}width${DQT} value=${DQT}128Kp${DQT}"
-          
-          MAP="name=${DQT}map${DQT} value=${DQT}512MiB${DQT}"
-          MAPR="name=${DQT}map${DQT} value=${DQT}4GiB${DQT}"
-          
-          MEM="name=${DQT}memory${DQT} value=${DQT}256MiB${DQT}"
-          MEMR="name=${DQT}memory${DQT} value=${DQT}2GiB${DQT}"
-          
-          sudo sed -i "s/$SRC/$RPL/" /etc/ImageMagick-6/policy.xml
-          sudo sed -i "s/$HGT/$HGTR/" /etc/ImageMagick-6/policy.xml
-          sudo sed -i "s/$WDT/$WDTR/" /etc/ImageMagick-6/policy.xml
-          sudo sed -i "s/$MAP/$MAPR/" /etc/ImageMagick-6/policy.xml
-          sudo sed -i "s/$MEM/$MEMR/" /etc/ImageMagick-6/policy.xml
-      - name: Convert PDF to PNG
-        run: |
-          echo "Starting PDF to PNG conversion..."
-          convert -density 700 -background white -alpha off main.pdf -resize 25% -quality 90 -colorspace RGB main-%d.png || { echo "Conversion failed"; exit 1; }
-          echo "Conversion complete. Listing files..."
-          ls -la  # List files to verify if main.png was created
-      - name: Combine PNGs into a single image
-        run: |
-          echo "Combining PNGs into a single image..."
-          convert main-*.png -append main.png || { echo "Combination failed"; exit 1; }
-          echo "Combination complete. Listing files..."
-          ls -la  # List files to verify if main.png was created
-      - name: Commit PNG
-        id: commit
-        run: |
-          if [ -f main.png ]; then
-            git config --local user.email "action[bot]@github.com"
-            git config --local user.name "github-actions[bot]"
-            git add main.png
-            git commit -m "[bot] updated PNG file"
-          else
-            echo "No PNG file found, skipping commit."
-          fi
       - name: Push changes
+        if: steps.commit_pdf.outcome == 'success'
         uses: ad-m/github-push-action@master
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
