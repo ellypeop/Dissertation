@@ -893,7 +893,78 @@ Do I mark down the ansatz as Quantum Circuit, _CircuitsT or EfficentSU2? I’m g
 
 Just remember:
 
+![](https://lh7-rt.googleusercontent.com/docsz/AD_4nXcU6iFDUzqyqcEkvhhVr4qpXqOad466ukkRhFhzPoBQhN3VrbbcWsxAl8NVNDXfHyzhyqTo9qbM_MU2mPGoBkJhJp0wXMhwbo194YkE7R8u3ZO4yBmmWhw8BsWyKzuuN1VS9gD2zdhaoVKXwUsopLA7k3VZ?key=MtrDKbB_sX2MmzFn_dLBrg)
 
+decompose was originally QuantumCircuit
 
+![](https://lh7-rt.googleusercontent.com/docsz/AD_4nXe8FVKTwdAlW86yUIr4xfgz9qUV7R-QlUgEMiyPv5P9yMsxUpM8aPLMykgrgU89Tsxe9xYqsNoArnp9ERiYkdPSN3-OKz7lf8q-SnRm-OPrTck032LlQ4V5uUBBjtZLXNaiadQ3y3BqG2vwkg4GMhdpoQE?key=MtrDKbB_sX2MmzFn_dLBrg)
+
+run circuits: was originally circuits: _CircuitT
+
+I’ve finished the Class diagram in Plant UML, it looks quite messy in all honestly and not as satisfying as when creating the Sequence Diagram. I think I still need to make some revisions in particular to go over muplicities, public/private/protected and make and changes to include notes and improve illegibility. I will do this however when going over it in LucidChart.
+I’ve set up a repo on GitHub for the project so all the work will automatically update there. I will move my logbook on to there also and have it set up as a Readme file. 
+
+Links:
+
+[EfficientSU](https://docs.quantum.ibm.com/api/qiskit/qiskit.circuit.library.EfficientSU2)
+[numpy.ndarray](https://numpy.org/devdocs/reference/generated/numpy.ndarray.html)
+[PrimitiveResult](https://docs.quantum.ibm.com/api/qiskit/qiskit.primitives.PrimitiveResult)
+[EstimatorV2](https://docs.quantum.ibm.com/api/qiskit-ibm-runtime/qiskit_ibm_runtime.EstimatorV2)
+[RuntimeJobV2](https://docs.quantum.ibm.com/api/qiskit-ibm-runtime/qiskit_ibm_runtime.RuntimeJobV2)
+[numpy.random.rand](https://numpy.org/doc/2.0/reference/random/generated/numpy.random.rand.html)
+[numpy.random.random](https://numpy.org/doc/2.0/reference/random/generated/numpy.random.random.html)
+[Session](https://docs.quantum.ibm.com/api/qiskit-ibm-runtime/qiskit_ibm_runtime.Session)
+[EstimatorOptions](https://docs.quantum.ibm.com/api/qiskit-ibm-runtime/qiskit_ibm_runtime.options.EstimatorOptions)
+[QiskitRuntimeService](https://docs.quantum.ibm.com/api/qiskit-ibm-runtime/qiskit_ibm_runtime.QiskitRuntimeService)
+[Backend](https://docs.quantum.ibm.com/api/qiskit/qiskit.providers.Backend)
+[minimize](https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.minimize.html)
+[OptimizeResult](https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.OptimizeResult.html)
+[matplotlib.pyplot.subplots](https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.subplots.html)
+[matplotlib.figure](https://matplotlib.org/stable/api/figure_api.html)
+[matplotlib.axes](https://matplotlib.org/stable/api/axes_api.html)
+[matplotlib.pyplot.plot](https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.plot.html)
+
+## Topics to Research
+
+- Mermaid
+- NQCC
+- Qiskit
+- Blockchain
+- UML - differentiate string and integer?
+- Q-Cosmic
+- Quantum State Preparation
+- Quantum Measurement
+- Grover’s Algorithm
+- Shor’s Algorithm
+- Quantum Probabilities (Probability Amplitude)
+- Euler’s Formula
+- Quantum Polarising Filters
+- Systemisation of Knowledge (SoK) papers
+- The New Scientist
+- Quantum Computing for Computer Scientists
+- Quantum Computation and Quantum Information
+- DBLP
+- PUML
+- Miro
+- Microsoft Quantum
+- Cirq
+- VQE
+- QAOA
+- VQF
+
+## To-Do List
+
+- I need to confirm whether the dissertation and corpus are one unified document or separate documents. To better understand the process of writing a good dissertation, it would be useful to obtain books on scientific or academic writing.
+  
+- Define specific research questions with Carlos. 
+
+## Evaluation
+
+- How I approached this piece of work:
+- What I found easy
+- What I found difficult
+- If I were to do it again, I would do the following differently
+- What I learned is
+- I would like specific feedback on
 
            
