@@ -2,13 +2,13 @@
 title VQE Algorithm - Class Diagram
 
 class SparsePauliOp {
-    +num_qubits: int
+    +num_qubits: int[0...1]{unique, unordered}
     +from_list(List[Tuple[PauliList: String, coefficients: Complex]]): SparsePauliOp
     +apply_layout(layout: TranspileLayout): SparsePauliOp
 }
 
 class EfficientSU2 {
-    +layout: TranspileLayout
+    +layout: TranspileLayout[0...1]{unique, unordered}
     +num_parameters: int
     +decompose(): EfficientSU2
     +draw(output: String, idle_wires: Boolean, style: String): Figure
@@ -16,7 +16,7 @@ class EfficientSU2 {
 
 class QiskitRuntimeService <<Quantum Driver>> {
     +target: Target
-    +channel: "ibm_quantum"
+    +channel: "ibm_quantum"[0...1]{unique, unordered}
     +least_busy(operational: Boolean, simulator: Boolean): IBMBackend
     +backend(): IBMBackend
 
@@ -35,7 +35,7 @@ class NumPyndarray {
 class Minimize {
     +fun: CostFunction
     +x0: NumPyndarray
-    +args: Tuple[ansatz: EfficentSU2, hamiltonian: SparsePauliOp, estimator: EstimatorV2]
+    +args: Tuple[ansatz: EfficentSU2, hamiltonian: SparsePauliOp, estimator: EstimatorV2][3]{unique, ordered}
     +method: String
     +res.x: numpy.ndarray
     +res.nfev: int
@@ -61,17 +61,17 @@ class CostFunction <<Quantum Request>> {
 }
 
 class Dict {
-    +"prev_vector": numpy.ndarray
+    +"prev_vector": numpy.ndarray[0...1]{unique,ordered}
     +"iters": int
-    +"cost_history": numpy.float64
+    +"cost_history": numpy.float64[0...1]{unique,ordered}
 }
 
 class Pyplot {
     +fig: Figure
-    +ax: numpy.ndarray
-    +plot(range(x: int, y: numpy.float64))
-    +set_xlabel(String)
-    +set_ylabel(String)
+    +ax: Axes[1...*]{unique, ordered}
+    +plot(range("iters": int, "cost_history": numpy.float64))
+    +set_xlabel("iters": String)
+    +set_ylabel("cost_history": String)
     +draw(): Figure
 }
 
