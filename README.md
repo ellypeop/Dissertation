@@ -922,6 +922,12 @@ Links:
 [matplotlib.axes](https://matplotlib.org/stable/api/axes_api.html)
 [matplotlib.pyplot.plot](https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.plot.html)
 
+### 29/10/2024
+
+While using Lucid Chart, I discovered a diagram as a code feature that allows you to write in Mermaid. This may have been the best avenue to explore; Plant UML was suitable for sequence diagrams but looks incredibly messy for a class diagram.
+
+The Dict object depends on cost_function, it can't exist outside of it as thats where it's created. Or either aggregation/composition. Need to go through the book to confirm, may also need to be the case when considering cost_func relationship to minimize. 
+
 ## Topics to Research
 
 - Mermaid
