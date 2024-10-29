@@ -926,7 +926,11 @@ Links:
 
 While using Lucid Chart, I discovered a diagram as a code feature that allows you to write in Mermaid. This may have been the best avenue to explore; Plant UML was suitable for sequence diagrams but looks incredibly messy for a class diagram.
 
-The Dict object depends on cost_function, it can't exist outside of it as thats where it's created. Or either aggregation/composition. Need to go through the book to confirm, may also need to be the case when considering cost_func relationship to minimize. 
+The Dict object depends on cost_function; it can't exist outside of it as that's where it's created. Or either aggregation/composition. I need to go through the book to confirm. This may also need to be the case when considering the cost_func relationship to minimize. 
+
+I finished translating the diagram to Lucidchart, but it's still messy. Rupert suggested splitting the diagram; both cost function and minimize take other classes as parameters; it may be better to have cost_function as a separate diagram, which is appended to the main one with minimize. Also, I believe I might need to make QiskitRuntimeWService an abstract class, as it invokes a Backend object (which can't be called directly) and a target object; I've amalgamated these two into the QiskitRuntimeService. Still, it's perhaps lacking in accuracy (I have recorded target as an attribute of QiskitRuntimeService, which isn't necessarily true).
+
+I'm going back over the UML book and the Class Diagram chapter so I can make adjustments as I go to the diagram. I've included multiplicities of the attributes so far and tested whether the args for minimise need to be ordered (they do).
 
 ## Topics to Research
 
