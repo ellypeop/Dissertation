@@ -930,7 +930,9 @@ The Dict object depends on cost_function; it can't exist outside of it as that's
 
 I finished translating the diagram to Lucidchart, but it's still messy. Rupert suggested splitting the diagram; both cost function and minimize take other classes as parameters; it may be better to have cost_function as a separate diagram, which is appended to the main one with minimize. Also, I believe I might need to make QiskitRuntimeWService an abstract class, as it invokes a Backend object (which can't be called directly) and a target object; I've amalgamated these two into the QiskitRuntimeService. Still, it's perhaps lacking in accuracy (I have recorded target as an attribute of QiskitRuntimeService, which isn't necessarily true).
 
-I'm going back over the UML book and the Class Diagram chapter so I can make adjustments as I go to the diagram. I've included multiplicities of the attributes so far and tested whether the args for minimise need to be ordered (they do).
+I'm reviewing the UML book and the Class Diagram chapter to make adjustments as I go to the diagram. I've included multiplicities of the attributes so far and tested whether the args for minimise need to be ordered (they do). I confirmed that all parameter prepends can remain default to in; there are no out parameters.
+
+I will continue tomorrow with visibility markers. 
 
 ## Topics to Research
 
