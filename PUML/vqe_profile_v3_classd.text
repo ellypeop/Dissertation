@@ -36,16 +36,6 @@ class NumPyndarray {
     +random.random(size: num_parameters): numpy.ndarray
 }
 
-class Minimize {
-    +fun: CostFunction
-    +x0: NumPyndarray
-    +args: Tuple[ansatz: EfficentSU2, hamiltonian: SparsePauliOp, estimator: EstimatorV2][3]{unique, ordered}
-    +method: String
-    +res.x: numpy.ndarray
-    +res.nfev: int
-    +res(fun: CostFunction, x0: NumPyndarray, args:  Tuple[ansatz: EfficentSU2, hamiltonian: SparsePauliOp, estimator: EstimatorV2], method: String): OptimizeResult
-}
-
 class Session {
     +session(backend: IBMBackend)
 }
@@ -79,23 +69,18 @@ class Pyplot {
     +draw(): Figure
 }
 
- SparsePauliOp -- EfficientSU2 : pass qubit count >
- QiskitRuntimeService <-- StagedPassManager: pass target >
- IBMBackend ..> QiskitRuntimeService: instantiate
- StagedPassManager --> EfficientSU2: transforms
- EfficientSU2 -- SparsePauliOp : apply layout >
- EfficientSU2 <-- NumPyndarray: pass parameter count >
- CostFunction -->  EfficientSU2 : pass ansatz <
- CostFunction -->  NumPyndarray : pass params <
- CostFunction --> SparsePauliOp : pass hamiltonan <
- CostFunction --> EstimatorV2 : pass estimator <
- CostFunction --> Dict : updates >
- Session --> QiskitRuntimeService: assign backend <
- EstimatorV2 --> Session: manage connection to backend <
- Minimize --> CostFunction: pass cost function <
- Minimize --> NumPyndarray: pass params <
- Minimize --> EfficientSU2: pass ansatz <
- Minimize --> SparsePauliOp: pass hamiltonian <
- Minimize --> EstimatorV2: pass estimator <
+ SparsePauliOp -- EfficientSU2 : num_qubits >
+ QiskitRuntimeService <-- StagedPassManager: generate_present_pass_manager(target, 3)
+ IBMBackend ..> QiskitRuntimeService: <<instantiate>>
+ StagedPassManager --> EfficientSU2: run(ansatz)
+ EfficientSU2 -- SparsePauliOp : apply_layout(ansatz) <
+ EfficientSU2 <-- NumPyndarray: random.random(num_parameters)
+ CostFunction -->  EfficientSU2 : cost_func(ansatz)
+ CostFunction -->  NumPyndarray : cost_func(x0)
+ CostFunction --> SparsePauliOp : cost_func(hamiltonian)
+ CostFunction --> EstimatorV2 : cost_func(estimator)
+ CostFunction --> Dict : updates
+ Session --> QiskitRuntimeService: session(backend)
+ EstimatorV2 --> Session: estimator(session)
  Dict <-- Pyplot : pass iters and cost history >
 @enduml

@@ -14,23 +14,6 @@ class EfficientSU2 {
     +draw(output: String, idle_wires: Boolean, style: String): Figure
 }
 
-class QiskitRuntimeService <<Quantum Driver>> {
-    +channel: "ibm_quantum"[0...1]{unique, unordered}
-    +least_busy(operational: Boolean, simulator: Boolean): IBMBackend
-    +backend(): IBMBackend
-
-}
-
-class IBMBackend <<Quantum Driver>> {
-    +target: Target
-
-}
-
-class StagedPassManager {
-    +generate_preset_pass_manager(target: Target, optimization_level: int): StagedPassManager
-    +run(circuits: EfficientSU2): EfficientSU2
-}
-
 class NumPyndarray {
     +pi: numpy.float64
     +random.random(size: num_parameters): numpy.ndarray
@@ -46,9 +29,6 @@ class Minimize {
     +res(fun: CostFunction, x0: NumPyndarray, args:  Tuple[ansatz: EfficentSU2, hamiltonian: SparsePauliOp, estimator: EstimatorV2], method: String): OptimizeResult
 }
 
-class Session {
-    +session(backend: IBMBackend)
-}
 
 class EstimatorV2 <<Quantum>> {
     +mode: Session
@@ -64,38 +44,9 @@ class CostFunction <<Quantum Request>> {
     +cost_func(params: numpy.ndarray, ansatz: EfficentSU2, hamiltonian: SparsePauliOp, estimator: EstimatorV2): numpy.float64
 }
 
-class Dict {
-    +"prev_vector": numpy.ndarray[0...1]{unique,ordered}
-    +"iters": int
-    +"cost_history": numpy.float64[0...1]{unique,ordered}
-}
-
-class Pyplot {
-    +fig: Figure
-    +ax: Axes[1...*]{unique, ordered}
-    +plot(range("iters": int, "cost_history": numpy.float64))
-    +set_xlabel("iters": String)
-    +set_ylabel("cost_history": String)
-    +draw(): Figure
-}
-
- SparsePauliOp -- EfficientSU2 : pass qubit count >
- QiskitRuntimeService <-- StagedPassManager: pass target >
- IBMBackend ..> QiskitRuntimeService: instantiate
- StagedPassManager --> EfficientSU2: transforms
- EfficientSU2 -- SparsePauliOp : apply layout >
- EfficientSU2 <-- NumPyndarray: pass parameter count >
- CostFunction -->  EfficientSU2 : pass ansatz <
- CostFunction -->  NumPyndarray : pass params <
- CostFunction --> SparsePauliOp : pass hamiltonan <
- CostFunction --> EstimatorV2 : pass estimator <
- CostFunction --> Dict : updates >
- Session --> QiskitRuntimeService: assign backend <
- EstimatorV2 --> Session: manage connection to backend <
  Minimize --> CostFunction: pass cost function <
  Minimize --> NumPyndarray: pass params <
  Minimize --> EfficientSU2: pass ansatz <
  Minimize --> SparsePauliOp: pass hamiltonian <
  Minimize --> EstimatorV2: pass estimator <
- Dict <-- Pyplot : pass iters and cost history >
 @enduml
