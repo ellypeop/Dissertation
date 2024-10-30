@@ -930,9 +930,15 @@ The Dict object depends on cost_function; it can't exist outside of it as that's
 
 I finished translating the diagram to Lucidchart, but it's still messy. Rupert suggested splitting the diagram; both cost function and minimize take other classes as parameters; it may be better to have cost_function as a separate diagram, which is appended to the main one with minimize. Also, I believe I might need to make QiskitRuntimeWService an abstract class, as it invokes a Backend object (which can't be called directly) and a target object; I've amalgamated these two into the QiskitRuntimeService. Still, it's perhaps lacking in accuracy (I have recorded target as an attribute of QiskitRuntimeService, which isn't necessarily true).
 
-I'm reviewing the UML book and the Class Diagram chapter to make adjustments as I go to the diagram. I've included multiplicities of the attributes so far and tested whether the args for minimise need to be ordered (they do). I confirmed that all parameter prepends can remain default to in; there are no out parameters.
+I'm reviewing the UML book and the Class Diagram chapter to make adjustments as I go to the diagram. I've included multiplicities of the attributes so far and tested whether the args for minimise need to be ordered (they do). I confirmed that all parameter prepends can remain default to in; no out parameters exist.
 
 I will continue tomorrow with visibility markers. 
+
+### 30/10/2024
+
+While partway through the visibility markers, I came to a point where I needed to clarify how to depict QiskitRuntimeService. This is used as the main object when interacting with an IBMBackend object, which it creates; the IBMBackend object is what interacts with the quantum hardware. QiskitRuntimeService manages logging in to an IBM cloud account and other matters; it is not an abstract class, as I had thought it might need to be. It is a  wrapper class. The IBMBackend object contains the attribute "target" required to generate the pass manager. I have created an IBMBackend object in the class diagram with a target attribute and showed it as a dependency on QiskitRuntimeService.
+
+I was unsure if this also needed to be included in the sequence diagram, and I've decided that it doesn't. There is never an instance of IBMBackend created; it is interacted with through QiskitRuntimeService. I've shown that QiskitRunTime uses the target attribute by passing constraints to the pass manager.
 
 ## Topics to Research
 
