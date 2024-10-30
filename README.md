@@ -944,6 +944,14 @@ I'm going to return to visibility after I've spoken to a friend about it; I beli
 
 I can put a pin in this for now, I think the most pressing matter is to make the diagrams more legible, and whether I need to split them up and combine them.
 
+Links:
+
+[Visualize Circuits](https://docs.quantum.ibm.com/guides/visualize-circuits)
+[Runtime Service](https://docs.quantum.ibm.com/api/qiskit-ibm-runtime/runtime_service)
+[UML Dependency](https://www.javatpoint.com/uml-dependency)
+[Class diagram multiple classes uses same class](https://stackoverflow.com/questions/40782470/class-diagram-multiple-classes-uses-same-class)
+
+
 
 ## Topics to Research
 
