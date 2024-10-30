@@ -940,6 +940,11 @@ While partway through the visibility markers, I came to a point where I needed t
 
 I was unsure if this also needed to be included in the sequence diagram, and I've decided that it doesn't. There is never an instance of IBMBackend created; it is interacted with through QiskitRuntimeService. I've shown that QiskitRunTime uses the target attribute by passing constraints to the pass manager.
 
+I'm going to return to visibility after I've spoken to a friend about it; I believe mostly everything in Python is public but may need to consider how things should be depicted in the UML diagram, for example the least_busy() method for QiskitRuntimeService, it should only be accessed in this class in the context of this diagram, so should it be shown as private? Or so I just omit visibility as Python and Qiskit should be public attributes and methods?
+
+I can put a pin in this for now, I think the most pressing matter is to make the diagrams more legible, and whether I need to split them up and combine them.
+
+
 ## Topics to Research
 
 - Mermaid
