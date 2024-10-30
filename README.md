@@ -944,13 +944,15 @@ I'm going to return to visibility after I've spoken to a friend about it. I beli
 
 I can put a pin in this for now. I think the most pressing matter is making the diagrams more legible and whether I need to split them up and combine them.
 
-I spoke to a friend; Python is inherently public anyway. I had given the example of whether least_busy should be considered private in the context of it only being used with QiskitRuntimeService, but this isn't the correct understanding. It could be calling separate private methods to execute the operation, but least_busy remains public. It may be best to just remove visibility, as the attributes and methods are all visible.
+I spoke to a friend; Python is inherently public anyway. I had given the example of whether least_busy should be considered private in the context of it only being used with QiskitRuntimeService, but this isn't the correct understanding. It could be calling separate private methods to execute the operation, but least_busy remains public. It may be best to remove visibility, as the attributes and methods are all visible.
 
 Discussed _CircuitsT and me using EfficentSU2 instead as datatype, which is the correct design choice as we're not worrying about all circuits, just efficentsu2 in the case of this algorithm
 
-He did have some concerns that this appeared to have some data flow aspects. I need to revisit how I've written the reading directions. I've considered them more as data flows when they really are not. 
+He was concerned that this appeared to have some data flow aspects. I need to revisit how I've written the reading directions. I've considered them more as data flows when they are not. 
 
-I've now revised the diagram to adjust the reading directions, as I'd been considering them as data flows instead. I've also separated minimize so it looks clearer. So today, I've covered visibility, reading directions and made visual adjustments. I will carry on with going over the book and making adjustments, try to get this done in the next couple of days, and then I just need to make a Carlos version; diagrams will be done and I will move on to the dissertation!
+I've now revised the diagram to adjust the reading directions, as I'd been considering them as data flows instead. I've also separated minimize so it looks clearer. So today, I've covered visibility, reading directions, and made visual adjustments. I will continue reviewing the book and making adjustments. I will try to get this done in the next couple of days, and then I just need to create a Carlos version; diagrams will be done, and I will move on to the dissertation!
+
+I've managed to assign the multiplicities of the attributes correctly. I've gone over the reading direction and association names again, so this has been changed to include general reading direction information, the multiplicities with the attributes where necessary, and anything where one element is passed to another. I've left notation as it should be clear. I am now happy with the diagrams, i feel like I could keep going over the book and over them but concious of time and think it will be best to move on and anything missed can be discussed in the disseration. I will focus the rest of the week on their compliance with the Quantum UML profile and QUML format. I aim to finish this by the end of this week so I can start the dissertation next week.
 
 Links:
 
