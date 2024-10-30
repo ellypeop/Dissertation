@@ -944,14 +944,21 @@ I'm going to return to visibility after I've spoken to a friend about it; I beli
 
 I can put a pin in this for now, I think the most pressing matter is to make the diagrams more legible, and whether I need to split them up and combine them.
 
+Spoke to friend, python is inherently public anyway. I had given the example of whether least_busy should be considered private in the context of it should only be used with QiskitRuntimeService, but this isn't the correct understanding. it could be calling seperate private methods in order to execute the operation, but least_busy remains public. It may be best to just remove visibility as the attributes and methods are all visible.
+
+Discussed _CircuitsT and me using EfficentSU2 instead as datatype which is correct design choice as we're not worrying about all circuits, just efficentsu2 in the case of this algorithm
+
+He did have some concerns that this appeared to have some data flow aspects, I need to revisit how i've written the reading directions, i've considered them more as data flows when really there not. 
+
 Links:
 
 [Visualize Circuits](https://docs.quantum.ibm.com/guides/visualize-circuits)
 [Runtime Service](https://docs.quantum.ibm.com/api/qiskit-ibm-runtime/runtime_service)
 [UML Dependency](https://www.javatpoint.com/uml-dependency)
 [Class diagram multiple classes uses same class](https://stackoverflow.com/questions/40782470/class-diagram-multiple-classes-uses-same-class)
-
-
+[Splitting up a UML Class Diagram](https://stackoverflow.com/questions/35398607/splitting-up-a-uml-class-diagram)
+[Should I use public attributes or public properties in python](https://stackoverflow.com/questions/4555932/should-i-use-public-attributes-or-public-properties-in-python)
+[Python private method for public usage](https://stackoverflow.com/questions/47260380/python-private-method-for-public-usage)
 
 ## Topics to Research
 
