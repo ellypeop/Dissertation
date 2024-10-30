@@ -938,17 +938,19 @@ I will continue tomorrow with visibility markers.
 
 While partway through the visibility markers, I came to a point where I needed to clarify how to depict QiskitRuntimeService. This is used as the main object when interacting with an IBMBackend object, which it creates; the IBMBackend object is what interacts with the quantum hardware. QiskitRuntimeService manages logging in to an IBM cloud account and other matters; it is not an abstract class, as I had thought it might need to be. It is a  wrapper class. The IBMBackend object contains the attribute "target" required to generate the pass manager. I have created an IBMBackend object in the class diagram with a target attribute and showed it as a dependency on QiskitRuntimeService.
 
-I was unsure if this also needed to be included in the sequence diagram, and I've decided that it doesn't. There is never an instance of IBMBackend created; it is interacted with through QiskitRuntimeService. I've shown that QiskitRunTime uses the target attribute by passing constraints to the pass manager.
+I was unsure if this also needed to be included in the sequence diagram, but I've decided it doesn't. An instance of IBMBackend is never created; it is interacted with through QiskitRuntimeService. I've shown that QiskitRunTime uses the target attribute by passing constraints to the pass manager.
 
-I'm going to return to visibility after I've spoken to a friend about it; I believe mostly everything in Python is public but may need to consider how things should be depicted in the UML diagram, for example the least_busy() method for QiskitRuntimeService, it should only be accessed in this class in the context of this diagram, so should it be shown as private? Or so I just omit visibility as Python and Qiskit should be public attributes and methods?
+I'm going to return to visibility after I've spoken to a friend about it. I believe most everything in Python is public, but I may need to consider how things should be depicted in the UML diagram. For example, the least_busy() method for QiskitRuntimeService should only be accessed in this class in the context of this diagram, so should it be shown as private? Or should I omit visibility, as Python and Qiskit should be public attributes and methods?
 
-I can put a pin in this for now, I think the most pressing matter is to make the diagrams more legible, and whether I need to split them up and combine them.
+I can put a pin in this for now. I think the most pressing matter is making the diagrams more legible and whether I need to split them up and combine them.
 
-Spoke to friend, python is inherently public anyway. I had given the example of whether least_busy should be considered private in the context of it should only be used with QiskitRuntimeService, but this isn't the correct understanding. it could be calling seperate private methods in order to execute the operation, but least_busy remains public. It may be best to just remove visibility as the attributes and methods are all visible.
+I spoke to a friend; Python is inherently public anyway. I had given the example of whether least_busy should be considered private in the context of it only being used with QiskitRuntimeService, but this isn't the correct understanding. It could be calling separate private methods to execute the operation, but least_busy remains public. It may be best to just remove visibility, as the attributes and methods are all visible.
 
-Discussed _CircuitsT and me using EfficentSU2 instead as datatype which is correct design choice as we're not worrying about all circuits, just efficentsu2 in the case of this algorithm
+Discussed _CircuitsT and me using EfficentSU2 instead as datatype, which is the correct design choice as we're not worrying about all circuits, just efficentsu2 in the case of this algorithm
 
-He did have some concerns that this appeared to have some data flow aspects, I need to revisit how i've written the reading directions, i've considered them more as data flows when really there not. 
+He did have some concerns that this appeared to have some data flow aspects. I need to revisit how I've written the reading directions. I've considered them more as data flows when they really are not. 
+
+I've now revised the diagram to adjust the reading directions, as I'd been considering them as data flows instead. I've also separated minimize so it looks clearer. So today, I've covered visibility, reading directions and made visual adjustments. I will carry on with going over the book and making adjustments, try to get this done in the next couple of days, and then I just need to make a Carlos version; diagrams will be done and I will move on to the dissertation!
 
 Links:
 
@@ -959,6 +961,10 @@ Links:
 [Splitting up a UML Class Diagram](https://stackoverflow.com/questions/35398607/splitting-up-a-uml-class-diagram)
 [Should I use public attributes or public properties in python](https://stackoverflow.com/questions/4555932/should-i-use-public-attributes-or-public-properties-in-python)
 [Python private method for public usage](https://stackoverflow.com/questions/47260380/python-private-method-for-public-usage)
+[Diagrams dependency relationships](https://www.ibm.com/docs/en/dmrt/9.5?topic=diagrams-dependency-relationships)
+[UML Dependency](https://www.javatpoint.com/uml-dependency)
+[Diagrams association relationships](https://www.ibm.com/docs/en/dmrt/9.5?topic=diagrams-association-relationships)
+[UML aggregation vs composition](https://www.visual-paradigm.com/guide/uml-unified-modeling-language/uml-aggregation-vs-composition/)
 
 ## Topics to Research
 
