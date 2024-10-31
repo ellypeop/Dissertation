@@ -968,6 +968,16 @@ Links:
 [Diagrams association relationships](https://www.ibm.com/docs/en/dmrt/9.5?topic=diagrams-association-relationships)
 [UML aggregation vs composition](https://www.visual-paradigm.com/guide/uml-unified-modeling-language/uml-aggregation-vs-composition/)
 
+I'm cross-referencing the VQE CD with the quantum UML profile paper. The class stereotypes should remain consistent with the SD, as classes are the same as elements in an SD. I'm trying to establish which operations would be considered <quantum request>>. Confident with the estimator.run() being a quantum request. Decided that it is also apt for cost_func and minimize. Going by the diagram in the paper:
+
+![image.png](/.attachments/image-f9cd5739-e361-45cd-bcdc-4666ac49662b.png)
+
+I think it's correct, as both methods call the quantum request algorithm.
+
+Also, considering whether or not the diagram should be split into packages, I think I can omit this for now as I'm essentially going through a classical-quantum logic package (referring again to the example diagram in the paper)
+
+I think it's safe to move on to making a copy for the QUML format now. Once that's done I can spend the rest of the week comparing diagrams to the book chapter, seeing if i can make any additional adjustments before finalising the diagram.
+
 ## Topics to Research
 
 - Mermaid
