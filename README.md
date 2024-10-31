@@ -970,7 +970,7 @@ Links:
 
 I'm cross-referencing the VQE CD with the quantum UML profile paper. The class stereotypes should remain consistent with the SD, as classes are the same as elements in an SD. I'm trying to establish which operations would be considered <quantum request>>. Confident with the estimator.run() being a quantum request. Decided that it is also apt for cost_func and minimize. Going by the diagram in the paper:
 
-![image.png](/.attachments/image-f9cd5739-e361-45cd-bcdc-4666ac49662b.png)
+![](/.attachments/image-f9cd5739-e361-45cd-bcdc-4666ac49662b.png)
 
 I think it's correct, as both methods call the quantum request algorithm.
 
