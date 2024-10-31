@@ -988,7 +988,9 @@ I am also wondering about creating packages for the quantum driver section, the 
 
 Determined a target object (attribute of IBMBackend) will remain classical as it does not interact with quantum hardware. At a point of contention with QRS(QiskitRuntimeService) as it has two operations which return IBMBackend as a datatype; however, the operations themselves don't inherently need to access quantum hardware—determined to have the datatype as bold and the operation as not bold to distinguish classical/quantum. 
 
-Primitive Result object: The backend(QRS) will manage communication with quantum hardware; the PR object contains info from quantum operation classically; it would be the backend that communicates this info to it via a classical channel. Therefore, PR is a classical data type.
+Primitive Result object: The backend(QRS) will manage communication with quantum hardware. The PR object contains information from quantum operations classically; it would be the backend that communicates this information to it via a classical channel. Therefore, PR is a classical data type.
+
+I've finished the QUML version and, technically, the Quantum UML profile version. I now just need to do some final comparisons with the book to finalise the CD diagrams and then move on to the dissertation. I need to look into aggregation and packages mainly, but I will run through the CD chapter. 
 
 ## Topics to Research
 
