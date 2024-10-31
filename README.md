@@ -988,6 +988,8 @@ I am also wondering about creating packages for the quantum driver section, the 
 
 Determined a target object (attribute of IBMBackend) will remain classical as it does not interact with quantum hardware. At a point of contention with QRS(QiskitRuntimeService) as it has two operations which return IBMBackend as a datatype; however, the operations themselves don't inherently need to access quantum hardware—determined to have the datatype as bold and the operation as not bold to distinguish classical/quantum. 
 
+Primitive Result object: The backend(QRS) will manage communication with quantum hardware; the PR object contains info from quantum operation classically; it would be the backend that communicates this info to it via a classical channel. Therefore, PR is a classical data type.
+
 ## Topics to Research
 
 - Mermaid
