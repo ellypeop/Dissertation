@@ -968,6 +968,8 @@ Links:
 [Diagrams association relationships](https://www.ibm.com/docs/en/dmrt/9.5?topic=diagrams-association-relationships)
 [UML aggregation vs composition](https://www.visual-paradigm.com/guide/uml-unified-modeling-language/uml-aggregation-vs-composition/)
 
+### 31/10/2024
+
 I'm cross-referencing the VQE CD with the quantum UML profile paper. The class stereotypes should remain consistent with the SD, as classes are the same as elements in an SD. I'm trying to establish which operations would be considered <quantum request>>. Confident with the estimator.run() being a quantum request. Decided that it is also apt for cost_func and minimize. Going by the diagram in the paper:
 
 **![](https://lh7-rt.googleusercontent.com/docsz/AD_4nXe_boqqCTFhv2Ke3J9CF0uokgcE97HOo0SWnotkRKv80maPfMyxiZFLiqVbzgBBSKXjAZP8dC2n9AGe6WMambHS0uQVcAJd5RlNiz3HYvOCmKCUbd2i9K8J1gQXhsUyxXOrQq03FekHeHwpXCMwhlxIUb0?key=motv2d2Rg4YZJ0mtbUZwtg52)**
