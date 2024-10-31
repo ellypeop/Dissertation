@@ -980,11 +980,13 @@ Also, considering whether or not the diagram should be split into packages, I th
 
 I think it's safe to move on to making a copy for the QUML format now. Once that's done, I can spend the rest of the week comparing diagrams to the book chapter, seeing if I can make any additional adjustments before finalising the diagram.
 
-Working on the QUML diagram, the paper notes that anything that contains quantum functionality should be considered quantum. You also need to mention this for attributes and operations and their datatypes. For example with the estimator object, I have stated that the RuntimeJobV2 is quantum, even though it is classical, it manages communication with quantum hardware, therefore I should mark it as a quantum data type. 
+Working on the QUML diagram, the paper notes that anything that contains quantum functionality should be considered quantum. You also need to mention this for attributes and operations and their datatypes. For example, with the estimator object, I have stated that the RuntimeJobV2 is quantum. Even though it is classical, it manages communication with quantum hardware, so I should mark it as a quantum data type. 
 
-Another question: the parameters for cost_func and minimise, should I mark them as aggregated relationships and not communication? Does it become part of it?
+Another question: Should I mark the parameters for cost_func and minimise as aggregated relationships and not communication? Does it become part of it?
 
 I am also wondering about creating packages for the quantum driver section, the minimise section and the remainder. 
+
+Determined a target object (attribute of IBMBackend) will remain classical as it does not interact with quantum hardware. At a point of contention with QRS(QiskitRuntimeService) as it has two operations which return IBMBackend as a datatype; however, the operations themselves don't inherently need to access quantum hardware—determined to have the datatype as bold and the operation as not bold to distinguish classical/quantum. 
 
 ## Topics to Research
 
