@@ -996,7 +996,6 @@ I've finished the QUML version and, technically, the Quantum UML profile version
 ### 03/11/2024
 
 I have included packages and aggregations to the class diagrams. The diagrams are now completed! I am exporting all diagrams, saving them together and will start focusing on writing the disseration!
-## Topics to Research
 
 ### 04/11/2024
 
@@ -1010,6 +1009,7 @@ Links:
 [Pauli matrices](https://en.wikipedia.org/wiki/Pauli_matrices)
 [Built-in Types](https://docs.python.org/3/library/stdtypes.html)
 
+## Topics to Research
 
 - Mermaid
 - NQCC
