@@ -998,6 +998,19 @@ I've finished the QUML version and, technically, the Quantum UML profile version
 I have included packages and aggregations to the class diagrams. The diagrams are now completed! I am exporting all diagrams, saving them together and will start focusing on writing the disseration!
 ## Topics to Research
 
+### 04/11/2024
+
+Started working on the disseration in Overleaf.
+
+Links:
+[Add extra level of sections](https://tex.stackexchange.com/questions/60209/how-to-add-an-extra-level-of-sections-with-headings-below-subsubsection)
+[SparsePauliOp](https://docs.quantum.ibm.com/api/qiskit/qiskit.quantum_info.SparsePauliOp)
+[Complex](https://docs.python.org/3/library/functions.html#complex)
+[Operator](https://docs.quantum.ibm.com/api/qiskit/qiskit.quantum_info.Operator)
+[Pauli matrices](https://en.wikipedia.org/wiki/Pauli_matrices)
+[Built-in Types](https://docs.python.org/3/library/stdtypes.html)
+
+
 - Mermaid
 - NQCC
 - Qiskit
