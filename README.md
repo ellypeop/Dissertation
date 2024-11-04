@@ -992,6 +992,10 @@ Primitive Result object: The backend(QRS) will manage communication with quantum
 
 I've finished the QUML version and, technically, the Quantum UML profile version. I now just need to do some final comparisons with the book to finalise the CD diagrams and then move on to the dissertation. I need to look into aggregation and packages mainly, but I will run through the CD chapter. 
 
+
+### 03/11/2024
+
+I have included packages and aggregations to the class diagrams. The diagrams are now completed! I am exporting all diagrams, saving them together and will start focusing on writing the disseration!
 ## Topics to Research
 
 - Mermaid
