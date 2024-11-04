@@ -1,8 +1,43 @@
 \documentclass{article}
+
+\usepackage{titlesec}
 \usepackage{graphicx} % Required for inserting images
 \usepackage{biblatex} % Use biblatex for bibliography management
+\usepackage{hyperref}
 
 \addbibresource{mybib.bib} % Specify your bibliography file
+
+\titleclass{\subsubsubsection}{straight}[\subsection]
+
+\newcounter{subsubsubsection}[subsubsection]
+\renewcommand\thesubsubsubsection{\thesubsubsection.\arabic{subsubsubsection}}
+\renewcommand\theparagraph{\thesubsubsubsection.\arabic{paragraph}} % optional; useful if paragraphs are to be numbered
+
+\titleformat{\subsubsubsection}
+  {\normalfont\normalsize\bfseries}{\thesubsubsubsection}{1em}{}
+\titlespacing*{\subsubsubsection}
+{0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
+
+\makeatletter
+\renewcommand\paragraph{\@startsection{paragraph}{5}{\z@}%
+  {3.25ex \@plus1ex \@minus.2ex}%
+  {-1em}%
+  {\normalfont\normalsize\bfseries}}
+\renewcommand\subparagraph{\@startsection{subparagraph}{6}{\parindent}%
+  {3.25ex \@plus1ex \@minus .2ex}%
+  {-1em}%
+  {\normalfont\normalsize\bfseries}}
+\def\toclevel@subsubsubsection{4}
+\def\toclevel@paragraph{5}
+%\def\toclevel@paragraph{6}
+\def\toclevel@subparagraph{6}
+\def\l@subsubsubsection{\@dottedtocline{4}{7em}{4em}}
+\def\l@paragraph{\@dottedtocline{5}{10em}{5em}}
+\def\l@subparagraph{\@dottedtocline{6}{14em}{6em}}
+\makeatother
+
+\setcounter{secnumdepth}{4}
+\setcounter{tocdepth}{4}
 
 \title{Dissertation}
 \author{Supervisor: Carlos Perez Delgado\\ Programme: MSc Computer Science (Artificial Intelligence) \\ Word Count: 10,000}
@@ -18,7 +53,7 @@
 \newpage
 \setcounter{page}{1}
 
-\section*{Acknowledgements}
+\section*{Acknowledgments}
 % Add the content of the Acknowledgements section here.
 \newpage
 
@@ -38,7 +73,15 @@
 \section*{List of Abbreviations}
 \begin{itemize}
     \item AI - Artificial Intelligence
+    \item COBYLA - Constrained Optimization by Linear Approximation
     \item MSc - Master of Science
+    \item NISQ - Noisy Intermediate-Scale Quantum
+    \item PUB - Primitive Unified Blocs
+    \item SDK - Software Development Kit
+    \item SU(2) - Special Unitary Group of Degree 2
+    \item QUML - Quantum Unified Modelling Language
+    \item UML - Unified Modelling Language
+    \item VQE - Variational Quantum Eigensolver
     % Add more abbreviations as needed
 \end{itemize}
 \newpage
@@ -93,6 +136,10 @@ Sequence diagrams model communication protocols between human and non-human enti
 
 As the industry standard for CSE, UML is the logical choice for adaptation for QSE. To evaluate its effectiveness, it should be tested and modelled using current quantum hardware. 
 
+\subsubsubsection{Sequence Diagram}
+
+\subsubsubsection{Class Diagram}
+
 \subsubsection{NISQ}
 
 The Noisy Intermediate Scale Quantum (NISQ), known as the near-term quantum computer, employs qubits ranging from tens to hundreds. An NISQ device is sensitive to noise and requires error correction. We are currently in the NISQ era, which means quantum advantage has yet to be achieved.
@@ -103,8 +150,37 @@ Despite this, computations can still be performed on NISQ devices, with workload
 
 The Variational Quantum Eigensolver (VQE) is a hybrid algorithm that leverages both quantum and classical devices to find the ground state of a given physical system. 
 
-The algorithm starts with the physical system represented as a Hamiltonian and prepares a trial state called the ansatz, which is parameterised. A quantum computer evaluates the ansatz by applying a quantum circuit to explore the parameter search space. A classical optimiser then adjusts the parameters in each iteration, guiding the quantum circuit’s search and gradually refining the ansatz until the algorithm converges on the lowest energy estimate, the ground state of the physical system.
+The algorithm starts with the physical system represented as a Hamiltonian and prepares a parametrised trial state called the ansatz. A quantum computer evaluates the ansatz by applying a quantum circuit to explore the parameter search space. A classical optimiser then adjusts the parameters in each iteration, guiding the quantum circuit’s search and gradually refining the ansatz until the algorithm converges on the lowest energy estimate, the ground state of the physical system.
 
+\subsubsection{Qiskit}
+
+Qiskit is an open-source software development kit (SDK) created by IBM to access and utilise their cloud-based quantum computing services. Implemented in Python, Qiskit provides tools and libraries for quantum programming and experimentation. The VQE algorithm represented in the sequence diagram is based on the implementation of VQE in Qiskit \cite{IBM2024}, which interacts directly with the IBM Quantum Platform.
+
+\subsubsubsection{Qiskit and VQE}
+
+IBM Quantum Learning provides online tutorials\cite{Tutorial} on implementing quantum algorithms utilising the Qiskit SDK. The UML diagrams created for this project were based on the tutorial to implement the VQE algorithm in Qiskit\cite{IBM2024}.
+
+An instance of the class \textit{SparsePauliOp} is used to create a Hamiltonian object by calling the \textit{.from\_list()} method for its construction. This Hamiltonian is a classical representation of Pauli operators, where each operator is given as a string (e.g., "X", "Y", "Z", or "I" for identity). Pauli operators are 2×2 matrices corresponding to spin measurements along the x, y, and z axes\cite{DJORDJEVIC201229}. Each operator string specifies actions on individual qubits. The VQE tutorial uses a 2-qubit system, acting on pairs of Pauli strings called "operator terms". The tensor product of these pairs is assigned a coefficient (represented as a complex number in Python) that defines the strength of each operator term. The linear combination of these terms represents the system's total energy, the Hamiltonian. Only non-zero operators and coefficients are stored, resulting in a sparse representation of operator terms and the Hamiltonian to reduce computational expense.
+
+An instance of the class \textit{EfficientSU2} is used to create the ansatz with the number of qubits the Hamiltonian holds passed to it in its construction. This class provides a hardware-efficient classical representation of a quantum circuit capable of creating parametrised quantum states. The circuit comprises layers of single-qubit operations along with C-NOT gates, which entangle the qubits. The Qiskit documentation defines SU(2) as \textit{"the special unitary group of degree 2, its elements are 2×2 unitary matrices with determinant 1, such as the Pauli rotation gates"}\cite{EfficientSU2}, meaning that the circuit includes layers of operations that rotate the states of individual qubits, specifically using Pauli rotation gates. Each Pauli rotation gate holds a parameter which will be iteratively adjusted to find the lowest energy state of the ansatz.
+
+The class \textit{QiskitRuntimeService} interacts with the IBM Qiskit Runtime Service that provides cloud-based access to quantum hardware and quantum simulators. Creating an IBM account and giving a token when executing the code to access the service is necessary. The parameter \textit{"ibm\_quantum"} is given to the instance of \textit{QiskitRuntimeService} to access the quantum computing platform available on the IBM cloud service. The method \textit{least.busy()} is used to select the next available quantum hardware with the parameter \textit{(simulator)} set to false to access the quantum hardware as opposed to a quantum simulator. 
+
+\textit{QiskitRuntimeService} will instantiate a \textit{IBMBackend} object which interacts with the selected quantum hardware. The attribute \textit{target} of the \textit{IBMBackend} object is accessed and passed as a parameter to an instance of the \textit{StagedPassManager} class, created using the \textit{generate\_preset\_pass\_manager()} method. This process allows the pass manager instance to receive information regarding the constraints of the selected quantum hardware.
+
+The \textit{StagedPassManager} object will \textit{"define a typical full compilation pipeline from an abstract virtual circuit to one that is optimized and capable of running on the specified backend"}\cite{StagedPassManager}. The \textit{.run()} method is executed on the pass manager instance to transform the ansatz circuit to be compatible with the selected quantum hardware. The \textit{.apply\_layout()} method is then called on the Hamiltonian, with the newly transformed ansatz passed as a parameter, to modify the Hamiltonian's layout to be compatible with the selected quantum hardware. 
+
+A cost function method, defined as \textit{cost\_func}, is constructed to facilitate access to quantum hardware. It accepts an estimator (written later in the code) and the components of a primitive unified bloc (PUB) as its parameters. The PUB object comprises an array of initial guesses for the parameters of the ansatz in the form of a list (these parameters are also written later in the code), the Hamiltonian represented as a list of observables, and a quantum circuit, this being the ansatz. These components form a tuple and are assigned to the variable \textit{"pub"}, which is given as a parameter for the estimator object's \textit{.run()} method. The \textit{.result()} method returns a container of PUB results\cite{PrimitiveResult} with slicing utilised to access the estimated energy of the ansatz, which is stored in the variable \textit{"energy"}. A dictionary stores the parameters, iteration, and energy estimate each time the estimator's \textit{.run()} method is executed. Its initial values consist of a placeholder for the parameters, \textit{"0"} for the iteration and an empty list for the energy estimate, with each energy estimate being appended to the list per execution. Finally, the cost function method returns the value of the \textit{"energy"} variable as its result after being called.
+
+A random array of initial guess parameters, assigned to the variable \textit{x0}, is constructed using NumPy’s constant $\pi$ and its \textit{random.random()} function. This function generates an array of random floating-point numbers, scaled to the range of [0,$\pi$2]. The ansatz attribute \textit{num\_parameters} sets the size of the array to match the number of parameters to assign to each of the Pauli rotation gates in the ansatz circuit.
+
+An instance of the \textit{Session} class is created with the \textit{IBMBackend} instance as a parameter. This \textit{Session} instance is then passed to the \textit{Estimator} object, where it is assigned to the estimator's \textit{mode} attribute. This \textit{Estimator} object, which operates within the cost function, uses the \textit{Session} object to execute computations on the specified quantum backend. The \textit{Session} object enables the grouping of iterative calls to the quantum computer\cite{Session} when the \textit{Estimator}'s \textit{.run()} method executes, efficiently managing the allocation of jobs to quantum resources.
+
+An instance of the classical \textit{Minimize} function from the SciPy package is initialised with the Constrained Optimization by Linear Approximation (COBYLA) method selected to minimize a scalar function, in this case, the energy estimate returned by the cost function.  The \textit{Minimize} function's parameters include the \textit{cost\_func}, the initial guess array \textit{x0} for the ansatz parameters, along with the \textit{ansatz}, \textit{Hamiltonian}, and \textit{estimator}, all passed to the cost function for execution. 
+
+During the optimisation loop, the cost function calculates and returns the energy estimate of the ansatz, and the \textit{Minimize} function iteratively updates the parameters in \textit{x0} to reduce this energy estimate. Each call to the cost function runs 10,000 shots on the quantum circuit via the estimator. The loop continues until the energy estimate converges to the lowest achievable value, indicating the ground state energy.
+
+Upon completion of the optimisation loop, successful termination of the process is verified by comparing the solution parameter and evaluation count against the stored solution parameter and iteration count within a dictionary maintained by the cost function. These results are then visualised using the Matplotlib package, plotting a graph with the number of iterations on the x-axis and the energy estimates on the y-axis.
 
 \subsection{Related Work}
 
@@ -131,13 +207,10 @@ To create the Q-UML version of the VQE sequence diagram, a combination of Plant 
 
 Lucidchart is a web-based application that creates general-purpose diagrams, including UML diagrams, through a graphical user interface (GUI). It is used when creating Q-UML adaptations as it allows the customisation of elements to contain bold text and double lines necessary to distinguish quantum components. 
 
-\subsection{Qiskit}
+The first completed diagram is a PNG file created in Lucidchart. An attempt was made to keep it to a format similar to the Plant UML output. Consistency must be considered to ensure a fair comparison between both diagrams; therefore, even if the VQE quantum UML profile diagram can be reproduced in Plant UML alone, it may need to be translated into Lucidchart to ensure this consistency is upheld.
 
-Qiskit is an open-source software development kit (SDK) created by IBM to access and utilise their cloud-based quantum computing services. Implemented in Python, Qiskit provides tools and libraries for quantum programming and experimentation. The VQE algorithm represented in the sequence diagram is based on the implementation of VQE in Qiskit \cite{IBM2024}, which interacts directly with the IBM Quantum Platform.
-
-\subsubsection{Qiskit and VQE}
-
-\subsection{Design of VQE \& QUML}
+\subsection{VQE Sequence Diagram}
+\subsubsection{SD QUML}
 
 This diagram has been completed and is attached at the end of this report. It illustrates the sequence of messages between modules necessary to execute the VQE algorithm. 
 
@@ -153,14 +226,13 @@ The \texttt{cost\_func} method updates the parameters and records critical infor
 
 The loop is completed once the energy estimate returned by \texttt{cost\_func} converges to the lowest energy estimate, and the parameters and iterations are verified with the \texttt{Dictionary} object. The final step involves plotting each iteration and energy estimate using the Matplotlib Python library.
 
-
-\subsection{Design of VQE \& Quantum UML Profile}
+\subsubsection{SD Quantum UML Profile}
 
 This has yet to be completed and will be the next step in the process.
 
-\subsection{Design Visualisation}
-
-The first completed diagram is a PNG file created in Lucidchart. An attempt was made to keep it to a format similar to the Plant UML output. Consistency must be considered to ensure a fair comparison between both diagrams; therefore, even if the VQE quantum UML profile diagram can be reproduced in Plant UML alone, it may need to be translated into Lucidchart to ensure this consistency is upheld.
+\subsection{VQE Class Diagram}
+\subsubsection{CD QUML}
+\subsubsection{CD Quantum UML Profile}
 
 \section{Results and Analysis}
 
