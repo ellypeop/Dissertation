@@ -999,7 +999,7 @@ I have included packages and aggregations to the class diagrams. The diagrams ar
 
 ### 04/11/2024
 
-Started working on the disseration in Overleaf.
+Started working on the disseration in Overleaf, finished first draf on section explaining the VQE algorithms implementation in Qiskit.
 
 Links:
 [Add extra level of sections](https://tex.stackexchange.com/questions/60209/how-to-add-an-extra-level-of-sections-with-headings-below-subsubsection)
@@ -1008,6 +1008,24 @@ Links:
 [Operator](https://docs.quantum.ibm.com/api/qiskit/qiskit.quantum_info.Operator)
 [Pauli matrices](https://en.wikipedia.org/wiki/Pauli_matrices)
 [Built-in Types](https://docs.python.org/3/library/stdtypes.html)
+
+### 04/11/2024
+
+Today I was managing how to orgnise the sections related to UML in the disseration and started writing the UML Design Choice section and the VQE Sequence Diagram section.
+
+Links:
+
+[UML Element Frame](https://www.uml-diagrams.org/frame.html)
+[Getting started with primitives](https://docs.quantum.ibm.com/guides/get-started-with-primitives)
+[Qiskit Runtime](https://docs.quantum.ibm.com/api/qiskit-ibm-runtime/runtime_service)
+[Sequence Diagram Tutorial - Complete Guide with Examples](https://creately.com/guides/sequence-diagram-tutorial/)
+[Overleaf - Bold, italics and underlining](https://www.overleaf.com/learn/latex/Bold%2C_italics_and_underlining)
+[Standard order for bold + italic?](https://tex.stackexchange.com/questions/46690/standard-order-for-bolditalic)
+
+
+
+
+
 
 ## Topics to Research
 
