@@ -1009,9 +1009,9 @@ Links:
 [Pauli matrices](https://en.wikipedia.org/wiki/Pauli_matrices)
 [Built-in Types](https://docs.python.org/3/library/stdtypes.html)
 
-### 04/11/2024
+### 05/11/2024
 
-Today I was managing how to orgnise the sections related to UML in the disseration and started writing the UML Design Choice section and the VQE Sequence Diagram section.
+Today I was managing how to orgnise the sections related to UML in the disseration and started writing the UML Design Choice section and the VQE Sequence Diagram section. I ended the day with finishing the sequence diagram section and making a start on the class diagram section. 
 
 Links:
 
@@ -1021,11 +1021,8 @@ Links:
 [Sequence Diagram Tutorial - Complete Guide with Examples](https://creately.com/guides/sequence-diagram-tutorial/)
 [Overleaf - Bold, italics and underlining](https://www.overleaf.com/learn/latex/Bold%2C_italics_and_underlining)
 [Standard order for bold + italic?](https://tex.stackexchange.com/questions/46690/standard-order-for-bolditalic)
-
-
-
-
-
+[UML Packages within packages](https://stackoverflow.com/questions/29871609/uml-packages-within-packages/29875841#29875841)
+[What is an SDK?](https://www.instabug.com/blog/what-is-an-sdk-sdk-vs-library-vs-framework)
 
 ## Topics to Research
 
