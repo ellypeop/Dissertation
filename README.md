@@ -1013,6 +1013,22 @@ Links:
 
 Today I was managing how to orgnise the sections related to UML in the disseration and started writing the UML Design Choice section and the VQE Sequence Diagram section. I ended the day with finishing the sequence diagram section and making a start on the class diagram section. 
 
+### 06/11/2024
+
+Today I refined the VQE and Qiskit section and have sent it to Carlose to get feedback. Attended Qiskit Club where I got really helpful information from my peers regarding how the hamiltonian is represented on the ansatz in order to find it's ground state in the algorithm, and also the significance of pi in relation to the parameter arrays given to the ansatz.
+
+Qiskit Club notes:
+
+- Attended talk on quantum super conductors
+- Hamiltonian solving shroedinger equation
+- Eigenvalue equation
+- Opeator matrix multiplied by vector should be equal to eigenvalue multipled by the same vector
+- Science/chemistry libre textbooks
+- Explain PUB better at this communicated the mapping of Hamiltonian to ansatz
+- Hamiltonian as a circuit, circuit as a vector, energy value of the vector, tweak parameters
+- Photonics can be in room temperature
+- 2 pi is a way to travel to every state in the bloc sphere
+
 Links:
 
 [UML Element Frame](https://www.uml-diagrams.org/frame.html)
