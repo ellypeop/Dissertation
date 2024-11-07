@@ -1040,6 +1040,16 @@ Links:
 [UML Packages within packages](https://stackoverflow.com/questions/29871609/uml-packages-within-packages/29875841#29875841)
 [What is an SDK?](https://www.instabug.com/blog/what-is-an-sdk-sdk-vs-library-vs-framework)
 
+### 07/11/2024
+
+Continued working on the class diagram section of the disseration. Needed to make some adjustments to the class diagrams during this so need to update the diagrams and save new versions.
+
+Links:
+
+[What is the meaning of single and double underscore before an object name?](https://stackoverflow.com/questions/1301346/what-is-the-meaning-of-single-and-double-underscore-before-an-object-name)
+
+
+
 ## Topics to Research
 
 - Mermaid
