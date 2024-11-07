@@ -1047,6 +1047,12 @@ Continued working on the class diagram section of the disseration. Needed to mak
 Links:
 
 [What is the meaning of single and double underscore before an object name?](https://stackoverflow.com/questions/1301346/what-is-the-meaning-of-single-and-double-underscore-before-an-object-name)
+[Dependency Relationships](https://www.ibm.com/docs/en/dmrt/9.5?topic=diagrams-dependency-relationships)
+[UML Aggregation](https://www.uml-diagrams.org/aggregation.html)
+[UML Composition](https://www.uml-diagrams.org/composition.html)
+
+
+
 
 
 
