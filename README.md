@@ -1042,7 +1042,7 @@ Links:
 
 ### 07/11/2024
 
-Continued working on the class diagram section of the disseration. Needed to make some adjustments to the class diagrams during this so need to update the diagrams and save new versions.
+Continued working on the class diagram section of the disseration. Needed to make some adjustments to the class diagrams during this so need to update the diagrams and save new versions. I've updated the diagrams and completed the class diagram section. I'll now move on to the QUML section explaining what the format is and then each section discussing the diagrams in particular, I can then move on to doing the same with the Quantum UML profile sections.
 
 Links:
 
