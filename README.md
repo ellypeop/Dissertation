@@ -1085,6 +1085,14 @@ Links:
 [Towards a Quantum Software Modeling Language](https://dl.acm.org/doi/10.1145/3387940.3392183)
 [Towards a Quantum Software Modeling Language](https://kar.kent.ac.uk/80774/)
 [Towards a Quantum Software Modeling Language](https://inspirehep.net/literature/2823466)
+[Modelling Quantum Circuits with UML](https://www.computer.org/csdl/proceedings-article/q-se/2021/446200a007/1vb9piS9hFS)
+[Object-Oriented Programming (OOP) and Procedural-Oriented Programming(POP): Two Paradigms, One Dilemma](https://medium.com/@kalyanasundaramthivaharan/object-oriented-programming-oop-and-procedural-oriented-programming-pop-two-paradigms-one-7a11cc143f0c)
+[2021 IEEE/ACM 2nd International Workshop on Quantum Software Engineering (Q-SE)](https://ieeexplore.ieee.org/xpl/conhome/9474553/proceeding)
+[2021 IEEE/ACM 2nd International Workshop on Quantum Software Engineering (Q-SE) Table of Contents](https://www.computer.org/csdl/proceedings/q-se/2021/1vb9oIy3PG0)
+[Q-SE 2021](https://q-se.github.io/qse2021/)
+[Modelling Quantum Circuits with UML YT](https://www.youtube.com/watch?v=EebjyVh1elw)
+[Design of classical-quantum systems with UML](https://link.springer.com/article/10.1007/s00607-022-01091-4#citeas)
+[Computing](https://link.springer.com/journal/607)
 
 ## Topics to Research
 
