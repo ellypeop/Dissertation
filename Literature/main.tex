@@ -40,7 +40,7 @@
 \setcounter{tocdepth}{4}
 
 \title{Dissertation}
-\author{Supervisor: Carlos Perez Delgado\\ Programme: MSc Computer Science (Artificial Intelligence) \\ Word Count: 10,000}
+\author{Supervisor: Carlos A. Pérez-Delgado\\ Programme: MSc Computer Science (Artificial Intelligence) \\ Word Count: 6,594}
 \date{December 3, 2024}
 
 \begin{document}
@@ -74,14 +74,19 @@
 \begin{itemize}
     \item AI - Artificial Intelligence
     \item CD - Class Diagram
+    \item C-SE - Classical Software Engineering
     \item COBYLA - Constrained Optimization by Linear Approximation
     \item MSc - Master of Science
     \item NISQ - Noisy Intermediate-Scale Quantum
+    \item OMG - Object Management Group
+    \item OOP - Object-oriented programming
+    \item POP - Procedure-oriented programming
     \item PUB - Primitive Unified Blocs
     \item SD - Sequence Diagram
     \item SDK - Software Development Kit
     \item SU(2) - Special Unitary Group of Degree 2
-    \item QUML - Quantum Unified Modelling Language
+    \item Q-UML - Quantum Unified Modelling Language
+    \item Q-SE - Quantum Software Engineering
     \item UML - Unified Modelling Language
     \item VQE - Variational Quantum Eigensolver
     % Add more abbreviations as needed
@@ -96,23 +101,25 @@
 
 \subsection{Problem Description and Incentive}
 
-Quantum Software Engineering (QSE) is an emerging research field seeking to develop and standardise software engineering principles in quantum technologies. Many of these standards have been adapted from classical software engineering (CSE), attempting to keep them as familiar as possible to CSE whilst being able to distinguish that quantum and classical systems are two fundamentally different hardware. 
+Quantum Software Engineering (Q-SE) is an emerging research field seeking to develop and standardise software engineering principles in quantum technologies. Many of these standards have been adapted from classical software engineering (C-SE), attempting to keep them as familiar as possible to C-SE whilst being able to distinguish that quantum and classical systems are two fundamentally different hardware. 
 
-One area of interest in QSE is the adaptation of Unified Modelling Language (UML) to model quantum systems and illustrate their communication with classical systems. Two notable papers have introduced adaptations of UML for this purpose: Q-UML \cite{Pérez-Delgado2022} and a quantum UML profile \cite{Pérez-Castillo2022}. Both propose methodologies for incorporating quantum technologies into UML, aiming to broaden the scope of professionals who can contribute to the QSE field and promote early adoption of a standardised quantum modelling language whilst quantum technologies remain in relative infancy. 
+One area of interest in Q-SE is the adaptation of Unified Modeling Language (UML) to model quantum systems and illustrate their communication with classical systems. Two notable papers have introduced adaptations of UML for this purpose: \textit{"A Quantum Software Modeling Language"}\cite{Pérez-Delgado2022} and \textit{"Design of classical-quantum systems with UML"}\cite{Pérez-Castillo2022}. Both propose methodologies for incorporating quantum technologies into UML, aiming to broaden the scope of professionals who can contribute to the Q-SE field and promote early adoption of a standardised quantum modelling language whilst quantum technologies remain in relative infancy. 
 
-The critical question is which quantum UML adaptation offers the best solution. This involves evaluating their effectiveness for modelling quantum systems, their suitability in real-world applications and their potential for widespread adoption. Additionally, should the industry favour full-scale UML modelling or a simplified approach, such as flowcharts, for quantum system design, and which of the two adaptations can best accommodate these design preferences?
+The critical question is which quantum UML adaptation offers the best solution. This involves evaluating their effectiveness for modelling quantum systems, their suitability in real-world applications and their potential for widespread adoption. Additionally, should the industry favour full-scale UML modelling or another simplified modelling approach, and which of the two adaptations best accommodates an alternative design preference?
 
 \subsection{Goals and Objectives}
 
 This project aims to create and contrast UML diagrams using these two quantum UML approaches.
 
-The first objective is to choose an appropriate real-world example as a starting point for the initial diagrams. The example chosen is the Variational Quantum Eigensolver (VQE), a hybrid quantum/classical algorithm. VQE is ideal for exploring how communication between quantum and classical machines can be represented in a modelling language.
+The first objective is to choose an appropriate real-world example as a starting point for the initial diagrams. The example chosen is the Variational Quantum Eigensolver (VQE), a hybrid quantum/classical algorithm. VQE is ideal for exploring how communication between quantum and classical machines can be represented in a modelling language, as it requires iterative interaction between a classical optimiser and a quantum circuit to find its solution. 
 
-The second objective is to choose the most suitable UML diagram to model the algorithm and compare the quantum UML methods. A sequence diagram was selected because it is one of the most commonly used UML diagrams and illustrates the communication between quantum and classical modules throughout the VQE algorithm.
+The second objective is to choose the most suitable UML diagrams to model the algorithm and compare quantum UML methods. A sequence diagram was selected because it is one of the most commonly used UML diagrams and illustrates the communication between quantum and classical modules throughout the VQE algorithm. In addition, class diagrams were included to provide a structural view of the algorithm, offering insights into the relationships and attributes of the system components.
 
-The third objective is to determine a robust method for comparison and analysis. This will involve combining the author’s observations, following established guidance on good diagram design, and feedback gathered from anonymous polling. Quantum computing and software engineering professionals would be ideal participants in this feedback process.
+The third objective is to determine a robust method for comparison and analysis. This will involve combining the author’s observations and following established guidance on good diagram design.
 
-Finally, the last objective is to create multiple UML diagrams. A valuable exploration will involve modelling fundamental quantum properties such as entanglement and superposition, as proposed by the authors of the quantum UML literature. This approach will enable using other UML diagrams or the application of sequence diagrams in a new context. 
+The final objective is to create multiple UML diagrams and explore other quantum applications. A key area of exploration will involve modelling fundamental quantum properties, such as entanglement and superposition, as suggested by the authors of the quantum UML literature: \textit{"Although the scope of the paper focuses on extending UML for quantum software, it
+could be explored how to represent in UML other fundamental properties of quantum
+computers (e.g., superposition, entanglement, etc.)"}{\cite{Pérez-Castillo2022}. This approach will enable the application of existing UML diagrams in new contexts or using additional diagram types to represent these properties.
 
 \section{Literature Review}
 
@@ -120,31 +127,49 @@ Finally, the last objective is to create multiple UML diagrams. A valuable explo
 
 \subsubsection{Q-SE 2020}
 
-Q-SE 2020 was the first international workshop held virtually in July 2020, co-located with ICSE 2020. Its purpose was to unite researchers and professionals to form a community that could advance quantum software development. 
+The Quantum Software Engineering (Q-SE) 2020 workshop marked the first international gathering aimed at fostering a community around quantum software engineering, focusing on \textit{"devising methods, approaches, and processes to develop software for quantum programs efficiently and to ensure their correctness"}\cite{QSE2020}. Originally scheduled to be held in Seoul, South Korea, it was adapted to a virtual format due to the COVID-19 pandemic, running over two days in July 2020. This workshop was co-located with the 42nd International Conference on Software Engineering (ICSE 2020), providing a platform for interdisciplinary collaboration within quantum and software engineering communities.
 
-Paper submissions were requested, including “Towards a Quantum Software Modelling Language” \cite{Perez-Delgado2020}, which laid the groundwork for Q-UML, which was further expanded upon in the paper “A Quantum Software Modelling Language”, presented in “Quantum Software Engineering” \cite{serrano2022quantum}.
+At the close of Q-SE 2020's first day, Carlos A. Pérez-Delgado presented, \textit{“Towards a Quantum Software Modeling Language”}\cite{Perez-Delgado2020}, a paper co-authored with Héctor G. Pérez-González. The collaboration began when Pérez-González, an expert in software engineering, approached Pérez-Delgado about submitting a paper to the Q-SE 2020 workshop. Combining Pérez-Delgado’s background in quantum computing and quantum information with Pérez-González's expertise in software engineering, they produced work that explored applying UML diagrams to quantum technologies\cite{Towards}. 
+
+\subsubsection{UML}
+
+Unified Modelling Language (UML) is a general-purpose modelling language that is the industry standard for designing and documenting software systems. It is \textit{"a consolidation of the best practices that have been established over the years in the use of modelling languages"}\cite{Seidl_Scholz_Huemer_Kappel_Duffy_2014}.
+
+Modelling languages use graphical or textual notation to abstract complex technical information, facilitating communication between technical and non-technical professionals involved in information systems. Just as a blueprint simplifies the construction process by visually representing a building’s structure, a modelling language provides an organised framework to convey the structure and interactions of software and hardware systems that work together to perform a task\cite{Seidl_Scholz_Huemer_Kappel_Duffy_2014}. Their primary function is establishing a high-level language governed by a defined set of frameworks and rules\cite{Modelinglanguagemean}.
+
+The Unified Modeling Language (UML) framework is rooted in the object-oriented programming (OOP) paradigm. OOP structures programs by modelling elements as objects and classes inspired by real-world concepts\cite{Seidl_Scholz_Huemer_Kappel_Duffy_2014}. For example, each person on the planet could be an instance (the object) of the class \texttt{Human}, inheriting general attributes like \texttt{age}, \texttt{height}, and \texttt{name}, with each instance holding specific values for these attributes and possibly containing unique attributes, such as \texttt{HairColour = "blonde"}. Objects communicate by sending messages\cite{stefik1985object}, in the same way that people interact through conversation, passing information and performing tasks after receiving instructions. The OOP approach facilitates a more natural, modular understanding of computing tasks compared to other paradigms, such as Procedure Orientated Programming (POP), which breaks down a task by dividing it into smaller programs, known as functions, and executing them in a strict order\cite{OOPPOP}.
+
+The development of the Object-Oriented Programming (OOP) paradigm is credited to the programming language SIMULA, which was introduced in 1962\cite{Simula}. OOP quickly gained traction in the decades that followed, leading to the development of widely used languages today, such as C++, Java, and Python\cite{Seidl_Scholz_Huemer_Kappel_Duffy_2014}. As OOP languages became more popular, there was an increasing demand for modelling languages to aid in their analysis and development. This surge in demand led to the creation of numerous modelling languages, each with its own notation, resulting in confusion and compatibility issues\cite{Seidl_Scholz_Huemer_Kappel_Duffy_2014}. In response, the need for a unified modelling language arose, culminating in the creation of UML. Developed through collaborative efforts by experts in the field, UML aimed to integrate the best practices from various modelling languages\cite{Seidl_Scholz_Huemer_Kappel_Duffy_2014}. Released in 1997, UML has since undergone several revisions, with the latest version, UML 2.5.1, released in 2017 and maintained by the Object Management Group (OMG)\cite{OMG_UML}.
+
+There are 14 types of UML diagrams, classified into two main categories: structural and behavioural diagrams \cite{Seidl_Scholz_Huemer_Kappel_Duffy_2014}. Structural diagrams provide a static view of a system's architecture, illustrating its components' composition and relationships. Behavioural diagrams represent the dynamic interactions between system components at runtime, demonstrating how elements communicate and evolve throughout their lifecycle. 
+
+Two of the most widely used diagrams are the sequence diagram, which falls under the behavioural category, and the class diagram, which is part of the structural category.
+
+\subsubsubsection{Sequence Diagram}
+
+Sequence diagrams belong to a sub-category of interaction diagrams, which includes communication, timing, and interaction overview diagrams\cite{Seidl_Scholz_Huemer_Kappel_Duffy_2014}.
+
+Sequence diagrams model communication protocols between human and non-human entities. The horizontal axis represents the sequence of communication messages, while the vertical axis shows the timing of interactions. Each element in a sequence diagram is represented by a lifeline extending vertically, which may terminate if it is no longer required in the system. Messages are represented by arrows connecting elements at various stages of their lifecycle.
+
+\subsubsubsection{Class Diagram}
+
+The class diagram defines the data and object structures within a system\cite{Seidl_Scholz_Huemer_Kappel_Duffy_2014}. Each class is depicted as a rectangular element containing information about the attributes it holds and the operations it can perform or share. Interconnected edges represent relationships between other classes in the system. The class diagram provides an overview of the modelled system's structural architecture.
+
+\subsubsection{Q-SE 2021}
+
+After the publication of \textit{“Towards a Quantum Software Modeling Language”}\cite{Perez-Delgado2020}, Pérez-Delgado expanded on the Q-UML concept, his work culminating in a subsequent paper \textit{“A Quantum Software Modeling Language”}\cite{Pérez-Delgado2022}. Published in \textit{“Quantum Software Engineering”}\cite{serrano2022quantum}, the subsequent paper further developed Q-UML by introducing additional pictorial elements for modelling quantum components and established fundamental axioms and core design principles\cite{Pérez-Delgado2022}.
+
+\textit{“Quantum Software Engineering”}\cite{serrano2022quantum}, published by Springer in 2022, is a collection of work from multiple contributors to \textit{"gather a set of software engineering techniques and tools to improve the productivity and assure the quality in quantum software development"}\cite{perez-castillo2022quantum}. The editors of \textit{“Quantum Software Engineering”}, Mario Piattini and Ricardo Pérez Castillo, had themselves submitted papers focused on incorporating UML to quantum technologies. Their paper 
+
+the adaptation of UML  both of whom have also written papers on adapting UML to quantum technologies. 
+
+Alongside their colleague Luis Jiménez-Navajas; Piattini and Castillo published \textit{"Modelling Quantum Circuits with UML"} in May 2021; 
 
 The authors of “Quantum Software Engineering” \cite{serrano2022quantum} developed their own quantum UML profile, first published in March 2021 \cite{Pérez-Castillo2021}, which was later expanded on and presented in “Computing” \cite{Pérez-Castillo2022}.
 
 Both papers sought to adapt UML to integrate quantum computing principles. 
 
-\subsubsection{UML 2}
-
-UML 2, simply referred to as UML, is a modelling language and the industry standard for designing and documenting computer systems. It includes 14 types of diagrams divided into structural and behavioural categories. UML 2 signifies that we are currently using the second version of this language. 
-
-As the industry standard for CSE, UML is the logical choice for adaptation for QSE. It should be tested and modelled using current quantum hardware to evaluate its effectiveness. 
-
-Two of the most commonly used diagrams are the sequence diagram in the behavioural category and the class diagram in the structural category.
-
-\subsubsubsection{Sequence Diagram}
-
-Sequence diagrams, part of the behavioural category, belong to a sub-category of interaction diagrams, which includes communication, timing, and interaction overview diagrams.
-
-Sequence diagrams model communication protocols between human and non-human entities. The horizontal axis represents the sequence of communication messages, while the vertical axis indicates the timing of interactions. Each element in a sequence diagram has a lifeline extending vertically, which may terminate if the component is no longer involved in the sequence. 
-
-\subsubsubsection{Class Diagram}
-
-The class diagram is a part of the set of structural diagrams provided in UML. 
+The other paper was about highbrid information systems using classical computers and current quantum computers, NISQ. 
 
 \subsubsection{NISQ}
 
@@ -182,7 +207,7 @@ When \textit{estimator.run()} is executed, the classical, parametrised \textbf{a
 
 A dictionary named \textbf{cost\_history\_dict} stores the parameter, iteration, and energy estimate each time the estimator's \textit{.run()} method is executed. Its initial values consist of a placeholder for the parameters, iteration set to zero and an empty list for the energy estimate, with each energy estimate being appended to the list per execution. Finally, the cost function method returns the value of the \textbf{energy} variable as its result after being called.
 
-A random array of initial guess parameters, assigned to the variable \textbf{x0}, is constructed using NumPy’s constant $\pi$ and its \textit{random.random()} method. The code generates an array of random floating-point numbers, scaled to the range of [0,$\pi$2], to account for every quantum state that can be represented on the Bloch sphere. The \textbf{ansatz} attribute \textbf{num\_parameters} sets the size of the array, having been stored earlier in the variable \textbf{num\_params}, to match the number of parameters to assign to each of the Pauli rotation gates in the ansatz circuit. The \textbf{x0} array will be given to \textbf{cost\_func} as the parameters required for the \textbf{pub} variable, and updated iteratively to find the set of parameters that produce the lowest energy estimate of the system.
+A random array of initial guess parameters, assigned to the variable \textbf{x0}, is constructed using NumPy’s constant $\pi$ and its \textit{random.random()} method. The code generates an array of random floating-point numbers, scaled to the range of [0,$\pi$2], to account for every quantum state that can be represented on the Bloch sphere. The \textbf{ansatz} attribute \textbf{num\_parameters} sets the size of the array, having been stored earlier in the variable \textbf{num\_params}, to match the number of parameters to assign to each of the Pauli rotation gates in the ansatz circuit. The \textbf{x0} array will be given to \textbf{cost\_func} as the parameters required for the \textbf{pub} variable and updated iteratively to find the set of parameters that produce the lowest energy estimate of the system.
 
 The instance \textbf{session} is initialised from the class \textbf{Session} with \textbf{backend} passed as a parameter to configure it to the selected quantum hardware. The instance \textbf{estimator} is then initialised from the class \textbf{EstimatorV2} with \textbf{session} passed to the estimator's \textbf{mode} attribute. This estimator, which operates within \textbf{cost\_func}, uses \textbf{session} to execute computations on the specified quantum backend. Assigning a  \textbf{Session} object as the estimator's \textbf{mode} facilitates the grouping of iterative calls to the quantum computer\cite{Session} when \textit{estimator.run()} executes, efficiently managing the allocation of jobs to quantum resources.
 
@@ -190,7 +215,7 @@ The \textbf{estimator} is used to interact with Qiskit Runtime Estimator primiti
 
 The instance \textbf{res} of the classical \textbf{Minimize} function from the SciPy package is initialised with the Constrained Optimization by Linear Approximation (COBYLA) method, which is used to minimise a scalar function. In this case, the scalar function is the \textbf{cost\_func} method, which returns a scalar energy estimate as a float. The parameters for \textbf{res} include the \textbf{cost\_func}, the initial guess array \textbf{x0} for the ansatz parameters, along with \textbf{ansatz\_isa}, \textbf{hamiltonian\_isa}, and \textbf{estimator}, all passed from \textbf{res} to \textbf{cost\_func} for execution. 
 
-During the optimisation loop, \textbf{cost\_func} calculates and returns the energy estimate of \textbf{ansatz\_isa}, while \textbf{res} iteratively updates the parameters in \textbf{x0}, adjusting the ansatz's parameters to minimize the energy estimate. Each call to \textbf{cost\_func}, which invokes the \textit{estimator.run()} method, performs 10,000 shots on the quantum circuit before returning the energy estimate. The loop continues until the energy estimate converges to the lowest achievable value, representing the ground-state energy.
+During the optimisation loop, \textbf{cost\_func} calculates and returns the energy estimate of \textbf{ansatz\_isa}, while \textbf{res} iteratively updates the parameters in \textbf{x0}, adjusting the ansatz's parameters to minimize the energy estimate. Each call to \textbf{cost\_func} invokes the \textit{estimator.run()} method and performs 10,000 shots on the quantum circuit before returning the energy estimate. The loop continues until the energy estimate converges to the lowest achievable value, representing the ground-state energy.
 
 Upon completion of the optimisation loop, successful termination of the process is verified by comparing the solution parameter and evaluation count against the stored solution parameter and iteration count within \textbf{cost\_history\_dict} maintained by the \textbf{cost\_func} method. These results are then visualised using the matplotlib package, plotting a graph with the number of iterations on the x-axis and the energy estimates on the y-axis.
 

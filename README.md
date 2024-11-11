@@ -1051,10 +1051,40 @@ Links:
 [UML Aggregation](https://www.uml-diagrams.org/aggregation.html)
 [UML Composition](https://www.uml-diagrams.org/composition.html)
 
+### 10/11/2024 and 11/11/2024
 
+I've been working on the background and related papers section of the disseration. Spent a long time on UML as had to explain concepts like OOP and go over the book again to write good information.
 
+Links:
 
-
+[7 Modelling Languages for software architecture](https://icepanel.medium.com/7-modelling-languages-for-software-architecture-2ed3a9f75343)
+[Modelling Languages](https://en.wikipedia.org/wiki/Modeling_language)
+[Techopedia Modelling Languages](https://www.techopedia.com/definition/20810/modeling-language)
+[Re: [UML Forum] programming language versus modeling language](https://groups.google.com/g/umlforum/c/mZkvOQrfLF0?pli=1)
+[object-oriented programming (OOP)](https://www.techtarget.com/searchapparchitecture/definition/object-oriented-programming-OOP#:~:text=Object%2Doriented%20programming%20(OOP)%20is%20a%20computer%20programming%20model,has%20unique%20attributes%20and%20behavior.)
+[Simula](https://en.wikipedia.org/wiki/Simula)
+[UML Spec](https://www.omg.org/spec/UML/)
+[Language Modelling](https://www.techtarget.com/searchenterpriseai/definition/language-modeling)
+[Concepts and paradigms of object-oriented programming](https://dl.acm.org/doi/abs/10.1145/382192.383004)
+[What is object oriented programming](https://emeritus.org/blog/coding-what-is-object-oriented-programming/)
+[Object-oriented programming : an evolutionary approach](https://archive.org/details/objectorientedpr0000coxb/page/n7/mode/2up)
+[Object-Oriented Programming Themes and Variations](https://www.researchgate.net/publication/220604957_Object-Oriented_Programming_Themes_and_Variations)
+[OOP vs POP](https://images.shiksha.com/mediadata/articleCtaPdf/139817.pdf?v=1698783803)
+[Difference between OOP and POP](https://www.geeksforgeeks.org/difference-between-oop-and-pop/)
+[ICSEW'20: Proceedings of the IEEE/ACM 42nd International Conference on Software Engineering Workshops](https://dl.acm.org/doi/proceedings/10.1145/3387940)
+[Quantum Software Engineering](https://link.springer.com/book/10.1007/978-3-031-05324-5)
+[Object-Oriented Programming: Themes and Variations](https://ojs.aaai.org/aimagazine/index.php/aimagazine/article/view/508)
+[Q-SE 2020](https://q-se.github.io/qse2020/)
+[Towards a Quantum Modeling Language](https://arxiv.org/abs/2006.16690)
+[Software Engineering for Quantum Computing and Quantum Computing for Software Engineering](https://www.youtube.com/watch?v=64S3-dmYdQo)
+[Towards a Quantum Software Modeling Language YT](https://www.youtube.com/watch?v=Di6rlch2_BU)
+[Rui Maranhao Abreu](https://ruimaranhao.com/)
+[ICSE 2020](https://conf.researchr.org/home/icse-2020)
+[ICSE YT](https://www.youtube.com/c/ICSEConf)
+[arxiv: what is it?](https://www.reddit.com/r/PhD/comments/10k2w7f/arxiv_what_is_it/)
+[Towards a Quantum Software Modeling Language](https://dl.acm.org/doi/10.1145/3387940.3392183)
+[Towards a Quantum Software Modeling Language](https://kar.kent.ac.uk/80774/)
+[Towards a Quantum Software Modeling Language](https://inspirehep.net/literature/2823466)
 
 ## Topics to Research
 
