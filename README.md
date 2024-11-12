@@ -1094,6 +1094,33 @@ Links:
 [Design of classical-quantum systems with UML](https://link.springer.com/article/10.1007/s00607-022-01091-4#citeas)
 [Computing](https://link.springer.com/journal/607)
 
+### 12/11/2024
+
+Writing the UML profile section and started on NISQ today. Finished NISQ.
+
+Links:
+
+[Noisy intermedia-scale quantum era](https://en.wikipedia.org/wiki/Noisy_intermediate-scale_quantum_era)
+[Beyond quantum supremacy: the hunt for useful quantum computers](https://www.nature.com/articles/d41586-019-02936-3)
+[NISQ](https://www.quera.com/glossary/nisq)
+[Decoded: How Does a Quantum Computer Work?](https://www.youtube.com/watch?v=uLnGp1WTNFQ)
+[Quantum Advantage](https://www.quera.com/glossary/advantage)
+[Quantum Computing's Potential for Exponential Growth](https://www.linkedin.com/pulse/quantum-computings-potential-exponential-growth-sandeep-jain-mmxsc/)
+[Quantum Parallelism](https://www.quera.com/glossary/parallelism#:~:text=In%20computer%20science%2C%20parallelism%20refers,found%20at%20the%20same%20time.)
+[What is the difference between quantum computing and parallel computing?](https://cs.stackexchange.com/questions/75202/what-is-the-difference-between-quantum-computing-and-parallel-computing)
+[Non-layperson explanation of why a qubit is more useful than a bit?](https://quantumcomputing.stackexchange.com/questions/4870/non-layperson-explanation-of-why-a-qubit-is-more-useful-than-a-bit)
+[Advantages and Disadvantages of Quantum Computing: A Complete Guide](https://www.theknowledgeacademy.com/blog/advantages-and-disadvantages-of-quantum-computing/)
+[Why is it hard to build quantum computers?](https://futurumcareers.com/why-is-it-hard-to-build-quantum-computers#:~:text=Decoherence%20ruins%20the%20quantum%20behaviour,a%20qubit%20from%20its%20surroundings.)
+[https://www.frontiersin.org/journals/quantum-science-and-technology/articles/10.3389/frqst.2023.1128576/full](https://www.frontiersin.org/journals/quantum-science-and-technology/articles/10.3389/frqst.2023.1128576/full)
+[How Many Qubits Are Needed for Quantum Supremacy? Whether Google achieved quantum supremacy depends on perspective](https://spectrum.ieee.org/qubit-supremacy)
+[What EXACTLY is an NP-Hard Problem?](https://www.reddit.com/r/computerscience/comments/op4bap/what_exactly_is_an_nphard_problem/)
+[NP-hard: What is the definition of NP-hardness?](https://klu.ai/glossary/np-hardness)
+[What Can a Quantum Computer Actually Do?](https://medium.com/qiskit/what-can-a-quantum-computer-actually-do-4daed0691f6b)
+[Quantum advantage or quantum supremacy - what is the difference?](https://quanscient.com/blog/quantum-advantage-or-quantum-supremacy-what-is-the-difference)
+
+
+
+
 ## Topics to Research
 
 - Mermaid
