@@ -4,6 +4,14 @@
 \usepackage{graphicx} % Required for inserting images
 \usepackage{biblatex} % Use biblatex for bibliography management
 \usepackage{hyperref}
+\usepackage{amsmath}
+\usepackage{algorithm}
+\usepackage[noend]{algpseudocode}
+\usepackage{float}
+
+\makeatletter
+\def\BState{\State\hskip-\ALG@thistlm}
+\makeatother
 
 \addbibresource{mybib.bib} % Specify your bibliography file
 
@@ -40,7 +48,7 @@
 \setcounter{tocdepth}{4}
 
 \title{Dissertation}
-\author{Supervisor: Carlos A. Pérez-Delgado\\ Programme: MSc Computer Science (Artificial Intelligence) \\ Word Count: 6,731}
+\author{Supervisor: Carlos A. Pérez-Delgado\\ Programme: MSc Computer Science (Artificial Intelligence) \\ Word Count: 7,511}
 \date{December 3, 2024}
 
 \begin{document}
@@ -78,10 +86,8 @@
     \item COBYLA - Constrained Optimization by Linear Approximation
     \item MSc - Master of Science
     \item NISQ - Noisy Intermediate-Scale Quantum
-    \item NP - Non-Deterministic Polynomial Time
     \item OMG - Object Management Group
     \item OOP - Object-oriented programming
-    \item P - Polynomial time 
     \item POP - Procedure-oriented programming
     \item PUB - Primitive Unified Blocs
     \item SD - Sequence Diagram
@@ -183,9 +189,9 @@ Pérez-Delgado's work with Q-UML modelled Shor's algorithm in the context of a q
 
 As the introduction mentions, classical and quantum computers differ fundamentally in their underlying hardware. Classical computers operate in a binary, deterministic state where bits are clearly defined as 0 or 1. In contrast, quantum computers leverage the principles of quantum mechanics, using qubits instead of bits. A qubit can exist in a superposition of 0 and 1, with its final state determined probabilistically when measured. 
 
-The ability for qubits to exist in superpositions allows quantum computers to exponentially increase the speed at which specific problems can be solved\cite{knowledgeacademy}. Computational problems are categorized by their complexity and feasibility of finding solutions within practical time, energy, and memory limits. Polynomial time \textbf{(P)} problems can be solved in a reasonable amount of time. Non-deterministic polynomial time \textbf{(NP)} problems are problems where their solution can be verified within a reasonable amount of time. Some problems exist in NP where it is unknown if a solution exists, and the most complicated problems in this category are known as NP-Hard\cite{qiskit}. Quantum computers can potentially solve specific NP-hard problems in polynomial time\cite{chancellor2023nphard}.
+The ability for qubits to exist in superpositions allows quantum computers to accelerate the speed at which certain types of problems can be solved exponentially\cite{knowledgeacademy}. A well-known example is factoring large prime numbers, a computational task that classical computers find difficult to solve within a reasonable time frame. Peter Shor’s development of Shor’s algorithm demonstrates how a sufficiently powerful quantum computer could theoretically perform prime factorisation significantly faster than its classical counterpart\cite{Shor_1997}\cite{minutephysics}.
 
-Quantum computing aspires to reach the same level of ubiquity as classical computing while also achieving quantum supremacy and quantum advantage. Quantum supremacy would enable quantum computers to solve tasks that are unattainable for classical computers, such as NP-hard problems in polynomial time \cite{Quanscient}, while quantum advantage would allow quantum systems to solve real-world problems \textit{"faster than any classical algorithm running on any classical computer"} \cite{quera}. To reach this point, quantum computers must scale up the number of qubits required for complex calculations—a critical challenge they face today.
+Quantum computing aspires to reach the same level of ubiquity as classical computing while achieving quantum supremacy and quantum advantage. Quantum supremacy would enable quantum computers to solve tasks that classical computers cannot complete within a reasonable time frame\cite{quera}. Quantum advantage would allow quantum systems to solve real-world problems \textit{"faster than any classical algorithm running on any classical computer"} \cite{quera}. To reach this point, quantum computers must scale up the number of qubits required for complex calculations—a critical challenge they face today.
 
 Qubits are susceptible to environmental decoherence and noise, which can lead to errors and affect their ability to retain their quantum state\cite{futurumcareers}. Despite notable progress in increasing qubit counts, significantly more qubits are needed to enable error-correction methods for fault-tolerant quantum computing required for quantum advantage and quantum supremacy.\cite{NewScientist}.
 
@@ -193,9 +199,36 @@ The Noisy Intermediate Scale Quantum (NISQ) era, representing near-term quantum 
 
 \subsubsection{VQE}
 
-The Variational Quantum Eigensolver (VQE) is a hybrid algorithm that leverages both quantum and classical devices to find the ground state of a given physical system. 
+The Variational Quantum Eigensolver (VQE) is a hybrid quantum-classical algorithm that can be used to find the ground state, the lowest energy, of a given physical system\cite{wikivqe}. VQE can aid in quantum chemistry simulations where determining the ground state of a given molecule or atom \textit{"provides essential information about the system's stability, reactivity, and other chemical properties"}\cite{queragroundstate}. VQE has many potential applications but can be considered a viable candidate for optimisation problems; it can be used to find a global or best local minimum (or maximum) solution within a search space\cite{vqeqiskit}\cite{VQEMax}. 
 
-The algorithm starts with the physical system represented as a Hamiltonian and prepares a parametrised trial state called the ansatz. A quantum computer evaluates the ansatz by applying a quantum circuit to explore the parameter search space. A classical optimiser then adjusts the parameters in each iteration, guiding the quantum circuit’s search and gradually refining the ansatz until the algorithm converges on the lowest energy estimate, the ground state of the physical system.
+VQE belongs to a class of near-term algorithms designed to run on NISQ devices. As the depth of a quantum circuit increases, error rates also rise due to decoherence, requiring more qubits for error correction. Near-term algorithms seek techniques for solving non-trivial problems whilst negating decoherence\cite{Huang_2023}. VQE uses a shallow quantum circuit and delegates tasks between the quantum circuit and a classical optimiser to find its solution\cite{vqeqiskit}\cite{Peruzzo2014}.
+
+The VQE algorithm contains the following core components:
+
+\textbf{Hamiltonian} - A matrix that represents the total energy of a physical system\cite{hamiltonian}. The eigenvalues of the Hamiltonian matrix correspond to the system's energy levels, with the lowest eigenvalue representing the ground state\cite{vqeqiskit}.
+
+\textbf{Ansatz} - The trial state of the Hamiltonian, representing an educated guess of the state the Hamiltonian must be in to approximate the minimum or maximum energy. The ansatz is a parametrised quantum circuit with its parameters iteratively updated throughout the algorithm to refine the energy estimate and converge to the solution\cite{ansatz}\cite{wikiansatz}\cite{Tutorial}. 
+
+\textbf{Cost Function} - A function that executes the parametrised quantum circuit to estimate the energy of the Hamiltonian, given a specific set of parameters for the ansatz.\cite{Tutorial}\cite{vqeqiskit}.
+
+\textbf{Optimiser} - A classical optimiser that evaluates the output of the cost function and iteratively adjusts the ansatz parameters, seeking to find the optimal set of parameters for the problem solution\cite{Tutorial}\cite{vqeqiskit}. 
+
+The pseudocode for the VQE algorithm is as follows:
+
+\begin{algorithm}[H]
+\caption{Variational Quantum Eigensolver (VQE)}\label{vqe_algorithm}
+\begin{algorithmic}[1]
+\State Define Hamiltonian \( \mathcal{H} \)
+\State Prepare ansatz \( \mathcal{A} \) with \( k \) parameters \( \overrightarrow{\theta} \)
+\State Define cost function $\mathcal{C}$ as either minimisation ($\bigwedge$) or maximisation ($\bigvee$)
+\State Initialise a classical optimizer \( O \)
+\While{convergence criterion not met and max iterations not exceeded}
+    \State Calculate expectation value \( E \) by evaluating \( \mathcal{A}(\overrightarrow{\theta}) \) with \( \mathcal{H} \)
+    \State Update \( \overrightarrow{\theta} \) using \( O \) to optimise \( E \)
+\EndWhile
+\State \Return optimal parameters \( \overrightarrow{\theta} \) and solution \( E \)
+\end{algorithmic}
+\end{algorithm}
 
 \subsubsection{Qiskit}
 
@@ -203,7 +236,7 @@ Qiskit is an open-source software development kit (SDK) created by IBM to access
 
 \subsubsubsection{Qiskit and VQE}
 
-IBM Quantum Learning provides online tutorials\cite{Tutorial} on implementing quantum algorithms utilising the Qiskit SDK. The UML diagrams created for this project were based on the tutorial to implement the VQE algorithm in Qiskit\cite{IBM2024}.
+IBM Quantum Learning offers online tutorials\cite{Tutorial} that guide users through implementing quantum algorithms with the Qiskit SDK. The UML diagrams created for this project are based on the IBM tutorial demonstrating the VQE algorithm in Qiskit\cite{IBM2024}. This section aims to provide a comprehensive overview of this specific implementation of the VQE algorithm to help the reader better understand the associated UML diagrams.
 
 The instance \textbf{hamiltonian} is initialised from the class \textbf{SparsePauliOp} by calling the \textit{.from\_list()} method in its construction. The \textbf{hamiltonian} object is a classical representation of Pauli operators, where each operator is given as a string (e.g., "X", "Y", "Z", or "I" for identity). Pauli operators are 2×2 matrices corresponding to spin measurements along the x, y, and z axes\cite{DJORDJEVIC201229}. Each operator string specifies actions on individual qubits. The VQE tutorial uses a 2-qubit system, acting on pairs of Pauli strings referred to as operator terms. The tensor product of these pairs is assigned a coefficient (represented as a complex number in Python) that defines the strength of each operator term. The linear combination of these terms represents the system's total energy, the Hamiltonian. Only non-zero operators and coefficients are stored, resulting in a sparse representation of operator terms and the Hamiltonian as a whole to reduce computational expense.
 

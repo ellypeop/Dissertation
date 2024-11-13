@@ -1118,7 +1118,48 @@ Links:
 [What Can a Quantum Computer Actually Do?](https://medium.com/qiskit/what-can-a-quantum-computer-actually-do-4daed0691f6b)
 [Quantum advantage or quantum supremacy - what is the difference?](https://quanscient.com/blog/quantum-advantage-or-quantum-supremacy-what-is-the-difference)
 
+### 13/11/2024
 
+Attended Qiskit club, I was able to discuss my disseration work with the group and Carlos which was productive. Discussed if there was a need for highlighting quantum technologies in UML if UML is general purpose anyway. Need to think of a better way to answer this, I believe it's still required, especially if quantum devices are to be used commerically in order to depict how much classical/quantum units are needed.
+
+Notes from Carlos feedback from the VQE Qiskit and NISQ sections I sent him:
+
+- QIskit VQE, too dry, why are we doing this? Add a bit in the beginning to give them a warning as to why they need to run through the VQE Qiskit algorithm
+- Weave a story, explain what we're focusing on and why in each chapter section
+- NISQ
+- NP hard solve in P is not nessecarily true. General consesus is there is an overlap, problems known as BQP
+- NP hard - if and only if can reduce every problem in np to be solved with the solution of this problem
+- Reduction - solve littlest number by problem with sorting solution
+- Problems that can be solved in P not NP hard as NP hard can solve all NP. Quantum can solve some NP, not all
+- Carlos solution; speed up certain problems such as factoring
+- Focus on what you do understaand well
+
+Spent the evening writing the VQE section, created a psuedocode algorithm.
+
+Links:
+
+[Quantum Blockchain Miners Provide Massive Energy Savings](https://scholar.google.com/citations?view_op=view_citation&hl=en&user=txAlj-AAAAAJ&authuser=1&citation_for_view=txAlj-AAAAAJ:UeHWp8X0CEIC)
+[Near-Term Quantum Computing Techniques: Variational Quantum Algorithms, Error Mitigation, Circuit Compilation, Benchmarking and Classical Simulation](https://arxiv.org/abs/2211.08737)
+[A variational eigenvalue solver on a photonic quantum processor](https://www.nature.com/articles/ncomms5213)
+[https://en.wikipedia.org/wiki/Ansatz](https://en.wikipedia.org/wiki/Ansatz)
+[What is a Hamiltonian? Quantum Jargon Explained](https://www.youtube.com/watch?v=BusR0WQ_Gxo)
+[Hamiltonian](https://en.wikipedia.org/wiki/Hamiltonian)
+[Ground State](https://www.quera.com/glossary/ground-state)
+[Ansatz](https://www.quera.com/glossary/ansatz)
+[Generally, could VQE be used to prepare the highest energy state?](https://quantumcomputing.stackexchange.com/questions/20920/generally-could-vqe-be-used-to-prepare-the-highest-energy-state)
+[Notation question about min and max functions](https://www.physicsforums.com/threads/notation-question-about-min-and-max-functions.563341/)
+[Write pseudo code in latex](https://tex.stackexchange.com/questions/163768/write-pseudo-code-in-latex)
+[Variational Quantum Eigensolver | Qiskit Global Summer School 2023](https://www.youtube.com/watch?v=AhEnvYgoA34&t=537s)
+[Quantum Algorithm (7): Variational Quantum Eigensolver Algorithm for Quantum Chemistry](https://quantumpedia.uk/quantum-algorithm-7-variational-quantum-eigensolver-algorithm-for-quantum-chemistry-23a4f9aa73b3)
+[The Variational Quantum Eigensolver (VQE)](http://openqemist.1qbit.com/docs/vqe_microsoft_qsharp.html)
+[Pseudocode example](https://www.bbc.co.uk/bitesize/guides/zptd3k7/revision/7)
+[A variational eigenvalue solver on a photonic quantum processor](https://www.nature.com/articles/ncomms5213)
+[LATEX Mathematical Symbols](https://www.cmor-faculty.rice.edu/~heinken/latex/symbols.pdf)
+[Ansatze and Variational Forms](https://learning.quantum.ibm.com/course/variational-algorithm-design/ansatze-and-variational-forms)
+[Greek letters used in mathematics, science, and engineering](https://en.wikipedia.org/wiki/Greek_letters_used_in_mathematics,_science,_and_engineering)
+[Finding the Laplacian of the deflection potential: I obtain 4𝜅(𝜃⃗ ), not 2𝜅(𝜃⃗ ). Why am I wrong?](https://astronomy.stackexchange.com/questions/48243/finding-the-laplacian-of-the-deflection-potential-i-obtain-4%E2%83%97-not-2)
+[Extensible \vec instead of \overrightarrow](https://tex.stackexchange.com/questions/114321/extensible-vec-instead-of-overrightarrow)
+[Braket notation in LaTeX](https://tex.stackexchange.com/questions/214728/braket-notation-in-latex)
 
 
 ## Topics to Research
