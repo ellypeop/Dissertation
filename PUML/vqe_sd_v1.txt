@@ -10,10 +10,11 @@ create "ansatz_isa:\nQuantumCircuit"
 "pm:\nStagedPassManager" -> "ansatz_isa:\nQuantumCircuit": .run(ansatz)
 create "hamiltonian_isa"
 "hamiltonian:\nSparsePauliOp" -> "hamiltonian_isa" : apply_layout(layout=ansatz_isa.layout)
-create "x0:\nndarray" : initial_params
+create "x0:\nndarray"
 create "cost_func"
-
+"x0:\nndarray" -> "cost_func": initial_params
 create "minimize:\nOptimize"
+"cost_func" -> "minimize:\nOptimize": pass parameters
 activate "minimize:\nOptimize"
 
 loop 10000 times

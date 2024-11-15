@@ -17,7 +17,13 @@ I wanted to pursue a main project related to quantum computing due to an interes
 
 ### 17/01/2024
 
-I initially met with Carlos and was given additional reading: [A Quantum Software Modeling Language](https://link.springer.com/chapter/10.1007/978-3-031-05324-5_6). I understood that the project would be related to how quantum computers can be represented in UML. I believe UML is an achievable language to learn and base my main project on, and I would have the opportunity to better understand quantum computers.
+I initially met with Carlos and was given additional reading: [A Quantum Software Modeling Language](https://link.springer.com/chapter/10.1007/978-3-031-05324-5_6). I understood that the project would be related to how quantum computers can be represented in UML. I believe UML is an achievable language to learn and base my main project on, and I would have the opportunity to better understand quantum computers. Wrote the following notes regarding "Quantum Software Engineering Modelling Tool":
+- Good programming skills
+- Strong mathematical skills
+- Strong independent learning skills
+- Ability to learn new material outside usual area of comfort
+- Moreover, software developers face significant challenges when coding quantum programs due to switching to an entirely different programming mindset with counterintuitive quantum principles [14].
+[Quantum Software Engineering: A New Genre of Computing ](https://arxiv.org/ftp/arxiv/papers/2211/2211.13990.pdf)
 
 ### 18/01/2024
 
@@ -365,6 +371,14 @@ I started watching lecture recordings on modelling from software engineering. I 
 Extract from the Design of classical-quantum systems with UML refers to it being a good idea to explore UML in its representation of fundamental QC properties:
 
 ![](https://lh7-rt.googleusercontent.com/docsz/AD_4nXeOup9pzdJNwTcQrFFokE7pvITJDHky7m9T5hduiyGav378qC03tJFLBj-jE51tvwpEd5_BIOQiUB6Vd8zv_yae46Qo5RshuWFY-Y_93uDRdu4jPZVIUTbf56MKcVUquKGviJ8uXK9-afhhvVQ0soR-vn-8?key=MtrDKbB_sX2MmzFn_dLBrg)
+
+### 12/06/2024
+
+Wrote the following notes on Variational Quantum Eigensolver:
+
+- A near term similar to QAOA, algorithms that are able to run on current NISQ systems with a hybrid design where certain parts of the algorithm are dedicated to either quantum or classical systems.
+- Designed to take advantage of shallow quantum circuit and noise level. - yt video
+- [Wiki Link](https://en.wikipedia.org/wiki/Variational_quantum_eigensolver)
 
 ### 17/06/2024
 
@@ -1161,6 +1175,20 @@ Links:
 [Extensible \vec instead of \overrightarrow](https://tex.stackexchange.com/questions/114321/extensible-vec-instead-of-overrightarrow)
 [Braket notation in LaTeX](https://tex.stackexchange.com/questions/214728/braket-notation-in-latex)
 
+15/11/2024
+
+Tidied up files to submit everything that is not the disseration for the corpus, deadline is tomorrow. Checked with Carlos regarding the corpus who advised not to worry too much as the project is theoretical work:
+
+"The corpus is essential in an engineering project, where you’re building something (say a java app). Here it is more about the theoretical results. I really want to hear your conclusions about the pros/cons of both quantum UML approaches."
+
+Links:
+
+[How to create Class Diagram using Mermaid-js](https://www.youtube.com/watch?v=TOjrj6O3sYo&t=72s)
+[Full Support of Mermaid Syntax](https://www.jetbrains.com/guide/go/tips/mermaid-js-support-in-markdown/)
+[Class diagrams](https://mermaid.js.org/syntax/classDiagram.html)
+[Markdown Support](https://www.jetbrains.com/help/pycharm/markdown.html)
+
+
 
 ## Topics to Research
 
@@ -1191,6 +1219,12 @@ Links:
 - VQF
 
 ## To-Do List
+
+- Use a UML package to gain practical understanding of how it’s implemented. Which classes of UML will QUML be relevant to?
+
+- Use Qiskit
+
+- Read the references from Carlos papers.
 
 - I need to confirm whether the dissertation and corpus are one unified document or separate documents. To better understand the process of writing a good dissertation, it would be useful to obtain books on scientific or academic writing.
   

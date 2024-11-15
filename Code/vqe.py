@@ -89,7 +89,7 @@ x0
 # Cell
 with Session(backend=backend) as mode:
     estimator = Estimator(mode=mode)
-    estimator.options.default_shots = 5000  # Reduce the number of shots to speed up each job
+    estimator.options.default_shots = 5000  # Modified to run on available laptop
     
     options = {
         'maxiter': 50,  # Example: still keeping max iterations

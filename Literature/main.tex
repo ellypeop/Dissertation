@@ -8,6 +8,29 @@
 \usepackage{algorithm}
 \usepackage[noend]{algpseudocode}
 \usepackage{float}
+\usepackage{listings}
+\usepackage{color}
+
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+\lstset{frame=tb,
+  language=Python,
+  aboveskip=3mm,
+  belowskip=3mm,
+  showstringspaces=false,
+  columns=flexible,
+  basicstyle={\small\ttfamily},
+  numbers=none,
+  numberstyle=\tiny\color{gray},
+  keywordstyle=\color{blue},
+  commentstyle=\color{dkgreen},
+  stringstyle=\color{mauve},
+  breaklines=true,
+  breakatwhitespace=true,
+  tabsize=3
+}
 
 \makeatletter
 \def\BState{\State\hskip-\ALG@thistlm}
@@ -48,7 +71,7 @@
 \setcounter{tocdepth}{4}
 
 \title{Dissertation}
-\author{Supervisor: Carlos A. Pérez-Delgado\\ Programme: MSc Computer Science (Artificial Intelligence) \\ Word Count: 7,511}
+\author{Supervisor: Carlos A. Pérez-Delgado\\ Programme: MSc Computer Science (Artificial Intelligence) \\ Word Count: 7,536}
 \date{December 3, 2024}
 
 \begin{document}
@@ -84,12 +107,14 @@
     \item CD - Class Diagram
     \item C-SE - Classical Software Engineering
     \item COBYLA - Constrained Optimization by Linear Approximation
+    \item IBM - International Business Machines Corporation
     \item MSc - Master of Science
     \item NISQ - Noisy Intermediate-Scale Quantum
     \item OMG - Object Management Group
     \item OOP - Object-oriented programming
     \item POP - Procedure-oriented programming
     \item PUB - Primitive Unified Blocs
+    \item RSA - Rivest-Shamir-Adleman
     \item SD - Sequence Diagram
     \item SDK - Software Development Kit
     \item SU(2) - Special Unitary Group of Degree 2
@@ -147,7 +172,7 @@ Modelling languages use graphical or textual notation to abstract complex techni
 
 The Unified Modeling Language (UML) framework is rooted in the object-oriented programming (OOP) paradigm. OOP is \textit{"a computer programming model that organises software design around data, or objects, rather than functions and logic."}\cite{TechTargetOOP} Whereas Procedure Orientated Programming (POP) breaks down a task into smaller functions, executing them in a strict order \cite{OOPPOP}, OOP encapsulates elements in a system as classes and objects which contain data (attributes) and behaviour (methods)\cite{MediumOOPPOP}. The OOP approach facilitates a more natural, modular understanding of computing tasks inspired by real-world concepts\cite{Seidl_Scholz_Huemer_Kappel_Duffy_2014}. As a small example, a \texttt{person} could be considered an instance (the object) of the class \texttt{Human}, inheriting shared attributes such as \texttt{Age} and \texttt{HairColour} with each instance holding a specific attribute value such as \texttt{Age = 32} and \texttt{HairColour = "blonde"}.
 
-The development of the Object-Oriented Programming (OOP) paradigm is credited to the programming language SIMULA, which was introduced in 1962\cite{Simula}. OOP quickly gained traction in the following decades, leading to the development of widely used languages today, such as C++, Java, and Python\cite{Seidl_Scholz_Huemer_Kappel_Duffy_2014}. As OOP languages became more popular, there was an increasing demand for modelling languages to aid in their analysis and development. This surge in demand led to the creation of numerous modelling languages, each with its own notation, resulting in confusion and compatibility issues\cite{Seidl_Scholz_Huemer_Kappel_Duffy_2014}. In response, the need for a unified modelling language arose, culminating in the creation of UML. Developed through collaborative efforts by experts in the field, UML aimed to integrate the best practices from various modelling languages\cite{Seidl_Scholz_Huemer_Kappel_Duffy_2014}. Released in 1997, UML has since undergone several revisions, with the latest version, UML 2.5.1, released in 2017 and maintained by the Object Management Group (OMG)\cite{OMG_UML}.
+The development of the Object-Oriented Programming (OOP) paradigm is credited to the programming language SIMULA, which was introduced in 1962\cite{Simula}. OOP quickly gained traction in the following decades, leading to the development of widely used programming languages today, such as C++, Java, and Python\cite{Seidl_Scholz_Huemer_Kappel_Duffy_2014}. As OOP programming languages became more popular, there was an increasing demand for modelling languages to aid in their analysis and development. This surge in demand led to the creation of numerous modelling languages, each with its own notation, resulting in confusion and compatibility issues\cite{Seidl_Scholz_Huemer_Kappel_Duffy_2014}. In response, the need for a unified modelling language arose, culminating in the creation of UML. Developed through collaborative efforts by experts in the field, UML aimed to integrate the best practices from various modelling languages\cite{Seidl_Scholz_Huemer_Kappel_Duffy_2014}. Released in 1997, UML has since undergone several revisions, with the latest version, UML 2.5.1, released in 2017 and maintained by the Object Management Group (OMG)\cite{OMG_UML}.
 
 There are 14 types of UML diagrams, classified into two main categories: structural and behavioural diagrams \cite{Seidl_Scholz_Huemer_Kappel_Duffy_2014}. Structural diagrams provide a static view of a system's architecture, illustrating its components' composition and relationships. Behavioural diagrams represent the dynamic interactions between system components at runtime, demonstrating how elements communicate and evolve throughout their lifecycle. 
 
@@ -177,7 +202,7 @@ A stereotype can include meta-attributes or carry a note, represented as a recta
 
 \subsubsection{Q-SE 2021}
 
-The second Quantum Software Engineering (Q-SE) workshop, held virtually in June 2021, included a segment focused on modelling quantum systems\cite{QSE2021}. During this session, Luis Jiménez-Navajas presented the paper \textit{"Modelling Quantum Circuits with UML"}\cite{Pérez-Castillo2021}, co-authored with Ricardo Pérez-Castillo and Mario Piattini. The paper introduced the concept of creating a UML profile diagram that could incorporate a quantum domain, using the example of an activity diagram to model a quantum circuit\cite{Pérez-Castillo2021}. 
+The second Q-SE workshop held virtually in June 2021 included a segment focused on modelling quantum systems\cite{QSE2021}. During this session, Luis Jiménez-Navajas presented the paper \textit{"Modelling Quantum Circuits with UML"}\cite{Pérez-Castillo2021}, co-authored with Ricardo Pérez-Castillo and Mario Piattini. The paper introduced the concept of creating a UML profile diagram that could incorporate a quantum domain, using the example of an activity diagram to model a quantum circuit\cite{Pérez-Castillo2021}. 
 
 Pérez-Castillo and Piattini further expanded on this work and, in 2022, published the paper \textit{"Design of Classical-Quantum Systems with UML"}\cite{Pérez-Castillo2022} in the Springer May 2022 \textit{Computing} journal\cite{Computing2022}. They also served as editors for \textit{“Quantum Software Engineering”}\cite{serrano2022quantum}, also published by Springer, which included a revision of Pérez-Delgado's Q-UML work. The follow-up paper, \textit{“A Quantum Software Modeling Language”}\cite{Pérez-Delgado2022}, further developed Q-UML by introducing additional pictorial elements for modelling quantum components and establishing fundamental axioms and core design principles.
 
@@ -189,7 +214,7 @@ Pérez-Delgado's work with Q-UML modelled Shor's algorithm in the context of a q
 
 As the introduction mentions, classical and quantum computers differ fundamentally in their underlying hardware. Classical computers operate in a binary, deterministic state where bits are clearly defined as 0 or 1. In contrast, quantum computers leverage the principles of quantum mechanics, using qubits instead of bits. A qubit can exist in a superposition of 0 and 1, with its final state determined probabilistically when measured. 
 
-The ability for qubits to exist in superpositions allows quantum computers to accelerate the speed at which certain types of problems can be solved exponentially\cite{knowledgeacademy}. A well-known example is factoring large prime numbers, a computational task that classical computers find difficult to solve within a reasonable time frame. Peter Shor’s development of Shor’s algorithm demonstrates how a sufficiently powerful quantum computer could theoretically perform prime factorisation significantly faster than its classical counterpart\cite{Shor_1997}\cite{minutephysics}.
+The ability for qubits to exist in superpositions allows quantum computers to accelerate the speed at which certain types of problems can be solved exponentially\cite{knowledgeacademy}. A well-known example is factoring large prime numbers, a computational task that classical computers find difficult to solve within a reasonable time frame. Peter Shor’s development of Shor’s algorithm demonstrates how a sufficiently powerful quantum computer could theoretically perform prime factorisation significantly faster than its classical counterpart\cite{Shor_1997}\cite{minutephysics}. The Rivest-Shamir-Adleman (RSA) encryption algorithm is a widely used encryption protocol which relies on classical computers' difficulty in factoring large prime numbers\cite{encryptionconsulting}. A powerful enough quantum computer could pose a risk to modern-day security protocols as we currently know them. 
 
 Quantum computing aspires to reach the same level of ubiquity as classical computing while achieving quantum supremacy and quantum advantage. Quantum supremacy would enable quantum computers to solve tasks that classical computers cannot complete within a reasonable time frame\cite{quera}. Quantum advantage would allow quantum systems to solve real-world problems \textit{"faster than any classical algorithm running on any classical computer"} \cite{quera}. To reach this point, quantum computers must scale up the number of qubits required for complex calculations—a critical challenge they face today.
 
@@ -201,15 +226,15 @@ The Noisy Intermediate Scale Quantum (NISQ) era, representing near-term quantum 
 
 The Variational Quantum Eigensolver (VQE) is a hybrid quantum-classical algorithm that can be used to find the ground state, the lowest energy, of a given physical system\cite{wikivqe}. VQE can aid in quantum chemistry simulations where determining the ground state of a given molecule or atom \textit{"provides essential information about the system's stability, reactivity, and other chemical properties"}\cite{queragroundstate}. VQE has many potential applications but can be considered a viable candidate for optimisation problems; it can be used to find a global or best local minimum (or maximum) solution within a search space\cite{vqeqiskit}\cite{VQEMax}. 
 
-VQE belongs to a class of near-term algorithms designed to run on NISQ devices. As the depth of a quantum circuit increases, error rates also rise due to decoherence, requiring more qubits for error correction. Near-term algorithms seek techniques for solving non-trivial problems whilst negating decoherence\cite{Huang_2023}. VQE uses a shallow quantum circuit and delegates tasks between the quantum circuit and a classical optimiser to find its solution\cite{vqeqiskit}\cite{Peruzzo2014}.
+VQE belongs to a class of near-term algorithms designed to run on NISQ devices. As the depth of a quantum circuit increases, error rates also rise due to decoherence, requiring more qubits for error correction. Near-term algorithms seek techniques for solving non-trivial problems using limited qubit count whilst negating decoherence\cite{Huang_2023}. VQE uses a shallow quantum circuit and delegates tasks between the quantum circuit and a classical optimiser to find its solution\cite{vqeqiskit}\cite{Peruzzo2014}.
 
 The VQE algorithm contains the following core components:
 
-\textbf{Hamiltonian} - A matrix that represents the total energy of a physical system\cite{hamiltonian}. The eigenvalues of the Hamiltonian matrix correspond to the system's energy levels, with the lowest eigenvalue representing the ground state\cite{vqeqiskit}.
+\textbf{Hamiltonian} - A matrix that represents the total energy of a physical system\cite{hamiltonian}. The eigenvalues of the Hamiltonian correspond to the system's energy levels, with the lowest eigenvalue representing the ground state\cite{vqeqiskit}.
 
-\textbf{Ansatz} - The trial state of the Hamiltonian, representing an educated guess of the state the Hamiltonian must be in to approximate the minimum or maximum energy. The ansatz is a parametrised quantum circuit with its parameters iteratively updated throughout the algorithm to refine the energy estimate and converge to the solution\cite{ansatz}\cite{wikiansatz}\cite{Tutorial}. 
+\textbf{Ansatz} - A trial state for the Hamiltonian that represents an educated guess for finding the Hamiltonian's approximate ground state. The ansatz is a parametrised quantum circuit, with its parameters iteratively updated and the energy estimate evaluated against the Hamiltonian to find the lowest energy estimate\cite{ansatz} \cite{wikiansatz} \cite{Tutorial}.
 
-\textbf{Cost Function} - A function that executes the parametrised quantum circuit to estimate the energy of the Hamiltonian, given a specific set of parameters for the ansatz.\cite{Tutorial}\cite{vqeqiskit}.
+\textbf{Cost Function} - A function that defines the objective of the problem, whether it involves minimisation or maximisation. The cost function executes the parametrised ansatz quantum circuit to estimate the energy of the Hamiltonian\cite{Tutorial}\cite{vqeqiskit}.
 
 \textbf{Optimiser} - A classical optimiser that evaluates the output of the cost function and iteratively adjusts the ansatz parameters, seeking to find the optimal set of parameters for the problem solution\cite{Tutorial}\cite{vqeqiskit}. 
 
@@ -230,13 +255,17 @@ The pseudocode for the VQE algorithm is as follows:
 \end{algorithmic}
 \end{algorithm}
 
+The VQE algorithm can be implemented and executed using quantum programming languages, with IBM’s Qiskit SDK being a popular choice.
+
 \subsubsection{Qiskit}
 
-Qiskit is an open-source software development kit (SDK) created by IBM to access and utilise their cloud-based quantum computing services. Implemented in Python, Qiskit provides tools and libraries for quantum programming and experimentation. The VQE algorithm represented in the sequence diagram is based on the implementation of VQE in Qiskit \cite{IBM2024}, which interacts directly with the IBM Quantum Platform.
+Qiskit is an open-source software development kit (SDK) created by IBM to access and utilise their cloud-based quantum computing services. Written in Python, Qiskit offers tools and libraries for quantum programming and experimentation. 
+
+IBM Quantum Learning offers online tutorials\cite{Tutorial} that guide users through implementing quantum algorithms with the Qiskit SDK. The UML diagrams created for this project are based on the IBM tutorial demonstrating the VQE algorithm in Qiskit\cite{IBM2024}.
 
 \subsubsubsection{Qiskit and VQE}
 
-IBM Quantum Learning offers online tutorials\cite{Tutorial} that guide users through implementing quantum algorithms with the Qiskit SDK. The UML diagrams created for this project are based on the IBM tutorial demonstrating the VQE algorithm in Qiskit\cite{IBM2024}. This section aims to provide a comprehensive overview of this specific implementation of the VQE algorithm to help the reader better understand the associated UML diagrams.
+This section aims to provide the reader with a comprehensive overview of the VQE algorithm's implementation in IBM's Qiskit tutorial, helping the reader better understand the associated UML diagrams. The code from the tutorial is provided at the end of this section.
 
 The instance \textbf{hamiltonian} is initialised from the class \textbf{SparsePauliOp} by calling the \textit{.from\_list()} method in its construction. The \textbf{hamiltonian} object is a classical representation of Pauli operators, where each operator is given as a string (e.g., "X", "Y", "Z", or "I" for identity). Pauli operators are 2×2 matrices corresponding to spin measurements along the x, y, and z axes\cite{DJORDJEVIC201229}. Each operator string specifies actions on individual qubits. The VQE tutorial uses a 2-qubit system, acting on pairs of Pauli strings referred to as operator terms. The tensor product of these pairs is assigned a coefficient (represented as a complex number in Python) that defines the strength of each operator term. The linear combination of these terms represents the system's total energy, the Hamiltonian. Only non-zero operators and coefficients are stored, resulting in a sparse representation of operator terms and the Hamiltonian as a whole to reduce computational expense.
 
@@ -265,6 +294,112 @@ The instance \textbf{res} of the classical \textbf{Minimize} function from the S
 During the optimisation loop, \textbf{cost\_func} calculates and returns the energy estimate of \textbf{ansatz\_isa}, while \textbf{res} iteratively updates the parameters in \textbf{x0}, adjusting the ansatz's parameters to minimize the energy estimate. Each call to \textbf{cost\_func} invokes the \textit{estimator.run()} method and performs 10,000 shots on the quantum circuit before returning the energy estimate. The loop continues until the energy estimate converges to the lowest achievable value, representing the ground-state energy.
 
 Upon completion of the optimisation loop, successful termination of the process is verified by comparing the solution parameter and evaluation count against the stored solution parameter and iteration count within \textbf{cost\_history\_dict} maintained by the \textbf{cost\_func} method. These results are then visualised using the matplotlib package, plotting a graph with the number of iterations on the x-axis and the energy estimates on the y-axis.
+
+\begin{lstlisting}[language=Python]
+# General imports
+import numpy as np
+
+# Pre-defined ansatz circuit and operator class for Hamiltonian
+from qiskit.circuit.library import EfficientSU2
+from qiskit.quantum_info import SparsePauliOp
+
+# SciPy minimizer routine
+from scipy.optimize import minimize
+
+# Plotting functions
+import matplotlib.pyplot as plt
+
+# Runtime imports
+from qiskit_ibm_runtime import QiskitRuntimeService, Session
+from qiskit_ibm_runtime import EstimatorV2 as Estimator
+
+# To run on hardware, select the backend with the fewest number of jobs in the queue
+service = QiskitRuntimeService(channel="ibm_quantum")
+backend = service.least_busy(operational=True, simulator=False)
+
+# Define Hamiltonian
+hamiltonian = SparsePauliOp.from_list(
+    [("YZ", 0.3980), ("ZI", -0.3980), ("ZZ", -0.0113), ("XX", 0.1810)]
+)
+
+# Create ansatz
+ansatz = EfficientSU2(hamiltonian.num_qubits)
+num_params = ansatz.num_parameters
+
+# Initalise pass manager
+from qiskit.transpiler.preset_passmanagers import generate_preset_pass_manager
+
+target = backend.target
+pm = generate_preset_pass_manager(target=target, optimization_level=3)
+
+# Transform ansatz
+ansatz_isa = pm.run(ansatz)
+
+# Transform Hamiltonian
+hamiltonian_isa = hamiltonian.apply_layout(layout=ansatz_isa.layout)
+
+# Define Cost Function
+def cost_func(params, ansatz, hamiltonian, estimator):
+    """Return estimate of energy from estimator
+
+    Parameters:
+        params (ndarray): Array of ansatz parameters
+        ansatz (QuantumCircuit): Parameterized ansatz circuit
+        hamiltonian (SparsePauliOp): Operator representation of Hamiltonian
+        estimator (EstimatorV2): Estimator primitive instance
+        cost_history_dict: Dictionary for storing intermediate results
+
+    Returns:
+        float: Energy estimate
+    """
+    pub = (ansatz, [hamiltonian], [params])
+    result = estimator.run(pubs=[pub]).result()
+    energy = result[0].data.evs[0]
+
+    cost_history_dict["iters"] += 1
+    cost_history_dict["prev_vector"] = params
+    cost_history_dict["cost_history"].append(energy)
+    print(f"Iters. done: {cost_history_dict['iters']} [Current cost: {energy}]")
+
+    return energy
+
+# Initalise cost history dictionary
+cost_history_dict = {
+    "prev_vector": None,
+    "iters": 0,
+    "cost_history": [],
+}
+
+# Initalise parameters
+x0 = 2 * np.pi * np.random.random(num_params)
+
+# Run optimization routine with COBYLA
+with Session(backend=backend) as session:
+    estimator = Estimator(mode=session)
+    estimator.options.default_shots = 10000
+
+    res = minimize(
+        cost_func,
+        x0,
+        args=(ansatz_isa, hamiltonian_isa, estimator),
+        method="cobyla",
+    )
+
+# Verify parameters
+all(cost_history_dict["prev_vector"] == res.x)
+
+# Verify iterations
+cost_history_dict["iters"] == res.nfev
+
+# Plot convergence
+fig, ax = plt.subplots()
+ax.plot(range(cost_history_dict["iters"]), cost_history_dict["cost_history"])
+ax.set_xlabel("Iterations")
+ax.set_ylabel("Cost")
+plt.draw()
+
+\end{lstlisting}
+
 
 \subsection{Related Work}
 

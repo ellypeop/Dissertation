@@ -1,79 +1,81 @@
+```mermaid
 classDiagram
-    title VQE Algorithm - Class Diagram
-
     class SparsePauliOp {
-        +int num_qubits
-        +from_list(List[Tuple[PauliList: String, coefficients: Complex]]) SparsePauliOp
-        +apply_layout(layout: TranspileLayout) SparsePauliOp
+        +num_qubits: int
+        +from_list(List[Tuple[PauliList: String, coefficients: Complex]]): SparsePauliOp
+        +apply_layout(layout: TranspileLayout): SparsePauliOp
     }
 
     class EfficientSU2 {
-        +TranspileLayout layout
-        +int num_parameters
-        +decompose() EfficientSU2
-        +draw(output: String, idle_wires: Boolean, style: String) Figure
+        +layout: TranspileLayout
+        +num_parameters: int
+        +decompose(): EfficientSU2
+        +draw(output: String, idle_wires: Boolean, style: String): Figure
     }
 
-    class QiskitRuntimeService <<Quantum Driver>> {
-        +Target target
-        +String channel "ibm_quantum"
-        +least_busy(operational: Boolean, simulator: Boolean) IBMBackend
-        +backend() IBMBackend
+    class QiskitRuntimeService{
+        <<Quantum Driver>>
+        +target: Target
+        +channel: String "ibm_quantum"
+        +least_busy(operational: Boolean, simulator: Boolean): IBMBackend
+        +backend(): IBMBackend
     }
-
+    
     class StagedPassManager {
         +generate_preset_pass_manager(target: Target, optimization_level: int) StagedPassManager
         +run(circuits: EfficientSU2) EfficientSU2
     }
-
+    
     class NumPyndarray {
-        +numpy.float64 pi
+        +pi: numpy.float64
         +random.random(size: num_parameters) numpy.ndarray
     }
-
+    
     class Minimize {
-        +CostFunction fun
-        +NumPyndarray x0
-        +Tuple[ansatz: EfficientSU2, hamiltonian: SparsePauliOp, estimator: EstimatorV2] args
-        +String method
-        +numpy.ndarray res.x
-        +int res.nfev
+        +fun: CostFunction
+        +x0: NumPyndarray
+        +args: Tuple[ansatz: EfficientSU2, hamiltonian: SparsePauliOp, estimator: EstimatorV2]
+        +method: String
+        +res.x: numpy.ndarray
+        +res.nfev: int
         +res(fun: CostFunction, x0: NumPyndarray, args: Tuple[ansatz: EfficientSU2, hamiltonian: SparsePauliOp, estimator: EstimatorV2], method: String) OptimizeResult
     }
-
+    
     class Session {
         +session(backend: IBMBackend)
     }
-
-    class EstimatorV2 <<Quantum>> {
-        +Session mode
+    
+    class EstimatorV2 {
+        <<Quantum>>
+        +mode: Session
         +run(pub: Tuple[ansatz: EfficientSU2, hamiltonian: List[SparsePauliOp], params: List[NumPyndarray]]) RuntimeJobV2
         +options.default_shots(default_shots: int)
     }
-
-    class CostFunction <<Quantum Request>> {
-        +Dict cost_history_dict
-        +Tuple[ansatz: EfficientSU2, hamiltonian: List[SparsePauliOp], params: List[NumPyndarray]] pub
-        +PrimitiveResult result
-        +numpy.float64 energy
+    
+    class CostFunction{
+        <<Quantum Request>>
+        +cost_history_dict: Dict
+        +pub: Tuple[ansatz: EfficientSU2, hamiltonian: List[SparsePauliOp], params: List[NumPyndarray]]
+        +result: PrimitiveResult
+        +energy: numpy.float64
         +cost_func(params: numpy.ndarray, ansatz: EfficientSU2, hamiltonian: SparsePauliOp, estimator: EstimatorV2) numpy.float64
     }
-
+    
     class Dict {
-        +"prev_vector" numpy.ndarray
-        +"iters" int
-        +"cost_history" numpy.float64
+        +"prev_vector": numpy.ndarray
+        +"iters": int
+        +"cost_history": numpy.float64
     }
-
+    
     class Pyplot {
-        +Figure fig
-        +numpy.ndarray ax
+        +fig: Figure
+        +ax: numpy.ndarray
         +plot(range(x: int, y: numpy.float64))
         +set_xlabel(String)
         +set_ylabel(String)
         +draw() Figure
     }
-
+    
     SparsePauliOp --> EfficientSU2 : "pass qubit count"
     QiskitRuntimeService <-- StagedPassManager : "configures"
     StagedPassManager --> EfficientSU2 : "transforms"
@@ -93,3 +95,6 @@ classDiagram
     Minimize --> EstimatorV2 : "pass estimator"
     Dict <-- Pyplot : "pass iters"
     Dict <-- Pyplot : "pass cost_history"
+
+    
+```
