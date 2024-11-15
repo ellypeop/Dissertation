@@ -1187,6 +1187,7 @@ Links:
 [Full Support of Mermaid Syntax](https://www.jetbrains.com/guide/go/tips/mermaid-js-support-in-markdown/)
 [Class diagrams](https://mermaid.js.org/syntax/classDiagram.html)
 [Markdown Support](https://www.jetbrains.com/help/pycharm/markdown.html)
+[PyCharm's Markdown rendering is beautiful. Is there a way to save it into a pdf or html file as is?](https://stackoverflow.com/questions/57309444/pycharms-markdown-rendering-is-beautiful-is-there-a-way-to-save-it-into-a-pdf)
 
 
 

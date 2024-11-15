@@ -70,8 +70,8 @@
 \setcounter{secnumdepth}{4}
 \setcounter{tocdepth}{4}
 
-\title{Dissertation}
-\author{Supervisor: Carlos A. Pérez-Delgado\\ Programme: MSc Computer Science (Artificial Intelligence) \\ Word Count: 7,536}
+\title{Comparing Quantum Adaptations to UML Sequence \& Class Diagrams}
+\author{Supervisor: Carlos A. Pérez-Delgado\\ Programme: MSc Computer Science (Artificial Intelligence) \\ Word Count: 8,072}
 \date{December 3, 2024}
 
 \begin{document}
@@ -373,7 +373,7 @@ cost_history_dict = {
 # Initalise parameters
 x0 = 2 * np.pi * np.random.random(num_params)
 
-# Run optimization routine with COBYLA
+# Run optimisation routine with COBYLA
 with Session(backend=backend) as session:
     estimator = Estimator(mode=session)
     estimator.options.default_shots = 10000
@@ -403,11 +403,32 @@ plt.draw()
 
 \subsection{Related Work}
 
+This section will detail the two different quantum adaptations to UML, which are mentioned in the Background section. 
+
 \subsubsection{Q-UML}
 
-Q-UML is a methodology for integrating quantum computing into the UML standard. The paper establishes a fundamental axiom and five core design principles to consider when designing a UML quantum extension. As the axiom asserts, while the design should adhere to classical standards as closely as possible, it must acknowledge the fundamental differences between classical and quantum hardware. The design principles describe when and how to label components in a diagram as classical or quantum.
+The paper \textit{"A Quantum Software Modeling Language"} highlights the significant role modelling languages have played in enabling professionals from diverse disciplines to advance classical software engineering. This collaboration has been instrumental in making classical computers a ubiquitous part of modern life. Pérez-Delgado argues that while modelling large-scale quantum systems is not a pressing need, the introduction of a quantum modelling language could act as an \textit{intuition pump}, accelerating the development of quantum software engineering to achieve the maturity and integration of its classical counterpart\cite{Pérez-Delgado2022}.
 
-In Q-UML, quantum elements are visually distinguished using bold font for textual labels and double lines for diagrammatic components. 
+Pérez-Delgado defines one fundamental axiom and five core design principles when constructing a quantum software modelling language. 
+
+The fundamental axiom is that \textit{"quantum software
+engineering should be as similar to classical software engineering as possible, but no more"}\cite{Pérez-Delgado2022}. A quantum modelling language must allow professionals familiar with classical software modelling techniques to adapt to its notation quickly. It must also clearly differentiate between its classical and quantum components as they handle fundamentally different types of information: \textit{"Quantum information can be put in superposition, classical information
+cannot. Classical information can be cloned or copied, quantum information—in
+general—cannot"}\cite{Pérez-Delgado2022}.
+
+The five core design principles establish when and how classical and quantum elements must be differentiated in a quantum modelling language. They are explained as follows: 
+
+\textbf{Quantum Classes}: If a class/object needs to use quantum information in its design or interactions, it must be labelled quantum.
+
+\textbf{Quantum Elements}: Operations and attributes must be defined as either classical or quantum. The data types of variables must be labelled. The input and output of operations must be labelled. 
+
+\textbf{Quantum Supremacy}: If an object does not use any quantum information for its design, interactions or relationships with other objects, it will always remain classical. It will be upgraded to quantum when it requires even one quantum element. 
+
+\textbf{Quantum Aggregation}: An object composed of at least one other quantum object will be labelled as quantum.
+
+\textbf{Quantum Communication}: Quantum and classical objects can communicate with each other if the message can be translated from quantum information to classical information. Quantum and classical messages must be labelled.
+
+The axioms and design principles are culminated and applied to the UML extension Q-UML, with the paper providing examples of its implementation by example of a use case, class, state, activity, and sequence diagram modelling Shor's algorithm\cite{Pérez-Delgado2022}. Q-UML uses bold text and double lines to distinguish quantum elements in the diagram. Sections 3.4.1 and 3.5.1 delve deeper into the methodology for applying Q-UML to sequence and class diagrams.
 
 \subsubsection{Quantum UML Profile}
 
@@ -453,23 +474,15 @@ Activation bars depict the activation of multiple elements within the diagram wh
 
 The diagram uses two \textit{loop} fragments and an \textit{alt} fragment. The loop fragment expresses a sequence that is repeatedly executed\cite{Seidl_Scholz_Huemer_Kappel_Duffy_2014} with a boundary encompassing the messages involved in the repeated sequence. In the VQE sequence diagram, an outer loop fragment depicts the repeated exchange of messages between \textbf{cost\_func} and \textbf{res} as they seek to find the lowest energy estimate. An inner loop fragment depicts the repeated runs of the quantum circuit when \textit{estimator.run()} is executed. The upper right corner of the fragment contains a heading of the fragments label and a description of how long the process executes; the outer loop running until \textbf{[lowest energy estimate found]} and the inner loop running \textbf{[10,000 shots]}. The response message from the estimator is shown outside of this loop, as it does not return a result after each shot but once the circuit has completed 10,000 shots. 
 
-The alt fragment in UML represents alternative sequences\cite{Seidl_Scholz_Huemer_Kappel_Duffy_2014}. Here, it evaluates whether the results of the \textbf{cost\_history\_dict} match those from the completed minimisation routine. Based on the boolean outcome—true or false—it determines if the verification is successful or unsuccessful.
+The alt fragment in UML represents alternative sequences\cite{Seidl_Scholz_Huemer_Kappel_Duffy_2014}. Here, it evaluates whether the results of the \textbf{cost\_history\_dict} match those from the completed minimisation routine. A true or false boolean outcome determines whether the verification is successful or unsuccessful.
 
 \subsubsection{SD QUML}
 
-This diagram has been completed and is attached at the end of this report. It illustrates the sequence of messages between modules necessary to execute the VQE algorithm. 
+The instances \textbf{backend}, \textbf{res}, \textbf{estimator} and \textbf{cost\_func} are depicted as quantum through the use of bold text for their names, double lines for their rectangle elements and double lines for their lifelines. 
 
-Multiple Pauli operators define the Hamiltonian “sparsely” instead of creating a complete matrix. It acts upon two qubits at a time, and the qubits count is passed to the ansatz object. The ansatz is a circuit that creates a trial state for the experiment. 
+The \textbf{backend} object facilitates communication between quantum and classical machines. Although the messages it sends in the diagram remain classical, its design is fundamentally quantum, therefore following the first design principle \textbf{Quantum Classes}. The \textbf{estimator} is also the instance of a quantum class that executes the ansatz circuit through its \textit{.run()} operation. The \textbf{cost\_func} object contains \textbf{estimator} in its design and, therefore, also follows the first design principle. The \textbf{res} object is a classical object that must be passed the \textbf{cost\_func} as parameters for its execution. As it contains at least one quantum element, it is upgraded to a quantum label, following the third design principle \textbf{Quantum Supremacy}. 
 
-These objects are transformed through a pass manager to be compatible with a quantum computer, the “backend”. This process does not require communication with the quantum hardware, as the information is held classically; therefore, the diagram does not depict these modules as quantum.
-
-A session is created and configured to the same backend, passing multiple circuits to an estimator object while the session handles resource management. This estimator is a quantum object, depicted as such in the diagram, as it utilises quantum hardware to estimate the values of the quantum circuits. 
-
-The methods \texttt{minimize} and \texttt{cost\_func} contain the estimator object and are also depicted as quantum. The \texttt{cost\_func} takes the Hamiltonian, ansatz, and parameters (initially a NumPy array of random values) and combines them into a new variable, \texttt{pub}, which is then given to the estimator object. The estimator executes 10,000 shots, defined during its creation, meaning the quantum circuit runs 10,000 times. This message is marked as a quantum message with \textbf{bold text}, indicating that the communication uses quantum hardware. The estimator then returns an energy estimate, converted to classical information before being received by the \texttt{cost\_func}, therefore depicted as a classical message.
-
-The \texttt{cost\_func} method updates the parameters and records critical information in a \texttt{Dictionary} object per iteration. The \texttt{minimize} method, acting as an outer loop, receives the energy estimate and uses a classical optimiser (COBYLA) to guide the process into finding the lowest energy estimate.
-
-The loop is completed once the energy estimate returned by \texttt{cost\_func} converges to the lowest energy estimate, and the parameters and iterations are verified with the \texttt{Dictionary} object. The final step involves plotting each iteration and energy estimate using the Matplotlib Python library.
+The sequence diagram includes one quantum message: \textbf{cost\_func} sends a request to \textbf{estimator} invoking its \textit{.run()} method on the PUB object at that iteration. This request triggers \textbf{estimator} to access quantum hardware and compute the energy estimate using quantum information based on the current parameters. The quantum nature of this message is denoted using double lines for the synchronous message, with the message details displayed in bold text. The reply message from \textbf{estimator} remains classical as the results are converted to classical information before being returned to \textbf{cost\_func}.
 
 \subsubsection{SD Quantum UML Profile}
 
@@ -500,13 +513,23 @@ The \textbf{IBMBackend} class depends on the \textbf{QiskitRuntimeService} class
 
 The class \textbf{Dict} is a composition of the class \textbf{CostFunction}. A composition is a binary association signifying that one class is contained as part of another class and cannot exist without it; if the aggregate(whole) object is destroyed, the contained part is also destroyed\cite{UMLComposition}. The relationship is depicted on the association edge by a filled diamond attached to the aggregate class. In this case, \textbf{Dict} is an integral part of \textbf{CostFunction} as it's written inside the method, remembering that the class \textbf{CostFunction} represents a user-defined method. If \textbf{CostFunction} were destroyed, \textbf{Dict} would also be destroyed.
 
-Shared aggregation is similar to composition in that it signifies that one class belongs to another\cite{Seidl_Scholz_Huemer_Kappel_Duffy_2014}. However, unlike a composition, the contained classes can exist outside the aggregated class. The relationship is depicted on the assocation edge by a hollow diamond attached to the aggregate class. Shared aggregation is used to depict classes that are passed as parameters to other classes in the VQE algorithm; \textbf{Numpy:ndarray}, \textbf{EfficentSU2}, \textbf{EstimatorV2}, and \textbf{SparsePauliOp} are all passed as parameters to \textbf{CostFunction} and therefore have shared aggregation. The classes along with \textbf{CostFunction} are also passed to \textbf{Minimize} as parameters and, therefore, have shared aggregation. 
+Shared aggregation is similar to composition in that it signifies that one class belongs to another\cite{Seidl_Scholz_Huemer_Kappel_Duffy_2014}. However, unlike a composition, the contained classes can exist outside the aggregated class. A hollow diamond attached to the aggregate class depicts the relationship on the association edge. Shared aggregation is used to describe classes that are passed as parameters to other classes in the VQE algorithm; \textbf{Numpy:ndarray}, \textbf{EfficentSU2}, \textbf{EstimatorV2}, and \textbf{SparsePauliOp} are all passed as parameters to \textbf{CostFunction} and therefore have shared aggregation. The classes along with \textbf{CostFunction} are also passed to \textbf{Minimize} as parameters and, therefore, have shared aggregation. 
 
 Some associations may be given an association name with a reading direction indicated by a filled triangular arrowhead pointing from one class to another. This arrowhead signifies the flow of the association's action, helping to clarify the direction in which information or control is passed between the classes involved. For example, the association between \textbf{StagedPassManager} and \textbf{EfficientSU2} shows that the pass manager will transform the ansatz and not the other way around. Although the reading direction points in the same direction as the binary association in this example, it does not have to\cite{Seidl_Scholz_Huemer_Kappel_Duffy_2014}.
 
 The relationships between the classes in the diagram are defined by multiplicities, which specify how many objects are involved in each association. For instance, the binary association between \textbf{StagedPassManager} and \textbf{EfficientSU2} demonstrates that one instance of \textbf{StagedPassManager} is associated with exactly one instance of \textbf{EfficientSU2}. Multiplicities in the diagram are either \textbf{1} or \textbf{1..*}, with the option to label shared attributes. In the case of the \textbf{Minimize} class, it shares between one and many values of the attribute \textbf{res.x}—which contains parameters it iteratively updates—with a single \textbf{Numpy.ndarray} object. Subsequently, \textbf{Numpy.ndarray} shares only one array object with \textbf{CostFunction}. The use of multiplicities conveys a single-instance relationship between \textbf{Numpy.ndarray} and \textbf{CostFunction} while showing that \textbf{Minimize} dynamically updates and shares multiple values of \textbf{res.x} to the \textbf{Numpy.ndarray} class.
 
 \subsubsection{CD QUML}
+
+The classes \textbf{CostFunction}, \textbf{QiskitRuntimeService}, \textbf{IBMBackend}, \textbf{EstimatorV2}, and \textbf{Minimize} are depicted as quantum through the use of bold text for their names and double lines for their rectangles. This remains consistent with the sequence diagram quantum object labelling, with the inclusion of \textbf{IBMBackend} being a dependent object of \textbf{QiskitRuntimeService}.
+
+No quantum attributes are shown, as all quantum data is translated into classical information for storage within these classes.
+
+Quantum operations and input and output data types are highlighted in bold to indicate their quantum nature. The \textbf{QiskitRuntimeService} class includes two operations that return the class \textbf{IBMBackend} as a quantum data type. Similarly, the sole operation of the \textbf{Session} class also outputs an \textbf{IBMBackend} quantum data type. The \textbf{EstimatorV2} class features a quantum operation, \textit{.run()}, which interacts with quantum hardware and returns an object of the class \textbf{RuntimeJobV2}. While the returned information remains classical, \textbf{RuntimeJobV2} is intrinsically tied to a quantum communication process of extracting and translating quantum information as a classical output. Consequently, \textbf{RuntimeJobV2} is classified as a quantum data type in this context, similar to the depiction of \textbf{QiskitRuntimeService} as a quantum object in the sequence diagram. 
+
+The \textbf{CostFunction} class contains itself as a quantum operation and produces a classical return value of type \textbf{numpy.float64}. Similarly, the \textbf{Minimize} class also contains itself as a quantum operation returning the classical data type \textbf{OptimizeResult}. The \textbf{Minimize} class includes parameters structured as a tuple, requiring the quantum input data type \textbf{EstimatorV2} to be provided.
+
+A single quantum aggregation relationship exists between \textbf{EstimatorV2} and \textbf{CostFunction}, represented by a double-lined edge. In this relationship, the \textbf{EstimatorV2} quantum class is passed as a parameter to \textbf{CostFunction}.
 
 \subsubsection{CD Quantum UML Profile}
 
