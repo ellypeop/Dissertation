@@ -1150,6 +1150,10 @@ Notes from Carlos feedback from the VQE Qiskit and NISQ sections I sent him:
 
 Spent the evening writing the VQE section, created a psuedocode algorithm.
 
+### 18/11/2024
+
+I've completed the explenations on the two papers and how they are applied to each of the diagrams. I can now move on with dedicating the next week to the evaulation of the project, allowing the final week for final adjustements, edits and inclusion of figures. 
+
 Links:
 
 [Quantum Blockchain Miners Provide Massive Energy Savings](https://scholar.google.com/citations?view_op=view_citation&hl=en&user=txAlj-AAAAAJ&authuser=1&citation_for_view=txAlj-AAAAAJ:UeHWp8X0CEIC)
