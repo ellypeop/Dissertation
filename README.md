@@ -1150,10 +1150,6 @@ Notes from Carlos feedback from the VQE Qiskit and NISQ sections I sent him:
 
 Spent the evening writing the VQE section, created a psuedocode algorithm.
 
-### 18/11/2024
-
-I've completed the explenations on the two papers and how they are applied to each of the diagrams. I can now move on with dedicating the next week to the evaulation of the project, allowing the final week for final adjustements, edits and inclusion of figures. 
-
 Links:
 
 [Quantum Blockchain Miners Provide Massive Energy Savings](https://scholar.google.com/citations?view_op=view_citation&hl=en&user=txAlj-AAAAAJ&authuser=1&citation_for_view=txAlj-AAAAAJ:UeHWp8X0CEIC)
@@ -1179,7 +1175,7 @@ Links:
 [Extensible \vec instead of \overrightarrow](https://tex.stackexchange.com/questions/114321/extensible-vec-instead-of-overrightarrow)
 [Braket notation in LaTeX](https://tex.stackexchange.com/questions/214728/braket-notation-in-latex)
 
-15/11/2024
+### 15/11/2024
 
 Tidied up files to submit everything that is not the disseration for the corpus, deadline is tomorrow. Checked with Carlos regarding the corpus who advised not to worry too much as the project is theoretical work:
 
@@ -1193,7 +1189,9 @@ Links:
 [Markdown Support](https://www.jetbrains.com/help/pycharm/markdown.html)
 [PyCharm's Markdown rendering is beautiful. Is there a way to save it into a pdf or html file as is?](https://stackoverflow.com/questions/57309444/pycharms-markdown-rendering-is-beautiful-is-there-a-way-to-save-it-into-a-pdf)
 
+### 18/11/2024
 
+I've completed the explenations on the two papers and how they are applied to each of the diagrams. I can now move on with dedicating the next week to the evaulation of the project, allowing the final week for final adjustements, edits and inclusion of figures. 
 
 ## Topics to Research
 
