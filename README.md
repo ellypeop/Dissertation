@@ -1193,6 +1193,11 @@ Links:
 
 I've completed the explenations on the two papers and how they are applied to each of the diagrams. I can now move on with dedicating the next week to the evaulation of the project, allowing the final week for final adjustements, edits and inclusion of figures. 
 
+### 20/11/2024
+
+Attended Qiskit Club, discussion regarding peers proposals.
+
+Added figures and introductions to sections. Now need to focus on Results section. Also need to remember to include breakdown of sections around the introduction.
 ## Topics to Research
 
 - Mermaid

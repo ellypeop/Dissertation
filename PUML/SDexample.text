@@ -1,0 +1,19 @@
+@startuml
+title Sequence Diagram Example
+
+actor "alice:Human" as A
+actor "bob:Human" as B
+
+A -> B: Ask Age
+B --> A: Answer = 32
+
+A -> B: Ask Hair Colour
+activate B
+create "mirror:Mirror"
+B -> "mirror:Mirror": Check Reflection
+B --> A: Answer = "Blonde"
+destroy "mirror:Mirror"
+deactivate B
+
+@enduml
+

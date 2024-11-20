@@ -1,0 +1,50 @@
+@startuml
+title Profile Diagram Example
+
+class "<<metaclass>> Association" {
+}
+
+class "<<metaclass>> Class" {
+}
+
+stereotype "<<Stereotype>>\nTeacher"{
+    int staffID
+}
+stereotype "<<Stereotype>>\nStudent"{
+    int studentID
+    }
+
+stereotype "<<Stereotype>>\nLearns"
+note right of "<<Stereotype>>\nLearns"
+ MaxTeachers: 3
+end note
+
+stereotype "<<Stereotype>>\nTeaches"
+note right of "<<Stereotype>>\nTeaches"
+  MaxStudents: 30
+end note
+
+"<<Stereotype>>\nTeacher" --> "<<metaclass>> Class"
+"<<Stereotype>>\nStudent" --> "<<metaclass>> Class"
+"<<Stereotype>>\nLearns" --> "<<metaclass>> Association"
+"<<Stereotype>>\nTeaches" --> "<<metaclass>> Association"
+
+@enduml
+
+@startuml
+title Profile Diagram Example Cont.
+
+class "<<Teacher>>\nAlice:Human" {
+    giveLesson()
+}
+
+class "<<Student>>\nBob:Human" {
+    takeLesson()
+}
+
+
+"<<Teacher>>\nAlice:Human" <-- "<<Student>>\nBob:Human": "<<Learns>>"
+"<<Teacher>>\nAlice:Human" --> "<<Student>>\nBob:Human": "<<Teaches>>"
+
+
+@enduml

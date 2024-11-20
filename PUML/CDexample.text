@@ -1,0 +1,20 @@
+@startuml
+title Class Diagram Example
+
+class Human {
+  int age
+  String hairColour
+  askQuestion()
+  giveAnswer()
+  checkReflection(Mirror): reflection
+}
+
+class Mirror {
+  Reflection reflection
+}
+
+Human -- Mirror : interacts
+
+@enduml
+
+
