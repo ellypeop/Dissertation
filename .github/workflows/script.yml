@@ -15,7 +15,7 @@ jobs:
           working_directory: ./Latex
       - name: Check if PDF was generated
         run: |
-          if [ ! -f main.pdf ]; then
+          if [ ! -f Latex/main.pdf ]; then
             echo "PDF was not generated."
             exit 1
           fi
