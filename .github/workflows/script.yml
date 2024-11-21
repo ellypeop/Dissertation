@@ -11,7 +11,7 @@ jobs:
       - name: Compile LaTeX document
         uses: xu-cheng/latex-action@v3
         with:
-          root_file: Literature/main.tex
+          root_file: Latex/main.tex
       - name: Check if PDF was generated
         run: |
           if [ ! -f main.pdf ]; then
