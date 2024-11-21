@@ -1198,6 +1198,13 @@ I've completed the explenations on the two papers and how they are applied to ea
 Attended Qiskit Club, discussion regarding peers proposals.
 
 Added figures and introductions to sections. Now need to focus on Results section. Also need to remember to include breakdown of sections around the introduction.
+
+### 21/22/2024
+
+Fixed the script to compile and publish the disseration on github.
+
+Startes results and analysis, completed "author observations" and tomorrow can focus on applying digrams to a "good modelling language" checklist - sources in the UML @Classroom can provide this.
+
 ## Topics to Research
 
 - Mermaid
