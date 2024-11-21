@@ -15,14 +15,14 @@ jobs:
           working_directory: ./Latex
       - name: Check if PDF was generated
         run: |
-          if [ ! -f Latex/main.pdf ]; then
+          if [ ! -f ./Latex/main.pdf ]; then
             echo "PDF was not generated."
             exit 1
           fi
       - name: Commit PDF
         id: commit_pdf
         run: |
-          if [ -f main.pdf ]; then
+          if [ -f ./Latex/main.pdf ]; then
             git config --local user.email "action[bot]@github.com"
             git config --local user.name "github-actions[bot]"
             git add main.pdf
@@ -34,7 +34,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: PDF
-          path: main.pdf
+          path: ./Latex/main.pdf
       - name: Get Time
         id: time
         uses: nanzm/get-time-action@v1.1
@@ -54,7 +54,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: main.pdf
+          asset_path: ./Latex/main.pdf
           asset_name: main-${{ steps.time.outputs.time }}.pdf
           asset_content_type: application/pdf
       - name: Push changes
