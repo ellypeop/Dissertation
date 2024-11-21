@@ -12,7 +12,7 @@ jobs:
         uses: xu-cheng/latex-action@v3
         with:
           root_file: main.tex
-          working_directory: Dissertation/Latex
+          working_directory: ./Latex
       - name: Check if PDF was generated
         run: |
           if [ ! -f main.pdf ]; then
