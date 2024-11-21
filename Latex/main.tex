@@ -71,7 +71,7 @@
 \setcounter{secnumdepth}{4}
 \setcounter{tocdepth}{4}
 
-\title{Comparing Quantum Adaptations to UML Sequence \& Class Diagrams}
+\title{Modelling Quantum-Classical Interactions: A Comparative Study of Q-UML and Quantum UML Profile Diagrams for the Variational Quantum Eigensolver in Qiskit}
 \author{Supervisor: Carlos A. Pérez-Delgado\\ Programme: MSc Computer Science (Artificial Intelligence) \\ Word Count: 9,243}
 \date{December 3, 2024}
 
@@ -203,7 +203,7 @@ Figure 2 presents a simplified sequence diagram that expands on the earlier anal
     \centering
 \includegraphics[width=0.7\linewidth]{SDexample-Sequence_Diagram_Example.png}
     \caption{A simple sequence diagram: Alice asks Bob his age and receives the reply "32". Bob consults a non-human "mirror" object to answer the second query, and the mirror's lifeline terminates once it is no longer needed.}
-    \label{fig:enter-label}
+    \label{fig:Simple SD}
 \end{figure}
 
 \subsubsubsection{Class Diagram}
@@ -214,6 +214,7 @@ The class diagram defines the structure of classes within a system\cite{Seidl_Sc
     \centering
 \includegraphics[width=0.4\linewidth]{CDexample-Class_Diagram_Example.png}
     \caption{A simple class diagram: The \texttt{Human} class has attributes \texttt{age} and \texttt{hairColour} and can perform the operations \texttt{askQuestion()}, \texttt{giveAnswer()}, and \texttt{checkReflection()} if given a mirror. It has an "interacts" association with a \texttt{Mirror} class, which returns its \texttt{reflection} attribute when \texttt{checkReflection()} is called.}
+    \label{fig:Simple CD}
     \end{figure}
 
 \subsubsubsection{Profile Diagram}
@@ -234,13 +235,14 @@ Figure 4 illustrates how the profile diagram constrains the class diagram meta-m
     \centering
     \includegraphics[width=1\linewidth]{PDExample-Profile_Diagram_Example.png}
     \caption{A simple profile diagram applied to the class diagram meta-model. The stereotypes \texttt{<<Teacher>>} and \texttt{<<Student>>} are applied to classes, each containing meta-attributes related to their respective IDs. The stereotypes \texttt{Learns} and \texttt{Teaches} are assigned to associations, with notes specifying limits on how many "teaches" or "learns" associations can exist within a system.}
+    \label{fig:Simple PD 1}
 \end{figure}
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.3\linewidth]{PDExample2.png}
     \caption{A class diagram implementing the profile diagram stereotypes. Classes and associations are tagged with their respective stereotypes, inheriting the constraints defined in Figure 4.}
-    \label{fig:enter-label}
+    \label{fig:Simple PD 2}
 \end{figure}
 
 \subsubsection{Q-SE 2021}
@@ -400,7 +402,7 @@ Figure 6 shows the class diagram meta-model with the application of the quantum 
     \centering
     \includegraphics[width=1\linewidth]{QuantumUMLProfile-ClassDiagram.png}
     \caption{The quantum UML profile applied to the class diagram meta-model\cite{PerezCastillo2021Git}}
-    \label{fig:enter-label}
+    \label{fig:QUMLPD_CD}
 \end{figure}
 
 \subsubsubsection{Sequence Diagram Meta-Model}
@@ -421,7 +423,7 @@ Figure 7 shows the sequence diagram meta-model with the application of the quant
     \centering
     \includegraphics[width=1\linewidth]{QuantumUMLProfile-SequenceDiagram.png}
     \caption{The quantum UML profile applied to the sequence diagram meta-model\cite{PerezCastillo2021Git}}
-    \label{fig:enter-label}
+    \label{fig:QUMLPD_SD}
 \end{figure}
 
 \section{Design and Implementation}
@@ -477,7 +479,7 @@ The corresponding diagram is presented in Figure 8.
     \centering
     \includegraphics[width=1\linewidth]{VQE QUML SD Final Version.pdf}
     \caption{The application of Q-UML to a sequence diagram modelling the IBM Quantum Learning VQE Algorithm.}
-    \label{fig:enter-label}
+    \label{fig:Q-UML_SD}
 \end{sidewaysfigure}
 
 \subsubsection{SD Quantum UML Profile}
@@ -496,7 +498,7 @@ The corresponding diagram is presented in Figure 9.
     \centering
     \includegraphics[width=1\linewidth]{VQE UML Profile SD Final Version.pdf}
     \caption{The application of the quantum UML profile to a sequence diagram modelling the IBM Quantum Learning VQE Algorithm.}
-    \label{fig:enter-label}
+    \label{fig:QUMLP_SD}
 \end{sidewaysfigure}
 
 \subsection{VQE Class Diagram}
@@ -548,7 +550,7 @@ The corresponding diagram is presented in Figure 10.
     \centering
     \includegraphics[width=1\linewidth]{VQE QUML CD Final Version.pdf}
     \caption{The application of Q-UML to a class diagram modelling the IBM Quantum Learning VQE Algorithm.}
-    \label{fig:enter-label}
+    \label{fig:Q-UML_CD}
 \end{sidewaysfigure}
 
 \subsubsection{CD Quantum UML Profile}
@@ -565,7 +567,7 @@ The corresponding diagram is presented in Figure 11.
     \centering
     \includegraphics[width=1\linewidth]{VQE UML Profile CD Final Version.pdf}
     \caption{The application of the quantum UML profile to a class diagram modelling the IBM Quantum Learning VQE Algorithm.}
-    \label{fig:enter-label}
+    \label{fig:QUMLP_CD}
 \end{sidewaysfigure}
 
 \section{Results and Analysis}
