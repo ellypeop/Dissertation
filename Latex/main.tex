@@ -11,6 +11,7 @@
 \usepackage{listings}
 \usepackage{color}
 \usepackage{rotating}
+\usepackage{url} % For URL handling
 
 \definecolor{dkgreen}{rgb}{0,0.6,0}
 \definecolor{gray}{rgb}{0.5,0.5,0.5}
@@ -306,7 +307,7 @@ The VQE algorithm can be implemented and executed using quantum programming lang
 
 Qiskit is an open-source software development kit (SDK) created by IBM to access and utilise their cloud-based quantum computing services. Written in Python, Qiskit provides tools and libraries for quantum programming, simulation, and experimentation.
 
-IBM Quantum Learning offers online tutorials\cite{Tutorial} that guide users through implementing quantum algorithms with the Qiskit SDK. The UML diagrams created for this paper are based on the IBM tutorial demonstrating the VQE algorithm in Qiskit\cite{IBM2024}.
+IBM Quantum Learning offers online tutorials\cite{Tutorial} that guide users through implementing quantum algorithms with the Qiskit SDK. The UML diagrams created for this paper are based on the IBM tutorial demonstrating the VQE algorithm in Qiskit\cite{IBMVQETut}.
 
 \subsubsubsection{Qiskit and VQE}
 
@@ -320,7 +321,7 @@ The instance \textbf{backend} is initialised from the class \textbf{QiskitRuntim
 
 \textbf{QiskitRuntimeService} will instantiate an \textbf{IBMBackend} object which interacts with the selected quantum hardware. The attribute \textbf{target} of the \textbf{IBMBackend} object is accessed and passed as a parameter to the instance \textbf{pm} of the \textbf{StagedPassManager} class, created using the \textit{generate\_preset\_pass\_manager()} method. This process allows the pass manager to receive information regarding the constraints of the selected quantum hardware.
 
-The pass manager will \textit{"define a typical full compilation pipeline from an abstract virtual circuit to one that is optimized and capable of running on the specified backend"}\cite{StagedPassManager}. The \textit{.run()} method is executed on \textbf{pm} to transform \textbf{ansatz} to be compatible with the selected quantum hardware's instruction set architecture (ISA)\cite{IBM2024}, with the newly transformed ansatz stored in a new variable \textbf{ansatz\_isa}. The \textit{.apply\_layout()} method is then called on \textbf{hamiltonian}, with \textbf{ansatz\_isa} passed as a parameter, to modify its layout to be compatible with the selected quantum hardware ISA. The modified Hamiltonian is then stored as a new variable  \textbf{hamiltonian\_isa}.
+The pass manager will \textit{"define a typical full compilation pipeline from an abstract virtual circuit to one that is optimized and capable of running on the specified backend"}\cite{StagedPassManager}. The \textit{.run()} method is executed on \textbf{pm} to transform \textbf{ansatz} to be compatible with the selected quantum hardware's instruction set architecture (ISA)\cite{ISACirc}, with the newly transformed ansatz stored in a new variable \textbf{ansatz\_isa}. The \textit{.apply\_layout()} method is then called on \textbf{hamiltonian}, with \textbf{ansatz\_isa} passed as a parameter, to modify its layout to be compatible with the selected quantum hardware ISA. The modified Hamiltonian is then stored as a new variable  \textbf{hamiltonian\_isa}.
 
 A cost function method, defined as \textbf{cost\_func}, is a user-defined function that facilitates access to the quantum hardware and will obtain an approximate energy estimate of the Hamiltonian. It accepts an estimator and the components of a primitive unified bloc (PUB) as its parameters. 
 
@@ -346,7 +347,7 @@ Upon completion of the optimisation loop, successful termination of the process 
 
 \subsection{Related Work}
 
-This section explores the two quantum adaptations to UML outlined in the Background. It summarises each paper's central argument and details the methodologies proposed for modifying UML or introducing extensions to accommodate quantum technology. These methodologies will be further examined and applied to the VQE algorithm, as detailed in the Design \& Implementation section.
+This section explores the two quantum adaptations to UML outlined in the Background. It summarises each paper's central argument and details the methodologies proposed for modifying UML or introducing extensions to accommodate quantum technology. These methodologies will be further examined and applied to the VQE algorithm, as detailed in the Design and Implementation section.
 
 \subsubsection{Q-UML}
 
@@ -707,6 +708,5 @@ ax.set_ylabel("Cost")
 plt.draw()
 
 \end{lstlisting}
-
 
 \end{document}
