@@ -11,6 +11,7 @@ A -> B: Ask Hair Colour
 activate B
 create "mirror:Mirror"
 B -> "mirror:Mirror": Check Reflection
+B <-- "mirror:Mirror": Provide Reflection
 B --> A: Answer = "Blonde"
 destroy "mirror:Mirror"
 deactivate B

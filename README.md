@@ -1205,6 +1205,47 @@ Fixed the script to compile and publish the disseration on github.
 
 Startes results and analysis, completed "author observations" and tomorrow can focus on applying digrams to a "good modelling language" checklist - sources in the UML @Classroom can provide this.
 
+### 22/11/2024
+
+Working on results and analysis, realised I'd made a mistake with my classification of the minimize class for QUML, had to go through diss and diagrams to update so correct. Will post emails I sent to Carlos as explanation:
+
+#### Email 1
+
+Hi Carlos,
+
+I have a question about the Q-UML core principles, and I would like to make sure I've understood them correctly in the context of IBM's VQE Qiskit tutorial.
+
+The classical optimiser takes the user-defined cost function as a parameter. The cost function contains the code that will execute the estimation of the quantum circuit and handle quantum information. I've correctly defined the cost function as a quantum element.
+
+I need to confirm whether the classical optimiser would also be considered quantum. So far, I have classed it as quantum. Following the Q-UML design principles, I believe that because it contains the quantum cost function in its parameters, it is "upgraded" to a quantum element following the Quantum Supremacy design principle. I doubt myself; however, as the input and output for the classical optimiser, all remain as classical information. 
+
+I've attached the class diagram using the Q-UML notation, which shows that the cost function has a shared aggregation relationship with the classical optimiser. Even if it might not fall under Quantum Supremacy, possibly Quantum Aggregation as the classical optimiser is composed of a quantum object having the cost function passed as a parameter.
+
+I've defined the design principles of quantum supremacy and quantum aggregation as follows:
+
+Quantum Supremacy: If an object does not use any quantum information for its design, interactions or relationships with other objects, it will always remain classical. It will be upgraded to quantum when it requires even one quantum element.
+
+Quantum Aggregation: An object composed of at least one other quantum object will be labelled as quantum.
+
+I appreciate you may be busy (and it's a Friday evening!), but I would appreciate it if you could advise as soon as possible. If it should not be considered quantum, I must make considerable changes to my work.
+
+Many thanks,
+
+
+#### Email 2
+
+Hi again Carlos,
+
+Just to follow this up, I believe I was wrong in classifying the classical optimiser as quantum (which sounds obvious writing it out!). I am following up on the previous email with my own explanation, having gone over things.
+
+The classical optimiser having quantum elements passed to it in its parameters does not constitute it being composed of quantum elements- failing Quantum Aggregation design principle.
+
+The information it received from the cost function is classical and the information it gives to the parameters also remains classical. It does not require any quantum information for its design, interactions or relationships with other elements- failing Quantum Supremacy. 
+
+Kind Regards,
+
+Elly
+
 ## Topics to Research
 
 - Mermaid
