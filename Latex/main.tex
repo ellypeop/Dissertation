@@ -113,6 +113,7 @@
     \item GUI - Graphical User Interface
     \item IBM - International Business Machines Corporation
     \item ISA - Instruction Set Architecture
+    \item MDD - Model-driven development
     \item MSc - Master of Science
     \item NISQ - Noisy Intermediate-Scale Quantum
     \item OMG - Object Management Group
@@ -161,9 +162,11 @@ computers (e.g., superposition, entanglement, etc.)"}{\cite{Pérez-Castillo2022}
 
 \section{Literature Review}
 
+The following section provides historical and contextual insights relevant to the paper. It explores the inception of discussions on quantum software engineering from international workshops and examines efforts to adapt UML diagrams for quantum applications. An overview of UML's history and an explanation of sequence, class, and profile UML diagrams are given. Quantum computing is introduced, and its significance, future potential, and currently available hardware are discussed. The Variational Quantum Eigensolver (VQE) algorithm is then explored, focusing on its implementation in Qiskit provided through IBM's Quantum Learning platform, which underpins the UML diagrams in this paper. Finally, the section concludes with an analysis of the two quantum UML adaptations central to the paper's focus.
+
 \subsection{Background}
 
-This section provides historical and contextual insights relevant to the paper. It explores the inception of discussions on quantum software engineering from international workshops and examines efforts to adapt UML diagrams for quantum applications. An overview of UML's history and an explanation of sequence, class, and profile UML diagrams are given. Quantum computing is introduced, and its significance, future potential, and currently available hardware are discussed. The Variational Quantum Eigensolver (VQE) algorithm is then explored, focusing on its implementation in Qiskit provided through IBM's Quantum Learning platform, which underpins the UML diagrams in this paper. Finally, the section concludes with an analysis of the two quantum UML adaptations central to the paper's focus.
+This section establishes the foundational knowledge required to understand the paper's focus. It provides the necessary context on UML, quantum computing, and the Variational Quantum Eigensolver (VQE) algorithm, enabling a clear understanding of the concepts and systems being modelled in the UML diagrams.
 
 \subsubsection{Q-SE 2020}
 
@@ -572,7 +575,11 @@ The corresponding diagram is presented in Figure 11.
 
 \section{Results and Analysis}
 
+The following section evaluates the results of this paper and addresses the objectives outlined in the Background section, comparing the successes and limitations of the two quantum UML adaptations. It begins with the author's observations and analyses. The quantum UML adaptations are then assessed against five established characteristics for effective software modelling. The section concludes with final thoughts and suggestions for future work to build upon the findings of this paper.
+
 \subsection{Author's Analysis}
+
+The section presents observations made by the paper's author, divided into the following aspects: analysis of each diagram's construction, visibility, the information conveyed, and the challenges encountered during their creation.
 
 \subsubsection{Diagram Construction}
 
@@ -580,7 +587,7 @@ A combination of PlantUML and Lucidchart was required to create the Q-UML versio
 
 PlantUML proved significantly easier to use for sequence diagrams compared to Lucidchart, which required extensive manual adjustments that were both cumbersome and time-consuming. The quantum UML profile for sequence diagrams could have been created entirely in PlantUML, as its notation is fully UML-compliant and supported by built-in extensions, simplifying the process.
 
-This was not the case for class diagrams. Attempts to construct them using PlantUML and Mermaid, another open-source text-based diagramming tool, produced messy and convoluted results, making direct translation into Lucidchart impractical. Design adjustments were necessary, such as isolating the \textbf{Minimize} class into a stand-alone diagram and linking it to the central diagram. While this may have been achievable in either PlantUML or Mermaid, it was unclear how to do so immediately. For simplicity and due to time constraints, the class diagrams were constructed solely in Lucidchart. Insights gathered during the research and development phase highlighted PlantUML's limitations in managing the scope of larger projects\cite{plantreddit}.
+This was not the case for class diagrams. Attempts to construct them using PlantUML and Mermaid, another open-source text-based diagramming tool, produced messy and convoluted results, making direct translation into Lucidchart impractical. Design adjustments were necessary, such as isolating the \textbf{Minimize} class into a stand-alone diagram and linking it to the central diagram. While this may have been achievable in either PlantUML or Mermaid, it was unclear how to do so immediately. For simplicity and due to time constraints, the class diagrams were constructed solely in Lucidchart. Insights gathered during the research and development phase highlighted PlantUML's limitations in managing the scope of larger projects\cite{plantreddit}. The diagrams created in PlantUML and Mermaid are given in the appendix. 
 
 \subsubsection{Diagram Visibility}
 
@@ -603,6 +610,8 @@ Despite this, Q-UML excels in representing quantum data types. The quantum UML p
 
 A hybrid approach, combining the quantum UML profile with Q-UML's use of bold text for quantum data types, could present a promising alternative.
 
+\subsubsection{Challenges}
+
 Determining which data types and classes to classify as quantum was a key challenge in creating the UML diagrams. Identifying quantum elements required a thorough analysis of Qiskit’s documentation, focusing on the roles and interactions of each class or data type within the operation. Ultimately, only those classes known to be involved in interactions with IBM's quantum computers could be definitively classified as quantum. 
 
 When applying the Q-UML notation, challenges arose in determining whether the class \textbf{Minimize} should be classified as quantum. Since it accepts quantum elements as parameters, it was considered a candidate for quantum classification under the principles of quantum supremacy or quantum aggregation. According to the quantum supremacy principle, an element should be classified as quantum \textit{"if and only if it contains quantum elements"}\cite{Pérez-Castillo2022}. While \textbf{Minimize} accepts the quantum elements \textbf{CostFunction} and \textbf{EstimatorV2} as parameters, it does not \underline{contain} their quantum information. Instead, it retrieves the classical output from \textbf{CostFunction} and passes \textbf{EstimatorV2} to \textbf{CostFunction} without directly handling quantum data, as any quantum information is transformed into classical form before \textbf{Minimize} interacts with it.
@@ -617,11 +626,31 @@ Another approach to addressing this question could involve applying UML on a lar
 
 Distinguishing between classical and quantum elements is particularly valuable for cost analysis. Given the inherently higher expense of quantum hardware and information processing, identifying which system parts rely on quantum resources provides critical insights into operational costs. The diagrams in this paper focus on a small section of code with minimal quantum hardware access, limiting their utility for comprehensive cost evaluation. A broader system model integrating classical and quantum hardware would offer a more complete perspective. The class diagram in the quantum UML profile paper effectively demonstrates how quantum and classical elements can be distinguished on a larger scale within a complete application\cite{Pérez-Castillo2022}. Future research could explore applying quantum UML adaptations to more extensive systems to better evaluate costs and resource allocation.
 
-\subsection{Diagramming Literature}
+\subsection{Model Quality}
 
-The diagrams will be compared following guidance on good modelling language etiquette to enhance the above-given observations.
+To evaluate the quality of each quantum UML adaptation, we will compare each model against Bran Selic's five characteristics for effective and useful modelling, as outlined in his 2003 paper, \textit{"The Pragmatics of Model-Driven Development,"} which highlights the advantages of model-driven development(MDD) in software engineering\cite{1231146}.
 
-Once both diagrams are completed, it will be crucial to consult relevant literature on effective diagram design to make an informed assessment. Research papers exploring good diagram design, particularly concerning UML, should be considered. An example of such work is the paper "Improving Information System Design: Using UML and Axiomatic Design" \cite{CAVIQUE2022103569}, which provides valuable insights into improving system information design.
+The five characteristics are: \textit{abstraction}, \textit{understandability}, \textit{accuracy}, \textit{predictiveness}, and \textit{cost-effectiveness}. A model should \textit{abstract} away from the system it represents, hiding irrelevant details to avoid over-complication. It must possess \textit{understandability}, ensuring the information it conveys is intuitive and natural to users. This includes expressivity, allowing complex information to be presented in a simple manner, requiring minimal domain-specific knowledge for comprehension. The model must ensure \textit{accuracy} by correctly representing the real-world system it is modelling. A model should also exhibit \textit{predictiveness}, enabling the discovery of interesting but non-obvious behaviours of the system. Finally, it should demonstrate \textit{cost-effectiveness}, ensuring it is cheaper to create the model than to build the actual system\cite{1231146}.
+
+\subsubsection{Abstraction}
+
+Q-UML exhibits greater abstraction than the quantum UML profile, focusing on distinguishing quantum and classical information in a system using simple pictorial and textual notations. In contrast, the quantum UML profile provides more explicit details through stereotype tags, prioritising detailed differentiation over abstraction.
+
+\subsubsection{Understandability}
+
+Q-UML's notation is more understandable than the quantum UML profile's. Its simple pictorial and textual notations clearly distinguish quantum and classical components, requiring no prior knowledge of what defines a quantum component. While the quantum UML profile necessitates familiarity with the paper's profile diagrams and the associated stereotype tags to interpret quantum elements, the distinction between quantum and classical remains straightforward and accessible.
+
+\subsubsection{Accuracy}
+
+Both adaptations accurately model the system by distinguishing its quantum and classical elements. The quantum UML profile provides greater specificity in categorising quantum elements, potentially making it more suitable for MDD applications. In MDD, models are not used just as a means of documentation but serve as the foundation for creating software, bypassing the need for traditional programming languages\cite{LUCIO2014103}. 
+
+\subsubsection{Predictiveness}
+
+This characteristic is difficult to evaluate. Since the diagrams explicitly represent an existing code implementation, there is little to no opportunity to implement the models themselves into code for testing. To accurately assess this, it would be necessary to create quantum UML models for a system that has not yet been coded and then generate code based on the models' depictions. This approach would allow for proper experimentation and validation of their effectiveness.
+
+\subsubsection{Cost-effectiveness}
+
+The quantum UML profile and the code excerpt it models are freely accessible. IBM provides 10 minutes of free monthly access to their quantum resources, and the diagrams can be created using free tools such as PlantUML, Papyrus, and Mermaid. In contrast, creating a Q-UML-compliant model required a paid Lucidchart subscription, making it more expensive than the system. If a Q-UML extension were developed for one of the available open-source UML tools, its associated cost would be eliminated.
 
 \section{Conclusions}
 
@@ -757,5 +786,76 @@ ax.set_ylabel("Cost")
 plt.draw()
 
 \end{lstlisting}
+
+\subsection{PlantUML Diagrams}
+
+Below are the class and sequence diagrams generated using PlantUML. The scripts for creating these diagrams are available in the GitHub repository associated with this paper\cite{ellygithub}.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\linewidth]{vqe_sd_v1.png}
+    \caption{First incomplete attempt at modelling VQE in a sequence diagram using PUML.}
+    \label{fig:vqe_sd_v1}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\linewidth]{vqe_quml_sd_v1.png}
+    \caption{First version of the VQE sequence diagram in PUML.}
+    \label{fig:vqe_quml_sd_v1}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\linewidth]{vqe_quml_sd_v2.png}
+    \caption{Second version of the VQE sequence diagram in PUML, expanding on loop and alt fragments.}
+    \label{fig:vqe_quml_sd_v2}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\linewidth]{vqe_uml_profile_sd_v1.png}
+    \caption{Modifying the PUML VQE sequence diagram to incorporate the quantum UML profile's stereotype tags.}
+    \label{fig:vqe_uml_profile_sd_v1}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\linewidth]{vqe_uml_profile_cd_v1-VQE_Algorithm___Class_Diagram.png}
+    \caption{Modelling the complete VQE system as a class diagram in PUML using the quantum UML profile stereotypes. Issues with the diagram's comprehensibility are apparent. Incorrect use of reading direction employed at this stage.}
+    \label{fig:vqe_uml_profile_cd_v1-VQE_Algorithm___Class_Diagram}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\linewidth]{vqe_uml_profile_cd_v2-VQE_Algorithm___Class_Diagram.png}
+    \caption{Modelling a section of the VQE class diagram in PUML with quantum UML profile stereotypes, the class \textbf{Minimize} being modelled separately.}
+    \label{fig:vqe_uml_profile_cd_v2-VQE_Algorithm___Class_Diagram}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\linewidth]{vqe_uml_profile_cd_v3-VQE_Algorithm___Class_Diagram.png}
+    \caption{Modelling a section of the VQE class diagram in PUML with quantum UML profile stereotypes, the class \textbf{CostFunction} being modelled separately.}
+    \label{fig:vqe_uml_profile_cd_v3-VQE_Algorithm___Class_Diagram}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\linewidth]{vqe_uml_profile_od_v1.png}
+    \caption{Exploration of the quantum UML profile modelling VQE as an object diagram in PUML. Considerations were made at the time to elect this instead of a class diagram, but they were dropped.}
+    \label{fig:vqe_uml_profile_od_v1}
+\end{figure}
+
+\subsection{Mermaid Diagram}
+
+Below is the class diagram generated using Mermaid, which was created to evaluate whether this method would yield more coherent diagrams than PlantUML. The script for this diagram can be found in the GitHub repository linked to this paper\cite{ellygithub}.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\linewidth]{mermaidClassDiagram.png}
+    \caption{VQE class diagram created using Mermaid. The design remains as convoluted as with PUML, highlighting scalability issues with text-to-diagram tools.}
+    \label{fig:mermaidClassDiagram}
+\end{figure}
 
 \end{document}

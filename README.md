@@ -1246,6 +1246,21 @@ Kind Regards,
 
 Elly
 
+### 25/11/2024
+
+Working on the model quality section, have some good links regarding other non-UML models for quantum, worth mentioning in conclusion as I dont believe objective of finding out which is best model can be fully achieved without looking at non-UML models.
+
+Links:
+
+[The pragmatics of model-driven development](https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=1231146)
+[The pragmatics of model-driven development citations](https://ieeexplore.ieee.org/document/1231146/citations?tabFilter=papers#citations)
+[TOSCA4QC: Two Modeling Styles for TOSCA to Automate the Deployment and Orchestration of Quantum Applications](https://ieeexplore.ieee.org/abstract/document/9233151)
+[A Graph-Based Approach for Modelling Quantum Circuits](https://www.mdpi.com/2076-3417/13/21/11794)
+[MDD](https://www.techtarget.com/searchsoftwarequality/definition/model-driven-development)
+[Model-Driven Engineering](https://www.sciencedirect.com/topics/computer-science/model-driven-engineering)
+[Chapter 3 - Advances in Model-Driven Security](https://www.sciencedirect.com/science/article/abs/pii/B9780128001622000038)
+
+
 ## Topics to Research
 
 - Mermaid

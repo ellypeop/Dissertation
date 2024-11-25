@@ -1,0 +1,100 @@
+<html><head><meta charset="utf-8" /><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/shuzijun/markdown-editor@2.0.5/src/main/resources/vditor/dist/index.css"/><script src="https://cdn.jsdelivr.net/gh/shuzijun/markdown-editor@2.0.5/src/main/resources/vditor/dist/js/i18n/en_US.js"></script><script src="https://cdn.jsdelivr.net/gh/shuzijun/markdown-editor@2.0.5/src/main/resources/vditor/dist/method.min.js"></script></head><body style="width: 1075px;"><div class="vditor-reset" id="preview"><div class="language-mermaid">classDiagram
+    class SparsePauliOp {
+        +num_qubits: int
+        +from_list(List[Tuple[PauliList: String, coefficients: Complex]]): SparsePauliOp
+        +apply_layout(layout: TranspileLayout): SparsePauliOp
+    }
+
+    class EfficientSU2 {
+        +layout: TranspileLayout
+        +num_parameters: int
+        +decompose(): EfficientSU2
+        +draw(output: String, idle_wires: Boolean, style: String): Figure
+    }
+
+    class QiskitRuntimeService{
+        &lt;&lt;Quantum Driver&gt;&gt;
+        +target: Target
+        +channel: String &quot;ibm_quantum&quot;
+        +least_busy(operational: Boolean, simulator: Boolean): IBMBackend
+        +backend(): IBMBackend
+    }
+  
+    class StagedPassManager {
+        +generate_preset_pass_manager(target: Target, optimization_level: int) StagedPassManager
+        +run(circuits: EfficientSU2) EfficientSU2
+    }
+  
+    class NumPyndarray {
+        +pi: numpy.float64
+        +random.random(size: num_parameters) numpy.ndarray
+    }
+  
+    class Minimize {
+        +fun: CostFunction
+        +x0: NumPyndarray
+        +args: Tuple[ansatz: EfficientSU2, hamiltonian: SparsePauliOp, estimator: EstimatorV2]
+        +method: String
+        +res.x: numpy.ndarray
+        +res.nfev: int
+        +res(fun: CostFunction, x0: NumPyndarray, args: Tuple[ansatz: EfficientSU2, hamiltonian: SparsePauliOp, estimator: EstimatorV2], method: String) OptimizeResult
+    }
+  
+    class Session {
+        +session(backend: IBMBackend)
+    }
+  
+    class EstimatorV2 {
+        &lt;&lt;Quantum&gt;&gt;
+        +mode: Session
+        +run(pub: Tuple[ansatz: EfficientSU2, hamiltonian: List[SparsePauliOp], params: List[NumPyndarray]]) RuntimeJobV2
+        +options.default_shots(default_shots: int)
+    }
+  
+    class CostFunction{
+        &lt;&lt;Quantum Request&gt;&gt;
+        +cost_history_dict: Dict
+        +pub: Tuple[ansatz: EfficientSU2, hamiltonian: List[SparsePauliOp], params: List[NumPyndarray]]
+        +result: PrimitiveResult
+        +energy: numpy.float64
+        +cost_func(params: numpy.ndarray, ansatz: EfficientSU2, hamiltonian: SparsePauliOp, estimator: EstimatorV2) numpy.float64
+    }
+  
+    class Dict {
+        +&quot;prev_vector&quot;: numpy.ndarray
+        +&quot;iters&quot;: int
+        +&quot;cost_history&quot;: numpy.float64
+    }
+  
+    class Pyplot {
+        +fig: Figure
+        +ax: numpy.ndarray
+        +plot(range(x: int, y: numpy.float64))
+        +set_xlabel(String)
+        +set_ylabel(String)
+        +draw() Figure
+    }
+  
+    SparsePauliOp --&gt; EfficientSU2 : &quot;pass qubit count&quot;
+    QiskitRuntimeService &lt;-- StagedPassManager : &quot;configures&quot;
+    StagedPassManager --&gt; EfficientSU2 : &quot;transforms&quot;
+    EfficientSU2 --&gt; SparsePauliOp : &quot;apply layout&quot;
+    EfficientSU2 &lt;-- NumPyndarray : &quot;pass parameter count&quot;
+    CostFunction --&gt; EfficientSU2 : &quot;pass ansatz&quot;
+    CostFunction --&gt; NumPyndarray : &quot;pass params&quot;
+    CostFunction --&gt; SparsePauliOp : &quot;pass hamiltonian&quot;
+    CostFunction --&gt; EstimatorV2 : &quot;pass estimator&quot;
+    CostFunction --&gt; Dict : &quot;updates&quot;
+    Session --&gt; QiskitRuntimeService : &quot;configures&quot;
+    EstimatorV2 --&gt; Session : &quot;configures&quot;
+    Minimize --&gt; CostFunction : &quot;pass cost function&quot;
+    Minimize --&gt; NumPyndarray : &quot;pass params&quot;
+    Minimize --&gt; EfficientSU2 : &quot;pass ansatz&quot;
+    Minimize --&gt; SparsePauliOp : &quot;pass hamiltonian&quot;
+    Minimize --&gt; EstimatorV2 : &quot;pass estimator&quot;
+    Dict &lt;-- Pyplot : &quot;pass iters&quot;
+    Dict &lt;-- Pyplot : &quot;pass cost_history&quot;
+
+  
+</div>
+</div><script>    const previewElement = document.getElementById('preview');    Vditor.setContentTheme('idea-light', 'https://cdn.jsdelivr.net/gh/shuzijun/markdown-editor@2.0.5/src/main/resources/vditor/dist/css/content-theme');    Vditor.codeRender(previewElement);    Vditor.highlightRender({"enable":true,"lineNumber":false,"style":"github"}, previewElement, 'https://cdn.jsdelivr.net/gh/shuzijun/markdown-editor@2.0.5/src/main/resources/vditor');    Vditor.mathRender(previewElement, { cdn: 'https://cdn.jsdelivr.net/gh/shuzijun/markdown-editor@2.0.5/src/main/resources/vditor',math: {"engine":"KaTeX","inlineDigit":true,"macros":{}}});    Vditor.mermaidRender(previewElement, 'https://cdn.jsdelivr.net/gh/shuzijun/markdown-editor@2.0.5/src/main/resources/vditor', 'light');    Vditor.flowchartRender(previewElement, 'https://cdn.jsdelivr.net/gh/shuzijun/markdown-editor@2.0.5/src/main/resources/vditor');    Vditor.graphvizRender(previewElement, 'https://cdn.jsdelivr.net/gh/shuzijun/markdown-editor@2.0.5/src/main/resources/vditor');    Vditor.chartRender(previewElement, 'https://cdn.jsdelivr.net/gh/shuzijun/markdown-editor@2.0.5/src/main/resources/vditor', 'light');    Vditor.mindmapRender(previewElement, 'https://cdn.jsdelivr.net/gh/shuzijun/markdown-editor@2.0.5/src/main/resources/vditor', 'light');    Vditor.abcRender(previewElement, 'https://cdn.jsdelivr.net/gh/shuzijun/markdown-editor@2.0.5/src/main/resources/vditor');    Vditor.mediaRender(previewElement);    Vditor.speechRender(previewElement); </script>  <script src="https://cdn.jsdelivr.net/gh/shuzijun/markdown-editor@2.0.5/src/main/resources/vditor/dist/js/icons/ant.js"></script></body></html>
