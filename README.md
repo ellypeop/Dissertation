@@ -1250,6 +1250,9 @@ Elly
 
 Working on the model quality section, have some good links regarding other non-UML models for quantum, worth mentioning in conclusion as I dont believe objective of finding out which is best model can be fully achieved without looking at non-UML models.
 
+### 26/11/2024
+
+Read through the diss and made some edits. Have drafted very rough notes for the conclusion and future work, need to refine this to complete the diss! Then make the video!
 Links:
 
 [The pragmatics of model-driven development](https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=1231146)
