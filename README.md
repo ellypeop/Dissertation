@@ -1,16 +1,16 @@
 # Log Book
 **COMP8805/8800 Elly Sinden [ers31@kent.ac.uk](mailto:ers31@kent.ac.uk)**
 ## Aims & Objectives - Overall Project
-- **What are the learning objectives I intend to achieve throughout the project?**
+### What are the learning objectives I intend to achieve throughout the project?
 - Understand UML
 - Understand the VQE Algorithm
 - Have a good understanding of quantum computing
 - Establish why Q-SE and quantum UML adaptations are important
 - Establish if UML is a viable modelling tool. 
-- **Were these learning objectives achieved?**
-- Mostly, I have a thorough understanding of the UML diagrams I've made and a good understanding of VQE and quantum computing concerning how it is utilised to execute the VQE algorithm. Why are Q-SE and quantum UML adaptations important to have been established by authors before me? I know the points they have made, but in how I've applied them, following code written in Qiskit, it was almost unnecessary to have the quantum adaptations as the information is translated back into classical for the user. This isn't to say it is important, but it calls for another application than VQE in Qiskit, for example, modelling the Qiskit Runtime Service. Ultimately, creating more versatile diagrams related to quantum computing will be able to answer this question. Whether UML is viable is also difficult to answer. I've gained some insights from several peers who use it or do it for their work and information from forums like Reddit. Still, I need to find out how necessary UML is by opening the question to a larger pool of professionals. 
-- **Were there any other successes?**
-- Learnt a lot about UML modelling tools and what works and doesn't work, in particular using PUML and Mermaid, which is fine for sequence diagrams but not class diagrams in this context. This opens up a suitable candidate for developing a PUML Q-UMl extension for future masters projects.
+### Were these learning objectives achieved?
+- Mostly, I have a thorough understanding of the UML diagrams I've made and a good knowledge of VQE and quantum computing concerning how it is utilised to execute the VQE algorithm. Why are Q-SE and quantum UML adaptations important to have been established by authors before me? I know their points, but in how I've applied them, following code written in Qiskit, it was almost unnecessary to have the quantum adaptations as the information is translated back into classical for the user. This isn't to say it is important, but it calls for another application than VQE in Qiskit, for example, modelling the Qiskit Runtime Service. Ultimately, creating more versatile diagrams related to quantum computing will be able to answer this question. Whether UML is viable is also tricky to answer. I've gained insights from several peers who use it or do it for their work and information from forums like Reddit. Still, I need to find out how necessary UML is by opening the question to a larger pool of professionals.
+### Were there any other successes?
+- Learnt a lot about UML modelling tools and what works and doesn't, particularly using PUML and Mermaid, which is fine for sequence diagrams but not class diagrams in this context. This opens up a suitable candidate for developing a PUML Q-UMl extension for future master's projects.
 
 ## Project Timeline
 - Make a note of Aims & Objectives for any milestones during the project
