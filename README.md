@@ -1301,15 +1301,15 @@ Links:
 
 ## To-Do List
 
-- Use a UML package to gain practical understanding of how it’s implemented. Which classes of UML will QUML be relevant to?
+- ~~Use a UML package to gain practical understanding of how it’s implemented. Which classes of UML will QUML be relevant to?~~
 
-- Use Qiskit
+- ~~Use Qiskit~~
 
-- Read the references from Carlos papers.
+- ~~Read the references from Carlos papers.~~
 
-- I need to confirm whether the dissertation and corpus are one unified document or separate documents. To better understand the process of writing a good dissertation, it would be useful to obtain books on scientific or academic writing.
+- ~~I need to confirm whether the dissertation and corpus are one unified document or separate documents. To better understand the process of writing a good dissertation, it would be useful to obtain books on scientific or academic writing.~~
   
-- Define specific research questions with Carlos. 
+- ~~Define specific research questions with Carlos.~~
 
 ## Evaluation
 
