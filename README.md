@@ -1,9 +1,17 @@
 # Log Book
 **COMP8805/8800 Elly Sinden [ers31@kent.ac.uk](mailto:ers31@kent.ac.uk)**
 ## Aims & Objectives - Overall Project
-- What are the learning objectives I intend to achieve throughout the project?
-- Were these learning objectives achieved?
-- Were there any other successes?
+### What are the learning objectives I intend to achieve throughout the project?
+- Understand UML
+- Understand the VQE Algorithm
+- Have a good understanding of quantum computing
+- Establish why Q-SE and quantum UML adaptations are important
+- Establish if UML is a viable modelling tool.
+- Assess the strengths and weaknesses of both quantum UML adaptations.
+### Were these learning objectives achieved?
+- Mostly, I have a thorough understanding of the UML diagrams I've made and a good knowledge of VQE and quantum computing concerning how it is utilised to execute the VQE algorithm. The reasons why Q-SE is essential have been given by the authors of the literature that forms the basis of this project; my summarisation of this point is that quantum and classical information hold entirely different properties which will need to be distinguished when modelling larger systems that the one presented in this project, as I had modelled Qiskit code which ultimately is all transpiled to classical data when with the user. It will also be necessary to analyze the cost of larger systems. This is more related to modelling than Q-SE as a whole, simply as the project was a less extensive study on Q-SE implementations. Whether UML is a good tool also wasn't answered as they weren't compared with other models. I've gained insights from several peers who use it or do it for their work and information from forums like Reddit. Still, I need to find out how necessary UML is by opening the question to a larger pool of professionals. I established the strengths and weaknesses of both UML adaptions, not only with my observations but also by comparing them to characteristics of good modelling, which have been established and referred to in other modelling papers. 
+### Were there any other successes?
+- I learnt a lot about UML modelling tools and what works and doesn't, mainly using PUML and Mermaid, which is fine for sequence diagrams but not class diagrams in this context. This opens up a suitable candidate for developing a PUML Q-UML extension for future master's projects.
 
 ## Project Timeline
 - Make a note of Aims & Objectives for any milestones during the project
@@ -1297,23 +1305,33 @@ Completed the diss! Wahoo! Just need to make the video and then I am done!
 
 ## To-Do List
 
-- Use a UML package to gain practical understanding of how it’s implemented. Which classes of UML will QUML be relevant to?
+- ~~Use a UML package to gain practical understanding of how it’s implemented. Which classes of UML will QUML be relevant to?~~
 
-- Use Qiskit
+- ~~Use Qiskit~~
 
-- Read the references from Carlos papers.
+- ~~Read the references from Carlos papers.~~
 
-- I need to confirm whether the dissertation and corpus are one unified document or separate documents. To better understand the process of writing a good dissertation, it would be useful to obtain books on scientific or academic writing.
+- ~~I need to confirm whether the dissertation and corpus are one unified document or separate documents. To better understand the process of writing a good dissertation, it would be useful to obtain books on scientific or academic writing.~~
   
-- Define specific research questions with Carlos. 
+- ~~Define specific research questions with Carlos.~~
 
 ## Evaluation
 
-- How I approached this piece of work:
-- What I found easy
-- What I found difficult
-- If I were to do it again, I would do the following differently
-- What I learned is
-- I would like specific feedback on
+### How I approached this piece of work
+I started by trying to understand everything related to quantum and UML, which was overwhelming; however, this research and development stage resulted in me finding the quantum UML profile paper. Once I established the purpose of the paper, comparing Q-UML to this other paper, I could simplify and break down the steps needed to do this. Establishing what tool I would use to create the diagrams, what example I would base them on (VQE) and what diagram I would start with, I could focus on completing tasks that would produce a minimum of one diagram type in the two quantum UML adaptions. From here, I was then able to include an additional diagram type and, through the dissertation writing, go over all of the content explored in the R&D stage and expand on relevant portions to create a dissertation with an overall explanation of the historical background of the topics related to the diagrams (papers, Q-SE, UML, NISQ, VQE) then follow this up with my implementation, reasonings behind it and reflections after the fact.
 
+### What I found easy
+Discussing the details of the UML diagrams.
+
+### What I found difficult
+I found explaining the VQE algorithm in a manner that I and a reader unfamiliar with the topic could understand was difficult, particularly the pseudocode.
+
+### If I were to do it again, I would do the following differently
+I would have spent less time trying to learn linear algebra and having a broad but limited understanding of all UML diagram types. I would have picked one type of diagram and sought a generic hybrid or quantum algorithm, not a code excerpt, to model using UML. Then, we move on to either quantum UML adaptations or another type of modelling.
+
+### What I learned is
+There have been more attempts than just UML to model quantum technologies, and if time permits, these would have been worth exploring. One of the overarching questions during the project was how many professionals utilise UML for their work. I have learnt how to construct a sequence and class diagram in UML and adapt it to the two quantum UML paper methodologies. I gained insight into diagram modelling tools and their strengths and weaknesses. I also have a more solid understanding of quantum computing and NISQ devices; I still need help with mathematical and algebraic information on quantum computing, but I feel more confident in explaining what it is on a basic level.
+
+### I would like specific feedback on
+I hope to publish this paper, so I'd like feedback specifically on any areas I can improve to achieve this goal.
            
