@@ -1263,6 +1263,9 @@ Links:
 [Model-Driven Engineering](https://www.sciencedirect.com/topics/computer-science/model-driven-engineering)
 [Chapter 3 - Advances in Model-Driven Security](https://www.sciencedirect.com/science/article/abs/pii/B9780128001622000038)
 
+### 27/11/2024
+
+Completed the diss! Wahoo! Just need to make the video and then I am done!
 
 ## Topics to Research
 
