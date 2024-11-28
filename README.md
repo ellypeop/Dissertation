@@ -1261,6 +1261,7 @@ Working on the model quality section, have some good links regarding other non-U
 ### 26/11/2024
 
 Read through the diss and made some edits. Have drafted very rough notes for the conclusion and future work, need to refine this to complete the diss! Then make the video!
+
 Links:
 
 [The pragmatics of model-driven development](https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=1231146)
@@ -1274,6 +1275,10 @@ Links:
 ### 27/11/2024
 
 Completed the diss! Wahoo! Just need to make the video and then I am done!
+
+### 28/11/2024
+
+Refined disseration and biblogrpahy, ensure correct formatting and source more suitable references where nessecary. 
 
 ## Topics to Research
 
