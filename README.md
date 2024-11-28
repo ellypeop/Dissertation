@@ -1,5 +1,7 @@
 # Log Book
 **COMP8805/8800 Elly Sinden [ers31@kent.ac.uk](mailto:ers31@kent.ac.uk)**
+- The GitHub repository containing all work related to this project can be found on GitHub.com/ellypeop/Disseration
+- The location of the compiled dissertation is Latex/main.pdf
 ## Aims & Objectives - Overall Project
 ### What are the learning objectives I intend to achieve throughout the project?
 - Understand UML
