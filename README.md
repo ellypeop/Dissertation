@@ -1279,7 +1279,12 @@ Completed the diss! Wahoo! Just need to make the video and then I am done!
 
 ### 28/11/2024
 
-Refined disseration and biblogrpahy, ensure correct formatting and source more suitable references where nessecary. 
+Refined disseration and biblogrpahy, ensure correct formatting and source more suitable references where necessary. 
+
+Links:
+
+[Line breaks of long URLs in biblatex bibliography?](https://tex.stackexchange.com/questions/134191/line-breaks-of-long-urls-in-biblatex-bibliography)
+
 
 ## Topics to Research
 
