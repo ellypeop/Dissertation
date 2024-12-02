@@ -1,0 +1,7 @@
+@startuml
+class EstimatorV2 <<Quantum>> {
+    +mode: Session
+    +run(pub: Tuple[ansatz: EfficientSU2, hamiltonian: List[SparsePauliOp], params: List[NumPyndarray]]): RuntimeJobV2
+    +options.default_shots(default_shots: int)
+}
+@enduml

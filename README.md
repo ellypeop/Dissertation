@@ -1281,6 +1281,24 @@ Completed the diss! Wahoo! Just need to make the video and then I am done!
 
 Refined disseration and biblogrpahy, ensure correct formatting and source more suitable references where nessecary. 
 
+### 30/11/2024
+
+Finished the video! Have some links from additional quantum modelling papers, worth going over to make sure correct that there arent code implemenations in UML to compare to. Also authos of q uml profile have already written paper on developing model driven design, need to mention this.
+[KDM to UML Model Transformation for Quantum Software Modernization](https://link.springer.com/chapter/10.1007/978-3-030-85347-1_16)
+[Generation of Classical-Quantum Code from UML models](https://ieeexplore.ieee.org/abstract/document/10313607)
+[Transforming Quantum Programs in Kdm to Quantum Design Models in Uml](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4074848)
+[Software modernization to embrace quantum technology](https://www.sciencedirect.com/science/article/abs/pii/S0965997820309790)
+[Modeling of Parallel Quantum Key Distribution System via UML](chrome-extension://efaidnbmnnnibpcajpcglclefindmkaj/https://benthamopen.com/contents/pdf/TOCSJ/TOCSJ-8-61.pdf)
+[Software architecture for quantum computing systems — A systematic review](https://www.sciencedirect.com/science/article/pii/S0164121223000778)
+[QUANTUM SOFTWARE DEVELOPMENT: A SURVEY](chrome-extension://efaidnbmnnnibpcajpcglclefindmkaj/https://www.rintonpress.com/xxqic24/qic-24-78/0609-0642.pdf)
+[Quantum Software Engineering Landscapes and Horizons](https://arxiv.org/abs/2007.07047)
+[Unraveling quantum computing system architectures: An extensive survey of cutting-edge paradigms](https://www.sciencedirect.com/science/article/abs/pii/S0950584923002355)
+[Modeling Quantum programs: challenges, initial results, and research directions](https://dl.acm.org/doi/abs/10.1145/3412451.3428499)
+
+### 02/12/2024
+
+Made some final adjustments to the diss and video, including some detailed investigation into other quantum modelling papers.
+
 ## Topics to Research
 
 - Mermaid
