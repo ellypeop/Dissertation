@@ -1,6 +1,7 @@
 # Log Book
 **COMP8805/8800 Elly Sinden [ers31@kent.ac.uk](mailto:ers31@kent.ac.uk)**
 - The location of the compiled dissertation can be found [here](Latex/main.pdf)
+- A version of the disseration with working hyperlinks (affected when merging the Access Form) can be found [here](Dissertation/Dissertation.pdf)
 ## Aims & Objectives - Overall Project
 ### What are the learning objectives I intend to achieve throughout the project?
 - Understand UML
@@ -1303,6 +1304,10 @@ Finished the video! Have some links from additional quantum modelling papers, wo
 ### 02/12/2024
 
 Made some final adjustments to the diss and video, including some detailed investigation into other quantum modelling papers.
+
+### 03/12/2024
+
+Deadline today! Currently in the process of uploading everything, so that's it for now! Bye logbook!
 
 ## Topics to Research
 
