@@ -1,7 +1,7 @@
 # Log Book
 **COMP8805/8800 Elly Sinden [ers31@kent.ac.uk](mailto:ers31@kent.ac.uk)**
 - The location of the compiled dissertation can be found [here](Latex/main.pdf)
-- A version of the disseration with working hyperlinks (affected when merging the Access Form) can be found [here](Dissertation/Dissertation.pdf)
+- A version of the disseration with working hyperlinks (affected when merging the Access Form) can be found [here](DissDissertation.pdf)
 ## Aims & Objectives - Overall Project
 ### What are the learning objectives I intend to achieve throughout the project?
 - Understand UML
